@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+  <!-- <script type="text/javascript" src="./co.js"></script> -->
+ 
+ <script type="text/javascript">
+function delay(time){
+  return function(fn){
+    setTimeout(function(){
+      fn('111','222');
+    },time)
+  }
+}
+
+co(function* (){
+  yield delay(4200);
+  yield delay(4000);
+  yield delay(3000);
+})(function(){
+  // 回调函数
+  console.log('all done!');
+})
+
+
+function co(GenFunc) {
+  return function(cb) {
+    var gen = GenFunc();  // 第一次执行的时候构造出对象
+    next()    // 调用自定义的next方法
+    function next(err, res) {
+
+    	console.log(err,res)
+     
+      var ret = gen.next(res);   
+     // 在generator函数中走一步，delay函数返回一个函数赋给ret.value
+      if (ret.done) {    
+        // 判断ret.done是否为真，如果为真，说明generator函数执行完了，该调用回调函数了
+        cb && cb();
+      } else {
+      // 如果ret.done为假，那么调用上一个返回的函数，并且把next函数传递给它作为回调函数
+        ret.value(next); // 如果是promise这里可以是 ret.value.then(next); 
+      }
+    }
+  }
+}
+ 
+ </script>
+
+  
+	
+</body>
+</html>
