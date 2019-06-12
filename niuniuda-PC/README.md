@@ -71,5 +71,60 @@ const tools = {
 
 
 5. react中使用轮播图插件
+[**react-slick**](https://react-slick.neostack.com/)
+isssue1:[react-slick-import-css-from-slick-carousel-fails](https://stackoverflow.com/questions/48779212/react-slick-import-css-from-slick-carousel-fails)
+```
+module: {
+    rules: [
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: "babel-loader",
+                options: {
+                    presets: [
+                        "@babel/preset-env",
+                        "@babel/preset-react"
+                    ].map(require.resolve)
+                }
+            }
+        },
+        {
+            test: /\.css$/,
+            use: [
+                {loader: "style-loader"},
+                {loader: "css-loader"}
+            ]
+        },
+        {
+            test: /\.(png|jpg|gif)$/i,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192
+                    }
+                }
+            ]
+        },
+        {
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'fonts/'
+                }
+            }]
+        }
+    ]
+},
+```
+
+
+
 [React中使用CSSTransitionGroup插件实现轮播图](https://www.cnblogs.com/libin-1/p/6638193.html)
 [github地址](https://github.com/DiligentYe/react-carousel)
+
+[react轮播图组件react-slider-light](https://segmentfault.com/a/1190000013317602)
+[演示地址](https://951565664.github.io/react-slider-light/)
