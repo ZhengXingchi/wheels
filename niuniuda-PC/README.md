@@ -68,3 +68,8 @@ const tools = {
 参考[React 父组件如何获取子组件的ref值？](https://segmentfault.com/q/1010000006253845)
 [React获取子组件的ref](https://segmentfault.com/q/1010000007812149)
 [react 中通过ref获取高阶（HOC）子组件实例的解决方案](https://www.jianshu.com/p/2609fd3777cd)
+
+
+5. react中使用轮播图插件
+[React中使用CSSTransitionGroup插件实现轮播图](https://www.cnblogs.com/libin-1/p/6638193.html)
+[github地址](https://github.com/DiligentYe/react-carousel)
