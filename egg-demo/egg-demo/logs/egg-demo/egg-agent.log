@@ -1,0 +1,56 @@
+2019-07-19 11:51:54,848 INFO 4244 [egg:logger] init all loggers with options: {"dir":"I:\\wheels\\egg-demo\\logs\\egg-demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-07-19 11:51:54,866 INFO 4244 [egg:core] dump config after load, 11ms
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher] Start watching: ["I:\\wheels\\egg-demo\\app","I:\\wheels\\egg-demo\\config","I:\\wheels\\egg-demo\\mocks","I:\\wheels\\egg-demo\\mocks_proxy","I:\\wheels\\egg-demo\\app.js"]
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\app"
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\config"
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\mocks"
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\mocks_proxy"
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\app.js"
+2019-07-19 11:51:54,899 INFO 4244 [egg-watcher:agent] watcher start success
+2019-07-19 11:51:54,916 INFO 4244 [egg:core] dump config after ready, 15ms
+2019-07-19 11:51:55,682 INFO 4244 [egg-watcher] Recieved a change event from eventSource: {"event":"rename","path":"I:\\wheels\\egg-demo\\app\\public","stat":{"dev":219458031,"mode":16822,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":1087697216,"size":0,"atimeMs":1563465600000,"mtimeMs":1563508316000,"ctimeMs":3373865674955.1616,"birthtimeMs":1563508315680,"atime":"2019-07-18T16:00:00.000Z","mtime":"2019-07-19T03:51:56.000Z","ctime":"2076-11-29T08:54:34.955Z","birthtime":"2019-07-19T03:51:55.680Z"},"remove":false,"isDirectory":true,"isFile":false}
+2019-07-19 11:53:10,472 WARN 4244 [agent:development] reload worker because I:\wheels\egg-demo\app\config\config.default.js change
+2019-07-19 11:53:10,267 INFO 4244 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"I:\\wheels\\egg-demo\\app\\config\\config.default.js","stat":{"dev":219458031,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":1100079296,"size":32,"atimeMs":1563465600000,"mtimeMs":1563508392000,"ctimeMs":3373865674955.1616,"birthtimeMs":1563508241050,"atime":"2019-07-18T16:00:00.000Z","mtime":"2019-07-19T03:53:12.000Z","ctime":"2076-11-29T08:54:34.955Z","birthtime":"2019-07-19T03:50:41.050Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-07-19 11:53:10,269 INFO 4244 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"I:\\wheels\\egg-demo\\app\\config\\config.default.js","stat":{"dev":219458031,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":1100079296,"size":32,"atimeMs":1563465600000,"mtimeMs":1563508392000,"ctimeMs":3373865674955.1616,"birthtimeMs":1563508241050,"atime":"2019-07-18T16:00:00.000Z","mtime":"2019-07-19T03:53:12.000Z","ctime":"2076-11-29T08:54:34.955Z","birthtime":"2019-07-19T03:50:41.050Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-07-19 11:53:10,271 INFO 4244 [egg-watcher] Recieved a change event from eventSource: {"event":"change","path":"I:\\wheels\\egg-demo\\app\\config\\config.default.js","stat":{"dev":219458031,"mode":33206,"nlink":1,"uid":0,"gid":0,"rdev":0,"ino":1100079296,"size":32,"atimeMs":1563465600000,"mtimeMs":1563508392000,"ctimeMs":3373865674955.1616,"birthtimeMs":1563508241050,"atime":"2019-07-18T16:00:00.000Z","mtime":"2019-07-19T03:53:12.000Z","ctime":"2076-11-29T08:54:34.955Z","birthtime":"2019-07-19T03:50:41.050Z"},"remove":false,"isDirectory":false,"isFile":true}
+2019-07-19 11:53:11,424 WARN 4244 [ClusterClient:Connection] socket is closed by other side while there were still unhandled data in the socket buffer
+2019-07-19 11:53:31,137 INFO 17464 [egg:logger] init all loggers with options: {"dir":"I:\\wheels\\egg-demo\\logs\\egg-demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-07-19 11:53:31,150 INFO 17464 [egg:core] dump config after load, 7ms
+2019-07-19 11:53:31,184 INFO 17464 [egg-watcher] Start watching: ["I:\\wheels\\egg-demo\\app","I:\\wheels\\egg-demo\\config","I:\\wheels\\egg-demo\\mocks","I:\\wheels\\egg-demo\\mocks_proxy","I:\\wheels\\egg-demo\\app.js"]
+2019-07-19 11:53:31,184 INFO 17464 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\app"
+2019-07-19 11:53:31,185 INFO 17464 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\config"
+2019-07-19 11:53:31,185 INFO 17464 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\mocks"
+2019-07-19 11:53:31,185 INFO 17464 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\mocks_proxy"
+2019-07-19 11:53:31,185 INFO 17464 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\app.js"
+2019-07-19 11:53:31,185 INFO 17464 [egg-watcher:agent] watcher start success
+2019-07-19 11:53:31,205 INFO 17464 [egg:core] dump config after ready, 14ms
+2019-07-19 13:39:04,817 ERROR 17464 nodejs.ClusterClientNoResponseError: client no response in 5912748ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (I:\wheels\egg-demo\node_modules\cluster-client\lib\leader.js:77:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 17464
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 14:08:40,662 ERROR 17464 nodejs.ClusterClientNoResponseError: client no response in 1735837ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (I:\wheels\egg-demo\node_modules\cluster-client\lib\leader.js:77:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 17464
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 14:20:22,370 INFO 10300 [egg:logger] init all loggers with options: {"dir":"I:\\wheels\\egg-demo\\egg-demo\\logs\\egg-demo","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-demo-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-07-19 14:20:22,394 INFO 10300 [egg:core] dump config after load, 14ms
+2019-07-19 14:20:22,584 INFO 10300 [egg-watcher] Start watching: ["I:\\wheels\\egg-demo\\egg-demo\\app","I:\\wheels\\egg-demo\\egg-demo\\config","I:\\wheels\\egg-demo\\egg-demo\\mocks","I:\\wheels\\egg-demo\\egg-demo\\mocks_proxy","I:\\wheels\\egg-demo\\egg-demo\\app.js"]
+2019-07-19 14:20:22,584 INFO 10300 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\egg-demo\\app"
+2019-07-19 14:20:22,584 INFO 10300 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\egg-demo\\config"
+2019-07-19 14:20:22,585 INFO 10300 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\egg-demo\\mocks"
+2019-07-19 14:20:22,585 INFO 10300 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\egg-demo\\mocks_proxy"
+2019-07-19 14:20:22,585 INFO 10300 [egg-watcher] Start watching: "I:\\wheels\\egg-demo\\egg-demo\\app.js"
+2019-07-19 14:20:22,585 INFO 10300 [egg-watcher:agent] watcher start success
+2019-07-19 14:20:22,622 INFO 10300 [egg:core] dump config after ready, 27ms

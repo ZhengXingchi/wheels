@@ -1,0 +1,185 @@
+2019-07-19 11:52:43,589 ERROR 10196 [-/::1/-/6ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 10196
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:12,038 ERROR 17216 [-/::1/-/4ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 17216
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:13,153 ERROR 17216 [-/::1/-/0ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 17216
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:13,800 ERROR 17216 [-/::1/-/1ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 17216
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:14,384 ERROR 17216 [-/::1/-/0ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 17216
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:34,602 ERROR 3024 [-/::1/-/5ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 3024
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:35,407 ERROR 3024 [-/::1/-/1ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 3024
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:53:36,502 ERROR 3024 [-/::1/-/0ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 3024
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 11:57:57,797 ERROR 3024 [-/::1/-/0ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 3024
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 13:39:04,816 ERROR 17464 nodejs.ClusterClientNoResponseError: client no response in 5912748ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (I:\wheels\egg-demo\node_modules\cluster-client\lib\leader.js:77:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 17464
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 14:08:40,661 ERROR 17464 nodejs.ClusterClientNoResponseError: client no response in 1735837ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (I:\wheels\egg-demo\node_modules\cluster-client\lib\leader.js:77:23)
+    at ontimeout (timers.js:436:11)
+    at tryOnTimeout (timers.js:300:5)
+    at listOnTimeout (timers.js:263:5)
+    at Timer.processTimers (timers.js:223:10)
+name: "ClusterClientNoResponseError"
+pid: 17464
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 14:18:17,826 ERROR 3024 [-/::1/-/1ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 3024
+hostname: DESKTOP-DGIT1DS
+
+2019-07-19 14:20:53,543 ERROR 19424 [-/::1/-/8ms GET /] nodejs.Error: Please set config.keys first
+    at Application.get keys [as keys] (I:\wheels\egg-demo\egg-demo\node_modules\egg\lib\application.js:257:15)
+    at Object.get cookies [as cookies] (I:\wheels\egg-demo\egg-demo\node_modules\egg\app\extend\context.js:22:66)
+    at Object.get [egg-security#CSRF_SECRET] (I:\wheels\egg-demo\egg-demo\node_modules\egg-security\app\extend\context.js:86:33)
+    at Object.ensureCsrfSecret (I:\wheels\egg-demo\egg-demo\node_modules\egg-security\app\extend\context.js:97:13)
+    at csrf (I:\wheels\egg-demo\egg-demo\node_modules\egg-security\lib\middlewares\csrf.js:14:9)
+    at dispatch (I:\wheels\egg-demo\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:42:32)
+    at I:\wheels\egg-demo\egg-demo\node_modules\egg-security\node_modules\koa-compose\index.js:34:12
+    at dispatch (I:\wheels\egg-demo\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+    at session (I:\wheels\egg-demo\egg-demo\node_modules\koa-session\index.js:41:13)
+    at dispatch (I:\wheels\egg-demo\egg-demo\node_modules\koa\node_modules\koa-compose\index.js:42:32)
+
+pid: 19424
+hostname: DESKTOP-DGIT1DS
+
