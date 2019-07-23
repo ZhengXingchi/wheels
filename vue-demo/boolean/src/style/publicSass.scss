@@ -1,0 +1,35 @@
+// 内页面头部样式颜色
+$bacgColor: #efefef;
+//按钮颜色
+//$btnColor: #ff7e03;
+.allPage {
+  .allTitle {
+    font-weight: 600;
+    padding: 20px 20px 0px 0px;
+    font-size: 14px;
+    display: none;
+    .allTitleStyle {
+      display: inline-block;
+      border: 2px solid #cfdadd;
+      border-bottom: none;
+      padding: 10px;
+      height: 100%;
+      background: white;
+    }
+  }
+}
+
+// // 中等按钮样式
+// .publicMidBtn {
+//   background-color: $btnColor;
+//   color: #fff;
+//   font-size: 12px;
+// }
+
+// // 小按钮样式
+// .publicSmalBtn {
+//   background-color: $btnColor;
+//   color: #fff;
+//   font-size: 12px;
+//   padding: 4px 2px 3px 1px;
+// }

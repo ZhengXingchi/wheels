@@ -1,0 +1,115 @@
+{
+    "code": "SUCCESS",
+    "data": {
+      "FangkuanTongjiByday": [
+        {
+          "giveTime": "2018-12-28",
+          "yiFangkuanMoney": 6600
+        },
+        {
+          "giveTime": "2018-12-29",
+          "yiFangkuanMoney": 83600
+        },
+        {
+          "giveTime": "2018-12-30",
+          "yiFangkuanMoney": 48400
+        },
+        {
+          "giveTime": "2018-12-31",
+          "yiFangkuanMoney": 33000
+        },
+        {
+          "giveTime": "2019-01-01",
+          "yiFangkuanMoney": 27500
+        },
+        {
+          "giveTime": "2019-01-02",
+          "yiFangkuanMoney": 50600
+        },
+        {
+          "giveTime": "2019-01-03",
+          "yiFangkuanMoney": 40700
+        },
+        {
+          "giveTime": "2019-01-04",
+          "yiFangkuanMoney": 102300
+        },
+        {
+          "giveTime": "2019-01-05",
+          "yiFangkuanMoney": 189200
+        },
+        {
+          "giveTime": "2019-01-06",
+          "yiFangkuanMoney": 134200
+        },
+        {
+          "giveTime": "2019-01-07",
+          "yiFangkuanMoney": 242000
+        },
+        {
+          "giveTime": "2019-01-08",
+          "yiFangkuanMoney": 189200
+        },
+        {
+          "giveTime": "2019-01-09",
+          "yiFangkuanMoney": 228800
+        },
+        {
+          "giveTime": "2019-01-10",
+          "yiFangkuanMoney": 161700
+        },
+        {
+          "giveTime": "2019-01-11",
+          "yiFangkuanMoney": 97300
+        },
+        {
+          "giveTime": "2019-01-12",
+          "yiFangkuanMoney": 107101
+        },
+        {
+          "giveTime": "2019-01-13",
+          "yiFangkuanMoney": 148050
+        },
+        {
+          "giveTime": "2019-01-14",
+          "yiFangkuanMoney": 94500
+        },
+        {
+          "giveTime": "2019-01-15",
+          "yiFangkuanMoney": 110250
+        },
+        {
+          "giveTime": "2019-01-16",
+          "yiFangkuanMoney": 111300
+        },
+        {
+          "giveTime": "2019-01-17",
+          "yiFangkuanMoney": 99750
+        },
+        {
+          "giveTime": "2019-01-18",
+          "yiFangkuanMoney": 85050
+        },
+        {
+          "giveTime": "2019-01-19",
+          "yiFangkuanMoney": 79800
+        },
+        {
+          "giveTime": "2019-01-20",
+          "yiFangkuanMoney": 76650
+        }
+      ],
+      "FangkuanTongjiBymonth": [
+        {
+          "giveTime": "2018-12",
+          "yiFangkuanMoney": 209500
+        },
+        {
+          "giveTime": "2019-1",
+          "yiFangkuanMoney": 2388551
+        }
+      ]
+    },
+    "msg": "成功",
+    "success": true
+  }

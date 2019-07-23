@@ -1,0 +1,75 @@
+.ivu-avatar {
+    display: inline-block;
+    text-align: center;
+    background: #28bfc3;
+    color: #fff;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px
+}
+
+.ivu-avatar-image {
+    background: 0 0
+}
+
+.ivu-avatar .ivu-icon {
+    position: relative;
+    top: -1px
+}
+
+.ivu-avatar>* {
+    line-height: 32px
+}
+
+.ivu-avatar.ivu-avatar-icon {
+    font-size: 18px
+}
+
+.ivu-avatar-large {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 30px
+}
+
+.ivu-avatar-large>* {
+    line-height: 40px
+}
+
+.ivu-avatar-large.ivu-avatar-icon {
+    font-size: 60px
+}
+
+.ivu-avatar-large .ivu-icon {
+    position: relative;
+    top: -2px
+}
+
+.ivu-avatar-small {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px
+}
+
+.ivu-avatar-small>* {
+    line-height: 24px
+}
+
+.ivu-avatar-small.ivu-avatar-icon {
+    font-size: 14px
+}
+
+.ivu-avatar-square {
+    border-radius: 4px
+}
+
+.ivu-avatar>img {
+    width: 100%;
+    height: 100%
+}

@@ -1,0 +1,6 @@
+{
+    "code": "SUCCESS",
+    "data": null,
+    "msg": "{\"desc\":\"不通过\",\"msg\":\"3个月内申请人手机号作为联系人手机号出现的次数过多\",\"ruleName\":\"tongdun_bodyguard_rule\",\"status\":2}",
+    "success": true
+  }

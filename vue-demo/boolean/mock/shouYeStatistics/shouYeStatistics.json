@@ -1,0 +1,22 @@
+{
+  "code": "SUCCESS",
+  "data": {
+    "zhuceToday": 9,
+    "todayRenzheng": 0,
+    "todayNumberOfLoan": 35,
+    "todayNumberOffangkuanLoan": 46,
+    "loanPassRate": "131.43",
+    "repayNum": 43,
+    "totalRepayNum": 1351,
+    "zhuceToTal": 31153,
+    "totalOverdue": 461,
+    "todayOverdue": 34,
+    "totalOverdueMoney": "954954.00",
+    "totalHuikuanMoney": "2075921.00",
+    "daiHuankuanMoney": "1822854.00",
+    "yiFangkuanMoney": "2557101.00",
+    "totalNumberOffangkuanLoan":"2391"
+  },
+  "msg": "成功",
+  "success": true
+}

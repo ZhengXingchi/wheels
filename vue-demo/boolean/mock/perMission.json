@@ -1,0 +1,2095 @@
+{
+    "code": "SUCCESS",
+    "data": [
+        {
+        "name": "系统设置",
+        "list": [
+            {
+            "id": 1,
+            "menuName": "利率设置",
+            "firstMenuId": 1,
+            "intefaceIdName": [
+                {
+                "intefaceId": 5,
+                "intefaceName": "删除利率类型",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 6,
+                "intefaceName": "禁用贷款利率",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 7,
+                "intefaceName": "修改贷款利率",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 2,
+            "menuName": "合同模板",
+            "firstMenuId": 1,
+            "intefaceIdName": [
+                {
+                "intefaceId": 8,
+                "intefaceName": "查询合同模板",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 9,
+                "intefaceName": "修改合同模板",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 3,
+            "menuName": "短信模板",
+            "firstMenuId": 1,
+            "intefaceIdName": []
+            },
+            {
+            "id": 4,
+            "menuName": "参数设置",
+            "firstMenuId": 1,
+            "intefaceIdName": [
+                {
+                "intefaceId": 10,
+                "intefaceName": "查询所有的配置参数",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 11,
+                "intefaceName": "新增拒绝地区",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 12,
+                "intefaceName": "删除拒绝地区",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 13,
+                "intefaceName": "查询所有的拒绝地区",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 14,
+                "intefaceName": "修改配置参数",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 15,
+                "intefaceName": "修改短信验证手机号码",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 16,
+                "intefaceName": "修改借款最大额度",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 17,
+                "intefaceName": "修改同盾分",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 437,
+                "intefaceName": "后台续期续借开关",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 438,
+                "intefaceName": "配置客服qq",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 441,
+                "intefaceName": "利率配置",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "权限与角色管理",
+        "list": [
+            {
+            "id": 5,
+            "menuName": "系统管理员",
+            "firstMenuId": 2,
+            "intefaceIdName": [
+                {
+                "intefaceId": 1,
+                "intefaceName": "添加管理员",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 2,
+                "intefaceName": "修改管理员",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 3,
+                "intefaceName": "查询管理员",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 4,
+                "intefaceName": "查询所有的利率",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 130,
+                "intefaceName": "查询管理员列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 178,
+                "intefaceName": "查询用户详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 179,
+                "intefaceName": "恢复用户",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 181,
+                "intefaceName": "查询指定用户通讯录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 182,
+                "intefaceName": "暂时拒绝",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 183,
+                "intefaceName": "永久拒绝",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 299,
+                "intefaceName": "删除管理员",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 6,
+            "menuName": "角色列表",
+            "firstMenuId": 2,
+            "intefaceIdName": [
+                {
+                "intefaceId": 167,
+                "intefaceName": "查找角色列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 168,
+                "intefaceName": "查看角色对应权限详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 169,
+                "intefaceName": "删除角色",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 170,
+                "intefaceName": "查找一二级目录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 171,
+                "intefaceName": "查找第三级目录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 172,
+                "intefaceName": "修改权限，新建角色",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 177,
+                "intefaceName": "续期记录列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 191,
+                "intefaceName": "拒绝放款",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 462,
+                "intefaceName": "查询菜单",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 7,
+            "menuName": "部门列表",
+            "firstMenuId": 2,
+            "intefaceIdName": [
+                {
+                "intefaceId": 173,
+                "intefaceName": "查询部门列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 174,
+                "intefaceName": "删除部门",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 175,
+                "intefaceName": "新建部门",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 184,
+                "intefaceName": "查询部门下拉列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 478,
+                "intefaceName": "催收领件",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "渠道商管理",
+        "list": [
+            {
+            "id": 8,
+            "menuName": "渠道商列表",
+            "firstMenuId": 3,
+            "intefaceIdName": [
+                {
+                "intefaceId": 18,
+                "intefaceName": "查看渠道商列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 19,
+                "intefaceName": "删除渠道商",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 20,
+                "intefaceName": "查询一个渠道商接口",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 21,
+                "intefaceName": "添加渠道商",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 190,
+                "intefaceName": "查询所有的渠道商",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 197,
+                "intefaceName": "修改渠道商拦截率",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 198,
+                "intefaceName": "渠道商查询订单",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 258,
+                "intefaceName": "渠道商查询会员详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 436,
+                "intefaceName": "渠道商查询自己会员详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 442,
+                "intefaceName": "业务系统查看渠道商信息",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 75,
+            "menuName": "渠道统计报表",
+            "firstMenuId": 3,
+            "intefaceIdName": [
+                {
+                "intefaceId": 466,
+                "intefaceName": "渠道商统计概览",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 467,
+                "intefaceName": "注册数据统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 468,
+                "intefaceName": "认证数据统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 469,
+                "intefaceName": "审核数据统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 470,
+                "intefaceName": "逾期数据统计",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "会员管理",
+        "list": [
+            {
+            "id": 9,
+            "menuName": "会员列表",
+            "firstMenuId": 4,
+            "intefaceIdName": [
+                {
+                "intefaceId": 22,
+                "intefaceName": "查询会员列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 24,
+                "intefaceName": "禁用会员",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 214,
+                "intefaceName": "恢复用户",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 255,
+                "intefaceName": "话务员分配",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 256,
+                "intefaceName": "查询话务员列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 257,
+                "intefaceName": "查询话务员流转记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 259,
+                "intefaceName": "话务员转派",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 346,
+                "intefaceName": "查询拨打记录",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 57,
+            "menuName": "未认证列表",
+            "firstMenuId": 4,
+            "intefaceIdName": [
+                {
+                "intefaceId": 253,
+                "intefaceName": "查询未认证用户列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 347,
+                "intefaceName": "话务员分配",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 348,
+                "intefaceName": "话务员转派",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 349,
+                "intefaceName": "查询拨打记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 350,
+                "intefaceName": "查询话务员流转记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 351,
+                "intefaceName": "恢复用户",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 58,
+            "menuName": "我的会员管理列表",
+            "firstMenuId": 4,
+            "intefaceIdName": [
+                {
+                "intefaceId": 251,
+                "intefaceName": "添加拨打记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 252,
+                "intefaceName": "查询拨打记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 254,
+                "intefaceName": "查询我的会员列表",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "信审管理 ",
+        "list": [
+            {
+            "id": 17,
+            "menuName": "我的信审列表",
+            "firstMenuId": 5,
+            "intefaceIdName": [
+                {
+                "intefaceId": 46,
+                "intefaceName": "我的信审列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 47,
+                "intefaceName": "我的信审列表:暂时拒绝",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 48,
+                "intefaceName": "我的信审列表:永久拒绝",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 49,
+                "intefaceName": "我的信审列表:审核通过，填写额度",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 51,
+                "intefaceName": "我的信审列表:领件",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 293,
+                "intefaceName": "查询一周内指定用户通讯录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 300,
+                "intefaceName": "查看同盾信贷保镖结果",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 429,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 430,
+                "intefaceName": "查看通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 431,
+                "intefaceName": "查询指定用户通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 432,
+                "intefaceName": "查看紧急联系人",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 433,
+                "intefaceName": "查看新颜报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 434,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 435,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 61,
+            "menuName": "信审管理",
+            "firstMenuId": 5,
+            "intefaceIdName": [
+                {
+                "intefaceId": 25,
+                "intefaceName": "查询客户管理列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 176,
+                "intefaceName": "查询信审人员列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 215,
+                "intefaceName": "分配信审",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 216,
+                "intefaceName": "查询指定用户通讯录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 225,
+                "intefaceName": "查询用户详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 263,
+                "intefaceName": "信审转派",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 309,
+                "intefaceName": "查询审核记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 310,
+                "intefaceName": "查询用户流转记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 311,
+                "intefaceName": "查看通讯录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 312,
+                "intefaceName": "查看同盾信贷保镖结果",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 313,
+                "intefaceName": "查询一周内指定用户通讯录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 314,
+                "intefaceName": "查看紧急联系人",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 315,
+                "intefaceName": "查看新颜报告",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 316,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 317,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 318,
+                "intefaceName": "查询审核记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 446,
+                "intefaceName": "风控列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 447,
+                "intefaceName": "风控拒绝详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 448,
+                "intefaceName": "获取免密token",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 449,
+                "intefaceName": "获取有盾多头",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 474,
+                "intefaceName": "风控回调数据",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 475,
+                "intefaceName": "淘宝回调数据",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 476,
+                "intefaceName": "运营商回调数据",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 477,
+                "intefaceName": "基本信息显示",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "贷款管理",
+        "list": [
+            {
+            "id": 22,
+            "menuName": "待放款管理",
+            "firstMenuId": 6,
+            "intefaceIdName": [
+                {
+                "intefaceId": 72,
+                "intefaceName": "查询待放款订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 73,
+                "intefaceName": "待放款顶顶那列表：查看用户认证信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 74,
+                "intefaceName": "待放款顶顶那列表：查看借款申请失败订单详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 75,
+                "intefaceName": "线下打款",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 76,
+                "intefaceName": "易宝打款",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 301,
+                "intefaceName": "查询放款管理总列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 302,
+                "intefaceName": "查询放款员列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 303,
+                "intefaceName": "分配待放款订单",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 304,
+                "intefaceName": "转派待放款订单",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 319,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 320,
+                "intefaceName": "查看通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 321,
+                "intefaceName": "查询指定用户通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 322,
+                "intefaceName": "查看紧急联系人",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 323,
+                "intefaceName": "查看新颜报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 324,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 325,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 326,
+                "intefaceName": "查询一周内指定用户通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 327,
+                "intefaceName": "拒绝放款",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 328,
+                "intefaceName": "查询审核记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 329,
+                "intefaceName": "查询审核记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 330,
+                "intefaceName": "续期记录列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 455,
+                "intefaceName": "历史订单查询",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 457,
+                "intefaceName": "提额",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 23,
+            "menuName": "已放款列表",
+            "firstMenuId": 6,
+            "intefaceIdName": [
+                {
+                "intefaceId": 77,
+                "intefaceName": "查询放款记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 78,
+                "intefaceName": "放款记录：查看用户认证信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 79,
+                "intefaceName": "查看放款记录订单详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 80,
+                "intefaceName": "放款记录：结清",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 305,
+                "intefaceName": "查询已放款订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 306,
+                "intefaceName": "我的放款列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 307,
+                "intefaceName": "查询终审记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 308,
+                "intefaceName": "添加终审记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 331,
+                "intefaceName": "查询审核记录",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 63,
+            "menuName": "我的放款列表",
+            "firstMenuId": 6,
+            "intefaceIdName": [
+                {
+                "intefaceId": 332,
+                "intefaceName": "我的放款列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 333,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 334,
+                "intefaceName": "查看通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 335,
+                "intefaceName": "查看同盾信贷保镖结果",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 336,
+                "intefaceName": "查询一周内指定用户通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 337,
+                "intefaceName": "查询指定用户通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 338,
+                "intefaceName": "查看紧急联系人",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 339,
+                "intefaceName": "查看新颜报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 340,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 341,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 342,
+                "intefaceName": "查询审核记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 343,
+                "intefaceName": "查询审核记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 344,
+                "intefaceName": "添加终审记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 345,
+                "intefaceName": "拒绝放款",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 428,
+                "intefaceName": "易宝打款",
+                "havePermission": 0
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "催款管理",
+        "list": [
+            {
+            "id": 30,
+            "menuName": "我的催收列表",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 268,
+                "intefaceName": "查询我的催收处理列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 269,
+                "intefaceName": "我的催收处理列表：查看用户认证信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 270,
+                "intefaceName": "我的催收处理列表：查询催收记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 271,
+                "intefaceName": "查询用户详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 272,
+                "intefaceName": "查询借款和还款信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 273,
+                "intefaceName": "我的催收列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 274,
+                "intefaceName": "查看催收详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 275,
+                "intefaceName": "添加催收记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 276,
+                "intefaceName": "查询订单流转记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 277,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 278,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 279,
+                "intefaceName": "查看通讯录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 280,
+                "intefaceName": "同盾报告",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 281,
+                "intefaceName": "查看代扣记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 282,
+                "intefaceName": "查看用户还款记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 283,
+                "intefaceName": "查看用户订单记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 284,
+                "intefaceName": "查看同盾报告",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 425,
+                "intefaceName": "添加减免申请",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 60,
+            "menuName": "减免申请",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 295,
+                "intefaceName": "分页查询减免记录",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 297,
+                "intefaceName": "同意减免申请",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 298,
+                "intefaceName": "不同意减免申请",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 64,
+            "menuName": "催收总列表",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 352,
+                "intefaceName": "查询催收分配列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 353,
+                "intefaceName": "查询催收员",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 354,
+                "intefaceName": "我的催收处理列表：查询催收记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 356,
+                "intefaceName": "查询订单流转记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 357,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 358,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 359,
+                "intefaceName": "查看通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 360,
+                "intefaceName": "查看同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 361,
+                "intefaceName": "同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 362,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 363,
+                "intefaceName": "查看代扣记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 364,
+                "intefaceName": "查看用户还款记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 365,
+                "intefaceName": "查看用户订单记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 366,
+                "intefaceName": "分配订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 367,
+                "intefaceName": "转派订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 368,
+                "intefaceName": "查看催收详情",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 65,
+            "menuName": "S0",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 369,
+                "intefaceName": "查询S0组订单列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 370,
+                "intefaceName": "查询催收员",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 371,
+                "intefaceName": "我的催收处理列表：查询催收记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 372,
+                "intefaceName": "查询订单流转记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 373,
+                "intefaceName": "查看同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 374,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 375,
+                "intefaceName": "查看代扣记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 376,
+                "intefaceName": "查看用户还款记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 377,
+                "intefaceName": "查看用户订单记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 378,
+                "intefaceName": "分配订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 379,
+                "intefaceName": "转派订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 380,
+                "intefaceName": "查看催收详情",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 66,
+            "menuName": "S1",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 381,
+                "intefaceName": "查询S1组订单列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 382,
+                "intefaceName": "查询催收员",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 383,
+                "intefaceName": "我的催收处理列表：查询催收记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 384,
+                "intefaceName": "查询订单流转记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 385,
+                "intefaceName": "查看同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 386,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 387,
+                "intefaceName": "查看代扣记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 388,
+                "intefaceName": "查看用户还款记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 389,
+                "intefaceName": "查看用户订单记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 390,
+                "intefaceName": "分配订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 391,
+                "intefaceName": "转派订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 392,
+                "intefaceName": "查看催收详情",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 67,
+            "menuName": "S2",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 393,
+                "intefaceName": "查询催收员",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 394,
+                "intefaceName": "我的催收处理列表：查询催收记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 395,
+                "intefaceName": "查询订单流转记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 396,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 397,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 398,
+                "intefaceName": "查看通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 399,
+                "intefaceName": "查看同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 400,
+                "intefaceName": "同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 401,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 402,
+                "intefaceName": "查看代扣记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 403,
+                "intefaceName": "查看用户还款记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 404,
+                "intefaceName": "查看用户订单记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 405,
+                "intefaceName": "分配订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 406,
+                "intefaceName": "转派订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 407,
+                "intefaceName": "查看催收详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 408,
+                "intefaceName": "查询S2组订单列表",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 68,
+            "menuName": "S3",
+            "firstMenuId": 7,
+            "intefaceIdName": [
+                {
+                "intefaceId": 409,
+                "intefaceName": "查询催收员",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 410,
+                "intefaceName": "我的催收处理列表：查询催收记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 411,
+                "intefaceName": "查询订单流转记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 412,
+                "intefaceName": "淘宝认证(查看购买地址)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 413,
+                "intefaceName": "淘宝认证(查看购买记录)",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 414,
+                "intefaceName": "查看通讯录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 415,
+                "intefaceName": "查看同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 416,
+                "intefaceName": "同盾报告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 417,
+                "intefaceName": "查询用户详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 418,
+                "intefaceName": "查看代扣记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 419,
+                "intefaceName": "查看用户还款记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 420,
+                "intefaceName": "查看用户订单记录",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 421,
+                "intefaceName": "分配订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 422,
+                "intefaceName": "转派订单",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 423,
+                "intefaceName": "查看催收详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 424,
+                "intefaceName": "查询S3组订单列表",
+                "havePermission": 0
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "数据统计",
+        "list": [
+            {
+            "id": 33,
+            "menuName": "统计报表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 131,
+                "intefaceName": "首页放款统计信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 132,
+                "intefaceName": "首页金额统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 133,
+                "intefaceName": "首页查询所有的续期费用",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 185,
+                "intefaceName": "查询后台首页认证统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 186,
+                "intefaceName": "后台首页放款信息统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 187,
+                "intefaceName": "后台首页风控统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 250,
+                "intefaceName": "查询后台首页放款统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 34,
+            "menuName": "每日财务统计",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 123,
+                "intefaceName": "每日财务统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 35,
+            "menuName": "每日渠道统计",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 124,
+                "intefaceName": "每日渠道统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 189,
+                "intefaceName": "分页查询渠道商统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 36,
+            "menuName": "每日催收统计",
+            "firstMenuId": 8,
+            "intefaceIdName": []
+            },
+            {
+            "id": 48,
+            "menuName": "每日放款统计",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 192,
+                "intefaceName": "查询每日放款分页",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 193,
+                "intefaceName": "查询放款总金额和总人数",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 49,
+            "menuName": "每日收款统计",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 194,
+                "intefaceName": "查询每日收款分页",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 195,
+                "intefaceName": "查询收款总金额和总人数",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 50,
+            "menuName": "总订单列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 200,
+                "intefaceName": "查询总订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 201,
+                "intefaceName": "查询总订单列表头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 51,
+            "menuName": "正常待还款订单列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 238,
+                "intefaceName": "查询正常待还款用户列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 239,
+                "intefaceName": "查询正常待还款用户头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 52,
+            "menuName": "展期待还款订单列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 240,
+                "intefaceName": "查询展期待还款订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 241,
+                "intefaceName": "查询展期待还头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 53,
+            "menuName": "逾期已还订单列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 242,
+                "intefaceName": "查询逾期已还客户列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 243,
+                "intefaceName": "查询逾期已还款头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 54,
+            "menuName": "逾期待还款列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 244,
+                "intefaceName": "查询逾期待还款列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 245,
+                "intefaceName": "查询逾期已还款头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 55,
+            "menuName": "展期已还款订单列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 246,
+                "intefaceName": "查询展期已还款订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 247,
+                "intefaceName": "查询逾期已还款头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 56,
+            "menuName": "正常已还款订单列表",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 248,
+                "intefaceName": "查询正常已还款订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 249,
+                "intefaceName": "查询正常已还款头部统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 59,
+            "menuName": "清算中心",
+            "firstMenuId": 8,
+            "intefaceIdName": [
+                {
+                "intefaceId": 264,
+                "intefaceName": "查询待还款订单列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 265,
+                "intefaceName": "线下手动续期",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 266,
+                "intefaceName": "线下手动还款",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "信息管理",
+        "list": [
+            {
+            "id": 37,
+            "menuName": "信息管理",
+            "firstMenuId": 9,
+            "intefaceIdName": [
+                {
+                "intefaceId": 134,
+                "intefaceName": "查询帮助中心列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 135,
+                "intefaceName": "查询新闻中心列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 136,
+                "intefaceName": "删除信息管理信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 137,
+                "intefaceName": "查看信息管理信息详情",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 138,
+                "intefaceName": "修改信息管理信息",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 139,
+                "intefaceName": "新增信息管理信息",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "优惠券管理",
+        "list": [
+            {
+            "id": 38,
+            "menuName": "优惠券设置",
+            "firstMenuId": 10,
+            "intefaceIdName": [
+                {
+                "intefaceId": 140,
+                "intefaceName": "查询所有的优惠券列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 141,
+                "intefaceName": "查看优惠券详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 142,
+                "intefaceName": "修改优惠券",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 143,
+                "intefaceName": "新增优惠券",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 144,
+                "intefaceName": "发放优惠券",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 39,
+            "menuName": "优惠券人员管理",
+            "firstMenuId": 10,
+            "intefaceIdName": [
+                {
+                "intefaceId": 145,
+                "intefaceName": "查询优惠券人员列表",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 146,
+                "intefaceName": "查询每个人的优惠券详情",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "广告管理",
+        "list": [
+            {
+            "id": 40,
+            "menuName": "广告发布与管理",
+            "firstMenuId": 11,
+            "intefaceIdName": [
+                {
+                "intefaceId": 147,
+                "intefaceName": "查询所有的广告列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 148,
+                "intefaceName": "删除广告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 149,
+                "intefaceName": "查看广告详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 150,
+                "intefaceName": "修改广告",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 151,
+                "intefaceName": "新增广告",
+                "havePermission": 0
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "基本信息",
+        "list": [
+            {
+            "id": 41,
+            "menuName": "极光推送",
+            "firstMenuId": 12,
+            "intefaceIdName": [
+                {
+                "intefaceId": 152,
+                "intefaceName": "查询极光推送列表",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 153,
+                "intefaceName": "查询极光推送用户",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 154,
+                "intefaceName": "部分用户发送推送",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 155,
+                "intefaceName": "推送给所有人",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 156,
+                "intefaceName": "删除极光推送信息模板",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 157,
+                "intefaceName": "查询极光推送模板详情",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 158,
+                "intefaceName": "新增极光推送模板",
+                "havePermission": 0
+                }
+            ]
+            },
+            {
+            "id": 42,
+            "menuName": "短信群发",
+            "firstMenuId": 12,
+            "intefaceIdName": []
+            },
+            {
+            "id": 43,
+            "menuName": "用户注册协议",
+            "firstMenuId": 12,
+            "intefaceIdName": [
+                {
+                "intefaceId": 159,
+                "intefaceName": "查询用户注册协议",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 160,
+                "intefaceName": "修改用户注册协议",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 44,
+            "menuName": "用户反馈信息",
+            "firstMenuId": 12,
+            "intefaceIdName": []
+            },
+            {
+            "id": 45,
+            "menuName": "关于我们",
+            "firstMenuId": 12,
+            "intefaceIdName": [
+                {
+                "intefaceId": 161,
+                "intefaceName": "查询关于我们",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 162,
+                "intefaceName": "修改关于我们",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "登录日志",
+        "list": [
+            {
+            "id": 46,
+            "menuName": "后台管理登录日志",
+            "firstMenuId": 13,
+            "intefaceIdName": [
+                {
+                "intefaceId": 163,
+                "intefaceName": "查询后台登录日志",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 164,
+                "intefaceName": "删除后台登录日志",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 47,
+            "menuName": "App登录日志",
+            "firstMenuId": 13,
+            "intefaceIdName": [
+                {
+                "intefaceId": 165,
+                "intefaceName": "查询app登录日志",
+                "havePermission": 0
+                },
+                {
+                "intefaceId": 166,
+                "intefaceName": "删除app登录日志",
+                "havePermission": 0
+                }
+            ]
+            }
+        ]
+        },
+        {
+        "name": "首页统计",
+        "list": [
+            {
+            "id": 69,
+            "menuName": "短信余额",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 460,
+                "intefaceName": "短信余额",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 70,
+            "menuName": "风控余额",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 461,
+                "intefaceName": "风控余额",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 71,
+            "menuName": "首页统计",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 463,
+                "intefaceName": "首页统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 72,
+            "menuName": "放款统计",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 464,
+                "intefaceName": "放款统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 73,
+            "menuName": "回款统计",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 465,
+                "intefaceName": "回款统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 74,
+            "menuName": "风控总统计",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 450,
+                "intefaceName": "风控明细统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 451,
+                "intefaceName": "风控统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 459,
+                "intefaceName": "风控总统计",
+                "havePermission": 1
+                }
+            ]
+            },
+            {
+            "id": 76,
+            "menuName": "短信总统计",
+            "firstMenuId": 14,
+            "intefaceIdName": [
+                {
+                "intefaceId": 452,
+                "intefaceName": "短信统计",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 453,
+                "intefaceName": "短信发送明细",
+                "havePermission": 1
+                },
+                {
+                "intefaceId": 458,
+                "intefaceName": "短信总统计",
+                "havePermission": 1
+                }
+            ]
+            }
+        ]
+        }
+    ],
+    "msg": "成功",
+    "success": true
+    }

@@ -1,0 +1,87 @@
+{
+    "code": "SUCCESS",
+    "data": {
+      "pageNum": 1,
+      "pageSize": 10,
+      "total": 53583,
+      "pages": 5359,
+      "list": [
+        {
+          "userId": "148329",
+          "userName": null,
+          "phone": "15868132597",
+          "riskStatus": -1,
+          "uptDatetime": "2018-12-12 16:37:55"
+        },
+        {
+          "userId": "148328",
+          "userName": "苗佳",
+          "phone": "13933129214",
+          "riskStatus": 1,
+          "uptDatetime": "2018-12-12 16:23:24"
+        },
+        {
+          "userId": "39611",
+          "userName": "苗佳",
+          "phone": "13933129214_1",
+          "riskStatus": 1,
+          "uptDatetime": "2018-12-08 14:40:03"
+        },
+        {
+          "userId": "148325",
+          "userName": "崔庆峰",
+          "phone": "18357199194",
+          "riskStatus": 1,
+          "uptDatetime": "2018-12-06 18:11:08"
+        },
+        {
+          "userId": "148324",
+          "userName": "崔庆峰",
+          "phone": "18357199194_024",
+          "riskStatus": -1,
+          "uptDatetime": "2018-12-06 16:25:04"
+        },
+        {
+          "userId": "148323",
+          "userName": null,
+          "phone": "18357199194_023",
+          "riskStatus": -1,
+          "uptDatetime": "2018-12-06 16:05:26"
+        },
+        {
+          "userId": "86744",
+          "userName": "李志明",
+          "phone": "18948976828",
+          "riskStatus": 1,
+          "uptDatetime": "2018-12-06 16:00:40"
+        },
+        {
+          "userId": "90479",
+          "userName": "崔庆峰",
+          "phone": "18357199194_022",
+          "riskStatus": 2,
+          "uptDatetime": "2018-12-06 15:10:05"
+        },
+        {
+          "userId": "148322",
+          "userName": "测试",
+          "phone": "10000000000",
+          "riskStatus": -1,
+          "uptDatetime": "2018-12-06 11:38:43"
+        },
+        {
+          "userId": "90478",
+          "userName": "崔庆峰",
+          "phone": "18357199194_021",
+          "riskStatus": -1,
+          "uptDatetime": "2018-12-05 15:19:01"
+        }
+      ],
+      "isFirstPage": true,
+      "isLastPage": false,
+      "hasPreviousPage": false,
+      "hasNextPage": true
+    },
+    "msg": "成功",
+    "success": true
+  }

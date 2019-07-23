@@ -1,0 +1,119 @@
+{
+  "code": "SUCCESS",
+  "data": {
+    "HuankuanTongjiBymonth": [
+      {
+        "realPayTime": "2018-12",
+        "yiFangkuanMoney": 28500
+      },
+      {
+        "realPayTime": "2019-1",
+        "yiFangkuanMoney": 2119996
+      }
+    ],
+    "HuankuanTongjiByday": [
+      {
+        "realPayTime": "2018-12-20",
+        "huikuanMoney": 3900
+      },
+      {
+        "realPayTime": "2018-12-21",
+        "huikuanMoney": 14100
+      },
+      {
+        "realPayTime": "2018-12-29",
+        "huikuanMoney": 3000
+      },
+      {
+        "realPayTime": "2018-12-30",
+        "huikuanMoney": 1500
+      },
+      {
+        "realPayTime": "2018-12-31",
+        "huikuanMoney": 6000
+      },
+      {
+        "realPayTime": "2019-01-01",
+        "huikuanMoney": 6000
+      },
+      {
+        "realPayTime": "2019-01-02",
+        "huikuanMoney": 13680
+      },
+      {
+        "realPayTime": "2019-01-03",
+        "huikuanMoney": 9060
+      },
+      {
+        "realPayTime": "2019-01-04",
+        "huikuanMoney": 33030
+      },
+      {
+        "realPayTime": "2019-01-05",
+        "huikuanMoney": 47250
+      },
+      {
+        "realPayTime": "2019-01-06",
+        "huikuanMoney": 20050
+      },
+      {
+        "realPayTime": "2019-01-07",
+        "huikuanMoney": 32750
+      },
+      {
+        "realPayTime": "2019-01-08",
+        "huikuanMoney": 57925
+      },
+      {
+        "realPayTime": "2019-01-09",
+        "huikuanMoney": 64975
+      },
+      {
+        "realPayTime": "2019-01-10",
+        "huikuanMoney": 113450
+      },
+      {
+        "realPayTime": "2019-01-11",
+        "huikuanMoney": 188375
+      },
+      {
+        "realPayTime": "2019-01-12",
+        "huikuanMoney": 121551
+      },
+      {
+        "realPayTime": "2019-01-13",
+        "huikuanMoney": 209050
+      },
+      {
+        "realPayTime": "2019-01-14",
+        "huikuanMoney": 191725
+      },
+      {
+        "realPayTime": "2019-01-15",
+        "huikuanMoney": 251625
+      },
+      {
+        "realPayTime": "2019-01-16",
+        "huikuanMoney": 191175
+      },
+      {
+        "realPayTime": "2019-01-17",
+        "huikuanMoney": 113750
+      },
+      {
+        "realPayTime": "2019-01-18",
+        "huikuanMoney": 139050
+      },
+      {
+        "realPayTime": "2019-01-19",
+        "huikuanMoney": 166500
+      },
+      {
+        "realPayTime": "2019-01-20",
+        "huikuanMoney": 126225
+      }
+    ]
+  },
+  "msg": "成功",
+  "success": true
+}
