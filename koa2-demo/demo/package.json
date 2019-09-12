@@ -4,11 +4,14 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "koa": "^2.8.1"
+    "ejs": "^2.7.1",
+    "koa": "^2.8.1",
+    "pug": "^2.0.4"
   }
 }

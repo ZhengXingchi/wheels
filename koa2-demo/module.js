@@ -7,8 +7,10 @@
 //   wfs(r(__dirname,'./name'),String(data.name),'utf8')
 // })
 
+const name='look'
+export  {name}
+//或者export const name='look'
 
-export const name='look'
 export const getName=()=>{
 	return name
 }
