@@ -12,6 +12,10 @@
   "dependencies": {
     "ejs": "^2.7.1",
     "koa": "^2.8.1",
-    "pug": "^2.0.4"
+    "koa-views": "^6.2.1",
+    "pug": "^2.0.4",
+    "puppeteer": "^1.19.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
   }
 }
