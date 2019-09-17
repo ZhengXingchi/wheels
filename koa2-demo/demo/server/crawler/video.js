@@ -1,6 +1,6 @@
 const puppeteer=require('puppeteer')
 const base=`https://movie.douban.com/subject/`
-const doubanId='26739551'
+const doubanId='3793023'
 
 const sleep=time=>{
 	new Promise(resolve=>{

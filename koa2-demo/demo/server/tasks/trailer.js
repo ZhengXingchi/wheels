@@ -23,6 +23,15 @@ const {resolve} =require('path')
 
   child.on('message',data=>{
     let result=data
+
+    /*
+    {
+      doubanId: 3793023,
+      title: '三傻大闹宝莱坞',
+      rate: '9.2',
+      poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p579729551.jpg'
+    }
+    */
     console.log(data)
   })
 })()
