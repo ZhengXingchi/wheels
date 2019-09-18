@@ -1,6 +1,10 @@
 ## 安装了babel-cli之后不能够使用babel-node？
 局部安装的需要指出路径，如使用“./node_modules/.bin/babel-node app.js”
 
+## 豆瓣API
+1. 豆瓣api目前需要apikey [豆瓣电影api不让访问了，怎么回事](https://www.douban.com/group/topic/140612961/)
+2. 豆瓣 Api V2（测试版） https://douban-api-docs.zce.me
+
 
 ## 修改淘宝npm源
 `npm i nodemon -D --registry=https://registry.npm.taobao.org`

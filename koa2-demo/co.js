@@ -1,5 +1,3 @@
-// 1.豆瓣api目前需要apikey [豆瓣电影api不让访问了，怎么回事](https://www.douban.com/group/topic/140612961/)
- 
 const co=require('co');
 const fetch=require('node-fetch')
 co(function *(){

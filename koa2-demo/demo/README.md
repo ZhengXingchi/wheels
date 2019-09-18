@@ -2,6 +2,10 @@
 [xyjackxjw/douban-trailer-imooc](https://github.com/xyjackxjw/douban-trailer-imooc)
 
 
+## 阿里云OSS
+1. 费用
+对象存储 OSS 详细价格信息 https://www.aliyun.com/price/product?spm=5176.7933691.1309819.6.4b152a66okeyuA#/oss/detail
+
 ## 通过网络图片获取流
 1. 任何响应都可以输出到文件流。
 request('http://google.com/doodle.png').pipe(fs.createWriteStream('doodle.png'))
@@ -72,4 +76,59 @@ var req = http.get(url, function (res) {
 req.on('error', function (err) {
     console.log("请求失败2" + err.message);
 });
+```
+
+参考[nodejs 如何读取远程的图片并显示出来?](https://segmentfault.com/q/1010000000095621)
+```
+var http = require('http');
+var url = require('url');
+http.createServer(function(req, res) {
+
+    var params = url.parse(req.url, true);
+
+    var IMGS = new imageServer(http, url);
+
+    IMGS.http(params.query.url, function(data) {
+        res.writeHead(200, {"Content-Type": data.type});
+        res.write(data.body, "binary");
+        res.end();
+    });
+
+}).listen(8124);
+
+var imageServer = function(http, url) {
+    var _url = url;
+    var _http = http;
+
+    this.http = function(url, callback, method) {
+        method = method || 'GET';
+        callback = callback ||
+        function() {};
+        var urlData = _url.parse(url);
+        var request = _http.createClient(80, urlData.host).
+        request(method, urlData.pathname, {
+            "host": urlData.host
+        });
+
+        request.end();
+
+        request.on('response', function(response) {
+            var type = response.headers["content-type"],
+                body = "";
+            response.setEncoding('binary');
+            response.on('end', function() {
+                var data = {
+                    type: type,
+                    body: body
+                };
+                callback(data);
+
+            });
+            response.on('data', function(chunk) {
+                if (response.statusCode == 200) body += chunk;
+            });
+        });
+
+    };
+};
 ```
