@@ -1,7 +1,8 @@
 const co=require('co');
 const fetch=require('node-fetch')
+const {apikey}=require('./demo/server/config/index')
 co(function *(){
-	const res=yield fetch('https://api.douban.com/v2/movie/1291843?apikey=0b2bdeda43b5688921839c8ecb20399b');
+	const res=yield fetch(`https://api.douban.com/v2/movie/1291843?apikey=${apikey}`);
 	const movie=yield res.json()
 	const summary=movie.summary
 	console.log('summary',summary)
@@ -22,7 +23,7 @@ function  run(generator){
 	})
 }
 run(function *(){
-	const res=yield fetch('https://api.douban.com/v2/movie/1291843?apikey=0b2bdeda43b5688921839c8ecb20399b');
+	const res=yield fetch(`https://api.douban.com/v2/movie/1291843?apikey=${apikey}`);
 	const movie=yield res.json()
 	const summary=movie.summary
 	console.log('summary',summary)
