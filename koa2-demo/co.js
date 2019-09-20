@@ -1,6 +1,6 @@
 const co=require('co');
 const fetch=require('node-fetch')
-const {apikey}=require('./demo/server/config/index')
+const {apikey}=require('./demo/server/config/private')
 co(function *(){
 	const res=yield fetch(`https://api.douban.com/v2/movie/1291843?apikey=${apikey}`);
 	const movie=yield res.json()

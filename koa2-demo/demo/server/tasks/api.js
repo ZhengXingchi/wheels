@@ -1,5 +1,5 @@
 const rp=require('request-promise-native')
-const {apikey}=require('../config/index')
+const {apikey}=require('../config/private')
 async function fetchMovie(item){
 	const url=`http://api.douban.com/v2/movie/subject/${item.doubanId}?apikey=${apikey}`
 	const res=await rp(url)
