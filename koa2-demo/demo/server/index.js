@@ -5,10 +5,15 @@ const ejs =require('ejs')
 const pug =require('pug')
 const views =require('koa-views')
 const {resolve} =require('path')
-const {connect}=require('./database/init')
-
+const {connect,initSchemes}=require('./database/init')
+const mongoose=require('mongoose')
 ;(async()=>{
 	await connect()
+	initSchemes()
+	console.log('kkk')
+	const Movie=mongoose.model('Movie')
+	const movies=await Movie.find({})
+	console.log('hhhh',movies)
 })()
 
 app.use(views(resolve(__dirname,'./views'),{
