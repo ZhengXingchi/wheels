@@ -5,8 +5,25 @@ const {resolve}=require('path')
 
 mongoose.Promise=global.Promise
 exports.initSchemes=()=>{
-	console.log('ggg')
+ 
   glob.sync(resolve(__dirname,'./schema','**/*.js')).forEach(require)
+}
+
+exports.initAdmin=async ()=>{
+	const User=mongoose.model('User')
+	let user=await User.findOne({
+		username:'admin1'
+	})
+	console.log('-----',user)
+	if(!user){
+		const user=new User({
+			username:'admin1',
+			email:'xxxxxx1@qq.com',
+			password:'1234561'
+		})
+		await user.save()
+		
+	}
 }
 
 exports.connect=()=>{
@@ -37,11 +54,11 @@ exports.connect=()=>{
 		})
 
 	    mongoose.connection.once('open',()=>{
-	    	const Dog=mongoose.model('Dog',{name:String})
-	    	const dog1=new Dog({name:'aaa'})
-	    	dog1.save().then(()=>{
-	    		console.log('wangwang')
-	    	})
+	    	// const Dog=mongoose.model('Dog',{name:String})
+	    	// const dog1=new Dog({name:'aaa'})
+	    	// dog1.save().then(()=>{
+	    	// 	console.log('wangwang')
+	    	// })
 	      resolve()
 	      console.log('连接成功')
 		})

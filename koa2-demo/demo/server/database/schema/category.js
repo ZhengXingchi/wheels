@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const Schema=mongoose.Schema
 const ObjectId=Schema.Types.ObjectId
-console.log('rrr')
+
 const categorySchema=new Schema({
     name:{
     	unique:true,
@@ -24,7 +24,7 @@ const categorySchema=new Schema({
 })
 
 
-categorySchema.pre('save',next=>{
+categorySchema.pre('save',function(next){
 	if(this.isNew){
        this.meta.createdAt=this.meta.updatedAt=Date.now()
 	}else{

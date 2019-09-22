@@ -6,6 +6,9 @@ let fs =require('fs')
 let {resolve} =require('path')
 let nanoid=require('nanoid')
 const {client}=require('../config/private')
+const mongoose=require('mongoose')
+const Movie=mongoose.model('Movie')
+ 
 
 
 
@@ -80,7 +83,7 @@ function uploadToaliyun (url,key) {
     ht = https;
   }
 
-  console.log('111')
+
   return new Promise((resolve,reject)=>{
     var req = ht.get(url, function (res) {
       var imgData = "";
@@ -112,16 +115,28 @@ function uploadToaliyun (url,key) {
 }
 
 ;(async()=>{
-  let movies=[{
-    // video: 'http://vt1.doubanio.com/201909170901/b038544952085152e62e68225551fe5a/view/movie/M/301020952-1.mp4',
-     video: 'https://img3.doubanio.com/img/trailer/medium/1301691506.jpg?',
-    doubanId: '3793023',
-    cover: 'https://img3.doubanio.com/img/trailer/medium/1301691506.jpg?',
-    poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p579729551.jpg'
-  }]
+  // let movies=[{
+  //   // video: 'http://vt1.doubanio.com/201909170901/b038544952085152e62e68225551fe5a/view/movie/M/301020952-1.mp4',
+  //    video: 'https://img3.doubanio.com/img/trailer/medium/1301691506.jpg?',
+  //   doubanId: '3793023',
+  //   cover: 'https://img3.doubanio.com/img/trailer/medium/1301691506.jpg?',
+  //   poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p579729551.jpg'
+  // }]
 
-  movies.map(async(movie)=>{
+  let movies=await Movie.find({
+    $or:[
+      {videoUrl:{$exists:false}},
+      {videoUrl:''},
+      {videoUrl:null}
+    ]
+  })
+console.log([movies[0]])
+  
+    for(let i=0;i<[movies[0]].length;i++){
+    let movie=movies[i]
     if(movie.poster&&!movie.posterUrl){
+
+
       try{
         let videoData =await uploadToaliyun(movie.video,nanoid()+'.mp4')
         let coverData =await uploadToaliyun(movie.cover,nanoid()+'.jpg')
@@ -136,13 +151,14 @@ function uploadToaliyun (url,key) {
         movie.posterUrl=client.signatureUrl(posterData.name)
       }
       console.log(movie)
+      await movie.save()
       }catch(err){
         console.log(err)
     }
 
 
     }
-  })
+  }
 
 })()
 

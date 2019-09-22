@@ -7,19 +7,19 @@ const movieSchema=new Schema({
       required:true,
       type:String
 	},
-	category:{
+	category:[{
 		type:ObjectId,
 		ref:'Category'
-	},
+	}],
 	rate:Number,
 	title:String,
 	summary:String,
 	video:String,
 	poster:String,
 	cover:String,
-	videoName:String,
-	posterName:String,
-	coverName:String,
+	videoUrl:String,
+	posterUrl:String,
+	coverUrl:String,
 	rawTitle:String,
 	movieTypes:[String],
 	pubdate:Mixed,
@@ -38,10 +38,11 @@ const movieSchema=new Schema({
 })
 
 
-movieSchema.pre('save',next=>{
+movieSchema.pre('save',function(next){
 	if(this.isNew){
        this.meta.createdAt=this.meta.updatedAt=Date.now()
 	}else{
+		console.log('------------',Date.now())
        this.meta.updatedAt=Date.now()
 	}
 	next()

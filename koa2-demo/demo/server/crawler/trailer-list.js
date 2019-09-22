@@ -1,7 +1,8 @@
 const puppeteer=require('puppeteer')
+const pageNo=3 //显示pageNo页的数据
 const url=`https://movie.douban.com/tag/#/?sort=U&range=6,10&tags=`
 const sleep=time=>{
-	new Promise(resolve=>{
+	return new Promise(resolve=>{
 		setTimeout(resolve,time)
 	})
 }
@@ -14,18 +15,23 @@ const sleep=time=>{
   const page = await browser.newPage();
   await page.goto(url, {waitUntil: 'networkidle2'});
   await sleep(3000)
-
   await page.waitForSelector('.more')
-  for(let i=0;i<1;i++){
-  	await page.click('.more')
-  	await sleep(3000)
+  for(let i=1;i<pageNo;i++){
+    if(i!=pageNo){
+      await sleep(3000)
+      await page.click('.more')
+       
+    }
+  
   }
-   
+
   const result=await page.evaluate(()=>{
   	var $=window.$
 
   	var items=$('.list-wp .item')
   	var links=[] 
+
+
   	if(items.length>=1){
   		items.each((index,item)=>{
   			let it=$(item)
