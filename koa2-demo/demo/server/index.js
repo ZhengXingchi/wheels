@@ -9,7 +9,7 @@ const {connect,initSchemes,initAdmin}=require('./database/init')
 const mongoose=require('mongoose')
 
 const R=require('ramda')
-const MIDDLEWARES=['router']
+const MIDDLEWARES=['router','parcel']
 ;(async()=>{
 	await connect()
   initSchemes()

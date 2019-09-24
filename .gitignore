@@ -10,6 +10,7 @@
 
 # production
 /build
+**/dist
 
 # misc
 .DS_Store
@@ -25,3 +26,7 @@ yarn-error.log*
 
 # 配置
 **/config/private.js
+
+
+# 缓存
+**/.cache
