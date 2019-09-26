@@ -1,17 +1,20 @@
 import React,{Component} from 'react'
 import {
   Menu,
-  spin
+  Spin
 }from 'antd'
 import navRoutes from '../nav'
 
-const getMenuContent=({path,name})=>(
- <a href={path?path:'/'} style={{color:"#fff2e8"}}>{name}</a>
+const getMenuContent=({path,name})=>{
 
-)
+  return(
+   <a href={path?path:'/'} style={{color:"#000"}}>{name}</a>
 
-export default LayoutDefault extends Component{
-  constructor(){
+  )
+}
+
+export default class LayoutDefault extends Component{
+  constructor(props){
     super(props)
     this.state={
       loading:false,
@@ -41,36 +44,38 @@ export default LayoutDefault extends Component{
     })
   }
 
-  render（）{
+  render(){
     const {children}=this.props
     const {loading,tip}=this.state
     return (
      <div className='flex-column' style={{width:"100%",height:"100%"}}>
       <Menu
         mode="horizontal"
-        style={{fontSize=13.5,backgroundColor:"#000"}}
+        style={{fontSize:13.5,backgroundColor:"fff"}}
         defaultSelectedKeys={[this.matchRouteName]}
       >
         <Menu.Item 
-          style={{marginLeft:24,marginRight:30,fontSize:18,textAlign:"center",color:"#fff !important",float:"left"}}
+          style={{fontSize:18,textAlign:"center",color:"#000 !important"}}
         >
-          <a href={'/'} className='hover-scale logo-text' style={{color:"fff2e8"}}>预告片网站</a>     
-        </Menu.item>
+          <a href={'/'} className='hover-scale logo-text' style={{color:"#000"}}>预告片网站</a>     
+        </Menu.Item>
         {
           navRoutes.map((e,i)=>{
-             <Menu.Item key={e.name}>
-                {getMenuContent(...e)}
-              </Menu.item>
+             return (<Menu.Item key={e.name}>
+                {getMenuContent({...e})}
+              </Menu.Item>)
           })
         }
      
 
       </Menu>
-      <spin>
+      <Spin
         spinning={loading}
         tip={tip}
         wrapperClassName='content-spin full'
-      </spin>
+      >
+        {children}
+      </Spin>
      </div>
 
     )

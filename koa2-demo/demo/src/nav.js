@@ -1,10 +1,10 @@
 export default [
   {
-    name:'全部'，
+    name:'全部',
     path:'/'
   },{
-    name:'科幻'，
-    path:`/list/${encodeURIComponent('科幻')}``
+    name:'科幻',
+    path:`/list/${encodeURIComponent('科幻')}`
   },{
     name: '惊悚',
     path: `/list/${encodeURIComponent('惊悚')}`

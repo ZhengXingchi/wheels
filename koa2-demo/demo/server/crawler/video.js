@@ -53,6 +53,8 @@ const sleep=time=>{
       doubanId,
       cover:result.cover
     }
+
+   
     process.send(data)
   }
   await browser.close();

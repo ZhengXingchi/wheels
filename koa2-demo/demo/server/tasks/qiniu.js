@@ -79,6 +79,7 @@ const Movie=mongoose.model('Movie')
 
 function uploadToaliyun (url,key) {
   var ht = http; 
+  console.log('url'.url)
   if (url.toString().indexOf("https") === 0){
     ht = https;
   }
@@ -95,7 +96,7 @@ function uploadToaliyun (url,key) {
       res.on("end", async function () {
         try {
           let result = await client.put(key, Buffer.from(imgData,"binary"));
-            console.log(result);
+            // console.log(result);
             resolve(result)
           } catch (e) {
             console.log('buffer',e);
@@ -130,30 +131,40 @@ function uploadToaliyun (url,key) {
       {videoUrl:null}
     ]
   })
-console.log([movies[0]])
+
   
-    for(let i=0;i<[movies[0]].length;i++){
+    for(let i=0;i<movies.length;i++){
     let movie=movies[i]
     if(movie.poster&&!movie.posterUrl){
 
 
       try{
         let videoData =await uploadToaliyun(movie.video,nanoid()+'.mp4')
+        // let videoData =await uploadToaliyun(movie.cover,nanoid()+'.jpg')// 临时替换一下
         let coverData =await uploadToaliyun(movie.cover,nanoid()+'.jpg')
         let posterData=await uploadToaliyun(movie.poster,nanoid()+'.jpg')
-          if(videoData.url){
-        movie.videoUrl=client.signatureUrl(videoData.name)
-      }
-      if(coverData.url){
-        movie.coverUrl=client.signatureUrl(coverData.name)
-      }
-      if(posterData.url){
-        movie.posterUrl=client.signatureUrl(posterData.name)
-      }
-      console.log(movie)
-      await movie.save()
+        // if(videoData.url){
+        //   movie.videoUrl=client.signatureUrl(videoData.name)
+        // }
+        // if(coverData.url){
+        //   movie.coverUrl=client.signatureUrl(coverData.name)
+        // }
+        // if(posterData.url){
+        //   movie.posterUrl=client.signatureUrl(posterData.name)
+        // }
+        if(videoData.name){
+          movie.videoUrl=videoData.name
+        }
+        if(coverData.name){
+          movie.coverUrl=coverData.name
+        }
+        if(posterData.name){
+          movie.posterUrl=posterData.name
+        }
+      
+        await movie.save()
       }catch(err){
-        console.log(err)
+        console.log('111',err)
     }
 
 

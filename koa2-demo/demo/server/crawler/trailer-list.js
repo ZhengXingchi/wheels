@@ -1,5 +1,5 @@
 const puppeteer=require('puppeteer')
-const pageNo=3 //显示pageNo页的数据
+const pageNo=1 //显示pageNo页的数据
 const url=`https://movie.douban.com/tag/#/?sort=U&range=6,10&tags=`
 const sleep=time=>{
 	return new Promise(resolve=>{
@@ -34,18 +34,20 @@ const sleep=time=>{
 
   	if(items.length>=1){
   		items.each((index,item)=>{
-  			let it=$(item)
-  			let doubanId=it.find('div').data('id')
-  			let title=it.find('.title').text()
-  			let rate=it.find('.rate').text()
-  			let poster=it.find('.pic img').attr('src').replace('s_ratio','l_ratio')
+        if(index<3){// 限制5个
+    			let it=$(item)
+    			let doubanId=it.find('div').data('id')
+    			let title=it.find('.title').text()
+    			let rate=it.find('.rate').text()
+    			let poster=it.find('.pic img').attr('src').replace('s_ratio','l_ratio')
 
-  			links.push({
-  				doubanId,
-  				title,
-  				rate,
-  				poster
-  			})
+    			links.push({
+    				doubanId,
+    				title,
+    				rate,
+    				poster
+    			})
+        }
   		})
   	}
   	return links

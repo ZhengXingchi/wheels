@@ -49,9 +49,10 @@ const Category=mongoose.model('Category')
     let movie=await Movie.findOne({
       doubanId:doubanId
     })
-
+console.log('kkkkkkkk',data.video)
  
     if(data.video){
+
       movie.video=data.video
       movie.cover=data.cover
       await movie.save()
@@ -74,6 +75,6 @@ const Category=mongoose.model('Category')
     }
     
   })
-
-  child.send([movies[0],movies[1]])
+console.log('hhhhhhhhhh',movies.length)
+  child.send(movies)
 })()

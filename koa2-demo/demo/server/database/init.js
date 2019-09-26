@@ -14,7 +14,7 @@ exports.initAdmin=async ()=>{
 	let user=await User.findOne({
 		username:'admin1'
 	})
-	console.log('-----',user)
+	
 	if(!user){
 		const user=new User({
 			username:'admin1',

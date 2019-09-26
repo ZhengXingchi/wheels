@@ -8,7 +8,7 @@ const isArray=arr=> _.isArray(arr)?arr:[arr]
 const router=conf=>(target,key,descriptor)=>{
   conf.path=normalizePath(conf.path)
 
-  console.log(conf)
+
   routerMap.set({
     target:target,
     ...conf
@@ -29,18 +29,18 @@ export class Route{
 
 
   init(){
-    console.log(this.apiPath)
+   
     glob.sync(resolve(this.apiPath,'./**/*.js')).forEach(require)
     for(let [conf,controller] of routerMap){
       const controllers = isArray(controller)
       let prefixPath=conf.target[symbolPrefix]
 
-      console.log(prefixPath)
+    
       if(prefixPath) prefixPath=normalizePath(prefixPath)
       const routerPath=prefixPath+conf.path
       this.router[conf.method](routerPath,...controllers)
 
-      console.log(conf.method,controllers,routerPath)
+     
     }
     this.app.use(this.router.routes())
     this.app.use(this.router.allowedMethods())

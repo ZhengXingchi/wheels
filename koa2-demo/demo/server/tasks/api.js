@@ -33,10 +33,10 @@ async function fetchMovie(item){
 
  
 
-  for(let i=0;i<[movies[0]].length;i++){
+  for(let i=0;i<movies.length;i++){
     let movie=movies[i]
 
-   console.log('============================',movie.doubanId)
+  
     let movieData=await fetchMovie(movie)
 
 
@@ -53,8 +53,10 @@ async function fetchMovie(item){
        
     
           movie.movieTypes=movieData.genres||[]
-          movie.movieTypes.forEach(async item=>{
-            cat=await Category.findOne({name:item}) 
+          for(let k=0;k<movie.movieTypes.length;k++){
+            let item = movie.movieTypes[k]
+
+            let cat=await Category.findOne({name:item}) 
             if(!cat){
               cat=new Category({
                 name:item,
@@ -68,20 +70,23 @@ async function fetchMovie(item){
               }
             }
             await cat.save()
-              
-            if(!movie.category){
-              movie.category.push(cat._id)
+          
+            if(!movie.category||!movie.category.length){
+         
+              movie.category=[cat._id]
             }else{
               if(movie.category.indexOf(cat._id)===-1){
+               
                 movie.category.push(cat._id)
               }
+            
             }
-          })
+           }
 
-            movie.pubdates=movieData.pubdates||[]
+            movie.pubdate=movieData.pubdates||[]
       
 
-           
+        
             await movie.save()
          
 

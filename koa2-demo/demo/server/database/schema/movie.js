@@ -42,7 +42,7 @@ movieSchema.pre('save',function(next){
 	if(this.isNew){
        this.meta.createdAt=this.meta.updatedAt=Date.now()
 	}else{
-		console.log('------------',Date.now())
+	
        this.meta.updatedAt=Date.now()
 	}
 	next()

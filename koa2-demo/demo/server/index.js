@@ -9,6 +9,7 @@ const {connect,initSchemes,initAdmin}=require('./database/init')
 const mongoose=require('mongoose')
 
 const R=require('ramda')
+// const MIDDLEWARES=['router']
 const MIDDLEWARES=['router','parcel']
 ;(async()=>{
 	await connect()
@@ -16,7 +17,7 @@ const MIDDLEWARES=['router','parcel']
 	// initAdmin()
 	// require('./tasks/movie')
 	// require('./tasks/api')
-	// require('./tasks/trailer')
+	// require('./tasks/trailer') 
 	// require('./tasks/qiniu')
 
   const app=new koa()
