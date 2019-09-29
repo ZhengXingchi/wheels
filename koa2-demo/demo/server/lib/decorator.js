@@ -63,7 +63,7 @@ export class Route{
   })
 
   export const del=path=>router({
-    method:'del',
+    method:'delete',
     path
   })
 

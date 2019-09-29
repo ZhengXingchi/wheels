@@ -75,3 +75,15 @@ export const getRelativeDetail=async(movie)=>{
   return movies
 }
 
+
+
+export const findAndRemove=async (id)=>{
+  const movie=await Movie.findOne({
+    _id:id
+  })
+  if(movie){
+    await movie.remove()
+  }
+
+}
+

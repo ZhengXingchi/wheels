@@ -128,6 +128,25 @@ _toggleLoading=(status=false)=>{
   }
 
 
+  _deleteMovie=(id)=>{
+  
+    request({
+      method:'delete',
+      url:`/admin/movie?id=${id}`
+    }).then(res=>{
+      
+     this.setState({
+      dataSource:res
+     })
+    }).catch(err=>{
+      this.setState({
+        dataSource:[]
+      })
+     
+    })
+  }
+
+
 
   render(){
     let {dataSource,columns} =this.state

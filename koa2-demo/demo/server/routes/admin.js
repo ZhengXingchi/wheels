@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
-const {controller,post,auth,get,admin,required}=require('../lib/decorator')
+const {controller,post,auth,get,admin,required,del}=require('../lib/decorator')
 const {checkPassword}=require('../service/user')
-const {getAllMovies}=require('../service/movie')
+const {getAllMovies,findAndRemove}=require('../service/movie')
 @controller('/admin')
 export class adminController{
   @post('/login')
@@ -42,7 +42,7 @@ export class adminController{
 
   @get('/movie/list')
   @auth
-  @admin('admin1')
+  @admin('admin')
   async getMovieList(ctx,next){
     
 
@@ -53,6 +53,29 @@ export class adminController{
       data:movies,   
       success:true
     }
+  }
+
+
+
+  @del('/movie')
+  @required({
+    query:['id']
+  })
+  async remove(ctx,next){
+    const id=ctx.query.id
+    console.log(ctx.query.id)
+    console.log(ctx.request.query.id)
+   
+    const movie=await findAndRemove(id)
+    const movies= await getAllMovies()
+ 
+  
+    return (
+      ctx.body={
+        success:true,
+        data:movies
+      
+    })
   }
 
 
