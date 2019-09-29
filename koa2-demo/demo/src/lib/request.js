@@ -15,13 +15,13 @@ const _request=(params={},fn=()=>{})=>{
     }
     if(success){
       fn(false)
-      return data
+      return data||'sucess'
     }
     throw err
   })
   .catch(err=>{
     fn(false);
-    message.err(String(err||'网络连接失败'))
+    message.error(String(err||'网络连接失败'))
   })
 }
 

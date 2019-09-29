@@ -27,6 +27,10 @@ const userSchema=new Schema({
 		required:true,
 		default:0
 	},
+  role:{
+    type:String,
+    default:'user'
+  },
 	lockUntil:Number,
 	meta:{
 		createdAt:{
@@ -73,7 +77,8 @@ userSchema.methods={
 	comparePassword:(_password,password)=>{
 		return new Promise((resolve,reject)=>{
           bcrypt.compare(_password,password,(err,isMatch)=>{
-          	if(!err) resolve(err)
+            
+          	if(!err) resolve(isMatch)
           	else reject(err)
           })
 		})

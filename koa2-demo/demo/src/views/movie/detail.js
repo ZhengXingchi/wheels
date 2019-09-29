@@ -51,7 +51,7 @@ export default class Detail  extends Component{
         relativeMovies
       },()=>{
         this.player=new DPlayer({
-          container:document.getElementById('videoPlayertt'),
+          container:document.getElementById('videoPlayer'),
           sreenshot:true,
           video:{
             url:movie.videoUrl,
@@ -77,7 +77,7 @@ export default class Detail  extends Component{
       <div className='flex-row full'>
         <div className="page-shade">
             <div className='video-wrapper'>
-              <div id='videoPlayertt' data-src={movie.coverUrl} data-video={movie.videoUrl}></div>
+              <div id='videoPlayer' data-src={movie.coverUrl} data-video={movie.videoUrl}></div>
             </div>
             <div className='video-sidebar'>
               <Link className='homeLink' to={'/'}>回到首页</Link>

@@ -18,8 +18,9 @@ exports.initAdmin=async ()=>{
 	if(!user){
 		const user=new User({
 			username:'admin1',
-			email:'xxxxxx1@qq.com',
-			password:'1234561'
+			email:'x@qq.com',
+			password:'123456',
+			role:'admin'
 		})
 		await user.save()
 		

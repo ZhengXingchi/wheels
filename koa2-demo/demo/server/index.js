@@ -10,7 +10,7 @@ const mongoose=require('mongoose')
 
 const R=require('ramda')
 // const MIDDLEWARES=['router']
-const MIDDLEWARES=['router','parcel']
+const MIDDLEWARES=['common','router','parcel']
 ;(async()=>{
 	await connect()
   initSchemes()
