@@ -24,7 +24,10 @@ async ()=>{
 
 
 ## dplayer Uncaught (in promise) DOMException
-可能是视频地址不对,检查食品是否可以播放
+
+Unhandled Promise Rejection: NotSupportedError (DOM Exception 9): The operation is not supported.
+
+可能是视频地址不对,检查视频是否可以播放
 ```
 this.player=new DPlayer({
   container:document.getElementById('videoPlayertt'),
