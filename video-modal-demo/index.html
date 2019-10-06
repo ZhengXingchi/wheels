@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>视频弹窗</title>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+<!-- 
+https://doubanlists.oss-cn-hangzhou.aliyuncs.com/Q1KL9lMv9KtTLHIj8yLAe.mp4?Expires=1569989062&OSSAccessKeyId=TMP.hVgiEmDLyDy17CqpuBNGbJF21vTkhGnb7jxczRdQx4iNz9otHyYbXNQAvhoHckPyv24KPqsaP1uDhPAZbpdKk4EVYUGASBqf6YTyiPxQ92wG7kNGuSmzjhuYRPYfC7.tmp&Signature=ispUpGoRx8eTdbDVpSbQqBji4Co%3D
+-->
+  <div  id="filelist">
+    <video controls=""  class="video_link" poster="https://doubanlists.oss-cn-hangzhou.aliyuncs.com/MBFtk4xQEdam-D0n0QBnZ.jpg?Expires=1569989288&OSSAccessKeyId=TMP.hVgiEmDLyDy17CqpuBNGbJF21vTkhGnb7jxczRdQx4iNz9otHyYbXNQAvhoHckPyv24KPqsaP1uDhPAZbpdKk4EVYUGASBqf6YTyiPxQ92wG7kNGuSmzjhuYRPYfC7.tmp&Signature=I6QkKCL14LpU4XcKGsi3WInZ0mc%3D">
+      <source src="https://doubanlists.oss-cn-hangzhou.aliyuncs.com/Q1KL9lMv9KtTLHIj8yLAe.mp4?Expires=1569989062&OSSAccessKeyId=TMP.hVgiEmDLyDy17CqpuBNGbJF21vTkhGnb7jxczRdQx4iNz9otHyYbXNQAvhoHckPyv24KPqsaP1uDhPAZbpdKk4EVYUGASBqf6YTyiPxQ92wG7kNGuSmzjhuYRPYfC7.tmp&Signature=ispUpGoRx8eTdbDVpSbQqBji4Co%3D" type="video/mp4">
+    </video>
+  </div>
+
+
+<div class="modal" id="myModal" role="dialog" aria-labelledby="videoPlayModal" aria-hidden="true">
+    <div class="modal-dialog" style="width:500px;">
+        <div class="modal-content" style="width:500px;">
+            <div class="modal-body" style="width:500px;padding:5px;padding-bottom: 1px;">
+                   <video controls=""  id="playdom" style="width:100%;height:100%;">
+                      <source/>
+                    </video> 
+                    <a class="close" data-dismiss="modal" style="position:absolute; top:5px; right:5px;">×</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+     var videoUrl = "https://doubanlists.oss-cn-hangzhou.aliyuncs.com/Q1KL9lMv9KtTLHIj8yLAe.mp4?Expires=1569989062&OSSAccessKeyId=TMP.hVgiEmDLyDy17CqpuBNGbJF21vTkhGnb7jxczRdQx4iNz9otHyYbXNQAvhoHckPyv24KPqsaP1uDhPAZbpdKk4EVYUGASBqf6YTyiPxQ92wG7kNGuSmzjhuYRPYfC7.tmp&Signature=ispUpGoRx8eTdbDVpSbQqBji4Co%3D";
+      var jpgUrl = "https://doubanlists.oss-cn-hangzhou.aliyuncs.com/MBFtk4xQEdam-D0n0QBnZ.jpg?Expires=1569989288&OSSAccessKeyId=TMP.hVgiEmDLyDy17CqpuBNGbJF21vTkhGnb7jxczRdQx4iNz9otHyYbXNQAvhoHckPyv24KPqsaP1uDhPAZbpdKk4EVYUGASBqf6YTyiPxQ92wG7kNGuSmzjhuYRPYfC7.tmp&Signature=I6QkKCL14LpU4XcKGsi3WInZ0mc%3D";
+    $("#filelist").on('click', ".video_link",function(){
+      // var videoDom = event.target;
+
+     
+      
+     
+      // var videoUrl = ($(videoDom).find("source")).attr('src');
+      // var jpgUrl = $(videoDom).attr('poster');
+    
+       playVideo()
+      
+    });
+
+    $("#filelist").on('mouseenter', ".video_link", function(){
+      var videoDom = event.target;
+        videoDom.addEventListener('play', function(){
+            // videoDom.play();
+            $(videoDom).attr('src','')
+             playVideo()
+        
+      })
+    })
+
+
+    let  playVideo=()=>{
+      $('#myModal').modal('show')
+      $("#myModal #playdom").attr("src", videoUrl);
+      $("#myModal #playdom").attr("poster", jpgUrl);
+      $("#myModal #playdom")[0].play()
+    }
+    // PS:firefox不支持event解决方案。为了兼容firefox 我们通过下列方式获取event
+    //     $("#filelist").on('click', ".video_link",function(e){
+    //     var eventAll =  window.event || e;
+    //     videoDom = eventAll.target;
+    // }
+
+    // $('#myModal').on('shown.bs.modal', function () {
+    //     var $this = $(this);
+    //     var dialog = $this.find('.modal-dialog');
+     
+    //     //此种方式，在使用动画第一次显示时有问题
+    //     //解决方案，去掉动画fade样式
+    //     var top = ($(window).height() - dialog.height()) / 2;
+    //     var left = ($(window).width() - dialog.width()) / 2;
+    //     console.log(left)
+    //     dialog.css({
+    //         marginLeft:left,
+    //         marginTop:top
+    //     });
+
+    // })
+
+        $('#myModal').on('hidden.bs.modal', function () {
+    
+        $("#myModal #playdom")[0].pause()
+    })
+
+   
+
+  </script>
+
+  </body>
+</html>
