@@ -32,4 +32,4 @@ class AuthRoute extends React.Component{
   }
 }
 
-export default withRouter
+export default AuthRoute
