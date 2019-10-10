@@ -4,9 +4,12 @@ import {
   Grid,
   List
 }from 'antd-mobile'
-import AvatarSelector from '../../component/avatar-selector/avatar-selector'
+import PropTypes from 'prop-types'
 
-export default class BossInfo extends Component{
+export default class AvatarSelector extends Component{
+  static propTypes={
+    selectAvatar:PropTypes.func.isRequired
+  }
   constructor(props){
     super(props)
     this.state={

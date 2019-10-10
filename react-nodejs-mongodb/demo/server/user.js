@@ -8,8 +8,9 @@ const _filter={pwd:0,__v:0}
 
 Router.get('/list',function(req,res){
   // User.remove({},(err,doc)=>{})
-  User.find({},(err,doc)=>{
-    return res.json(doc)
+  const {type} =req.query
+  User.find({type},(err,doc)=>{
+    return res.json({code:0,data:doc})
   })
 })
 
@@ -66,6 +67,21 @@ Router.get('/info',function(req,res){
     }
   })
 
+})
+
+Router.post('/update',function(req,res){
+  const userid=req.cookies.userid
+  if(!userid){
+    return res.json({code:1})
+  }
+  const body=req.body
+  User.findByIdAndUpdate(userid,body,(err,doc)=>{
+    const data=Object.assign({},{
+      user:doc.user,
+      type:doc.type
+    },body)
+    return res.json({code:0,data})
+  })
 })
 
 

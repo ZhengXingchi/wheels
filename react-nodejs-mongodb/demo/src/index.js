@@ -24,7 +24,9 @@ import './config'
 import AuthRoute from './component/authroute/authroute'
 import Login from './container/login/login'
 import BossInfo from './container/bossinfo/bossinfo'
+import GeniusInfo from './container/geniusinfo/geniusinfo'
 import Register from './container/register/register'
+import DashBoard from './component/dashboard/dashboard'
 
 
 import 'antd-mobile/dist/antd-mobile.min.css'
@@ -34,19 +36,21 @@ const store =createStore(reducers,compose(
   window.devToolsExtension?window.devToolsExtension():f=>f
 ))
 
-function Boss(){
-  return <h2>BOSS页面</h2>
-}
+
 
 ReactDom.render(
   (<Provider store={store}>
      <BrowserRouter>
        <div>
-         <AuthRoute></AuthRoute>
-         <Route path='/login' component={Login}></Route>
-         <Route path='/boss' component={Boss}></Route>
-         <Route path='/bossinfo' component={BossInfo}></Route>
-         <Route path='/register' component={Register}></Route>
+          <AuthRoute></AuthRoute>
+          <Switch>
+             <Route path='/login' component={Login}></Route>
+         
+             <Route path='/bossinfo' component={BossInfo}></Route>
+             <Route path='/geniusinfo' component={GeniusInfo}></Route>
+             <Route path='/register' component={Register}></Route>
+             <Route  component={DashBoard}></Route>
+          </Switch>
        </div>
      </BrowserRouter>
   </Provider>),

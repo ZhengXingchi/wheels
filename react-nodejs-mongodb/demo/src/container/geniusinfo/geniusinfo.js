@@ -16,13 +16,11 @@ export default  @connect(
 state=>state.user,
 {update}
 )
-class BossInfo extends Component{
+class GeniusInfo extends Component{
   constructor(props){
     super(props)
     this.state={
       title:'',
-      company:'',
-      money:'',
       desc:''
     }
   }
@@ -40,13 +38,12 @@ class BossInfo extends Component{
         <NavBar
           mode="dark" 
         >
-          BOSS完善信息页
+          牛人完善信息页
         </NavBar>
         <AvatarSelector selectAvatar={(imageName)=>this.setState({avatar:imageName})}></AvatarSelector>
-        <InputItem onChange={(v)=>this.onChange('title',v)}>招聘职位</InputItem>  
-        <InputItem onChange={(v)=>this.onChange('company',v)}>公司名称</InputItem>  
-        <InputItem onChange={(v)=>this.onChange('money',v)}>职位薪资</InputItem>  
-        <TextareaItem onChange={(v)=>this.onChange('desc',v)}  rows={3} autoHeight title="职位要求"></TextareaItem>  
+        <InputItem onChange={(v)=>this.onChange('title',v)}>求职岗位</InputItem>  
+  
+        <TextareaItem onChange={(v)=>this.onChange('desc',v)}  rows={3} autoHeight title="个人简介"></TextareaItem>  
         <Button onClick={()=>{this.props.update(this.state)}} type="primary">保存</Button>
       </div>
     )
