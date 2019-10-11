@@ -3,6 +3,7 @@ import Logo from '../../component/logo/logo'
 import {connect} from 'react-redux'
 import {login} from '../../redux/user.redux'
 import {Redirect} from 'react-router-dom'
+import wrapperForm from '../../component/wrapper-form/wrapper-form'
 import {
   List,
   InputItem,
@@ -15,16 +16,13 @@ import {
 state=>state.user,
 {login}
 )
+@wrapperForm
 class Login extends Component{
   constructor(props){
     super(props);
     this.register=this.register.bind(this)
     this.handlelogin=this.handlelogin.bind(this)
-     this.state={
-      user:'',
-      pwd:''
-     
-    }
+   
   }
 
   register(){
@@ -32,14 +30,10 @@ class Login extends Component{
   }
 
   handlelogin(){
-    this.props.login(this.state)
+    this.props.login(this.props.state)
   }
 
-   handleChange(key,val){
-    this.setState({
-      [key]:val
-    })
-  }
+ 
 
   render(){
     return (
@@ -50,9 +44,9 @@ class Login extends Component{
         <WingBlank>
           <List>
            {this.props.msg?<p className='error-msg'>{this.props.msg}</p>:null}
-            <InputItem  onChange={v=>this.handleChange('user',v)}>用户</InputItem>
+            <InputItem  onChange={v=>this.props.handleChange('user',v)}>用户</InputItem>
        
-            <InputItem  onChange={v=>this.handleChange('pwd',v)}>密码</InputItem>
+            <InputItem  onChange={v=>this.props.handleChange('pwd',v)}>密码</InputItem>
            
            </List>
            <WhiteSpace/>

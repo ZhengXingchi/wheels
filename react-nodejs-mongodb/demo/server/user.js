@@ -29,6 +29,10 @@ Router.post('/login',function(req,res){
   })
 })
 
+Router.get('getmsglist',(req,res)=>{
+  const user=req
+})
+
 Router.post('/register',function(req,res){
  
 

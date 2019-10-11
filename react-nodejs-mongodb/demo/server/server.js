@@ -7,11 +7,24 @@ const userRouter=require('./user')
 
 
 const app =express()
+
+//workwith express
+const server=require('http').Server(app)
+const io=require('socket.io')(server)
+
+io.on('connection',(socket)=>{
+  //socket当次连接  io全局连接
+  socket.on('sendMsg',(data)=>{
+    console.log(data)
+    io.emit('recvMsg',data)
+  }) 
+})
+
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use('/user',userRouter)
 
 
-app.listen(9093,()=>{
+server.listen(9093,()=>{
   console.log('Node app start at port 9093')
 })

@@ -4,14 +4,36 @@ import {
   Result,
   List,
   WhiteSpace,
-  Button
+  Button,
+  Modal
 } from 'antd-mobile'
+import cookies from 'browser-cookies'
+import {logoutSubmit} from '../../redux/user.redux'
+import {Redirect} from 'react-router-dom'
 export default @connect(
-state=>state.user
+state=>state.user,
+{logoutSubmit}
 )
 class User extends Component{
+  constructor(props){
+    super(props)
+    this.logout=this.logout.bind(this)
+  }
+
+  logout(){
+    console.log('111')
+    Modal.alert('注销','确认退出吗?',[
+      {text:'取消',onPress:()=>console.log('cancel')},
+      {text:'确认',onPress:()=>{
+        cookies.erase('userid')
+        this.props.logoutSubmit()
+       
+      }}
+    ])
+  }
   render(){
     return this.props.user?(
+
       <div>
         <Result
           img={<img src={require(`../img/${this.props.avatar}.png`)} style={{width:50}} alt=""/>}
@@ -32,8 +54,8 @@ class User extends Component{
           </List.Item>
         </List>
         <WhiteSpace></WhiteSpace>
-        <Button>退出登录</Button>
-      </div>):null
+        <Button onClick={this.logout}>退出登录</Button>
+      </div>):<Redirect to={this.props.redirectTo}></Redirect>
     
   }
 }
