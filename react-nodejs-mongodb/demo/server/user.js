@@ -2,6 +2,7 @@ const express=require('express')
 const Router=express.Router()
 const model=require('./model')
 const User=model.getModel('user')
+const Chat=model.getModel('chat')
 const utils=require('utility')
 
 const _filter={pwd:0,__v:0}
@@ -29,8 +30,21 @@ Router.post('/login',function(req,res){
   })
 })
 
-Router.get('getmsglist',(req,res)=>{
-  const user=req
+Router.get('/getmsglist',(req,res)=>{
+  const user=req.cookies.userid
+  User.find({},(err,userdoc)=>{
+    let users={}
+    userdoc.forEach((item)=>{
+      users[item._id]={name:item.user,avatar:item.avatar}
+    })
+    
+    Chat.find({'$or':[{from:user},{to:user}]},function(err,doc){
+  
+      if (!err) {
+        return res.json({code:0,msgs:doc, users:users})
+      }
+    })
+  })
 })
 
 Router.post('/register',function(req,res){
