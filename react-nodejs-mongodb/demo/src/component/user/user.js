@@ -9,10 +9,11 @@ import {
 } from 'antd-mobile'
 import cookies from 'browser-cookies'
 import {logoutSubmit} from '../../redux/user.redux'
+import {logoutChat} from '../../redux/chat.redux'
 import {Redirect} from 'react-router-dom'
 export default @connect(
 state=>state.user,
-{logoutSubmit}
+{logoutSubmit,logoutChat}
 )
 class User extends Component{
   constructor(props){
@@ -27,6 +28,7 @@ class User extends Component{
       {text:'确认',onPress:()=>{
         cookies.erase('userid')
         this.props.logoutSubmit()
+        this.props.logoutChat()
        
       }}
     ])

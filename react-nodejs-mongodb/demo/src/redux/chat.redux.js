@@ -11,6 +11,9 @@ const MSG_RECV='MSG_RECV'
 
 //标识已读
 const MSG_READ='MAG_READ'
+const LOGOOUT_CHAT='LOGOOUT_CHAT'
+
+
 
 const initState={
   chatmsg:[],
@@ -26,14 +29,18 @@ export function chat(state=initState,action){
         ...state,
         chatmsg:action.payload.msgs,
         users:action.payload.users,
-        unread:action.payload.msgs.filter(v=>!v.read).length
+        unread:action.payload.msgs.filter(v=>!v.read&&v.to==action.payload.userid).length
       }
     case MSG_RECV:
     return{
       ...state,
-      chatmsg:[...state.chatmsg,action.payload],
-      unread:state.unread+1
+      chatmsg:[...state.chatmsg,action.payload.msg],
+      unread:action.payload.msg.to==action.payload.userid?state.unread+1:state.unread
     }
+    case LOGOOUT_CHAT:
+      return{
+        ...initState
+      }
     // case MSG_RECV:
     // case MSG_READ:
     default:
@@ -41,14 +48,20 @@ export function chat(state=initState,action){
   }
 }
 
-function msgList(msgs,users){
-  return{type:MSG_LIST,payload:{msgs,users}}
+export function logoutChat(){
+  return {type:LOGOOUT_CHAT}
 }
 
-function msgRecv(msg){
+
+function msgList(msgs,users,userid){
+  return{type:MSG_LIST,payload:{msgs,users,userid}}
+}
+
+function msgRecv(msg,userid){
+
   return{
     type:MSG_RECV,
-    payload:msg
+    payload:{msg,userid}
   }
 }
 export function sendMsg({from,to,msg}){
@@ -59,21 +72,29 @@ export function sendMsg({from,to,msg}){
 }
 
 export function recvMsg(){
-  return dispatch=>{
+  return (dispatch,getState)=>{
+   
+    
     socket.on('recvMsg',(data)=>{
-      console.log('recvmsg',data)
-      dispatch(msgRecv(data))
+       const userid=getState().user._id
+       
+
+      console.log('recvmsg',data,userid)
+      dispatch(msgRecv(data,userid))
     })
   }
 }
 export function getMsgList(){
-  return dispatch=>{
+
+  console.log('vvvvvv33333')
+  return (dispatch,getState)=>{
       axios.get('/user/getmsgList')
         .then(res=>{
 
           if(res.status==200 && res.data.code==0){
-
-             dispatch(msgList(res.data.msgs,res.data.users))
+             const userid=getState().user._id
+             console.log("vvvv2222",userid)
+             dispatch(msgList(res.data.msgs,res.data.users,userid))
           }
         })
   }

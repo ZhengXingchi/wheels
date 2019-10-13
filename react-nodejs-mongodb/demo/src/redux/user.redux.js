@@ -4,6 +4,7 @@ const ERROR_MSG='ERROR_MSG'
 const LOAD_DATA='LOAD_DATA'
 const AUTH_SUCCESS='AUTH_SUCCESS'
 const LOGOUT='LOGOUT'
+const RESET_REDERECTTO='RESET_REDERECTTO'
 const initState={
   isAuth:false,
   msg:'',
@@ -25,6 +26,11 @@ export function user(state=initState,action){
         isAuth:true,
         redirectTo:getRedirectPath(action.payload),
         ...action.payload
+      }
+    case RESET_REDERECTTO:
+      return{
+        ...state,
+        redirectTo:''
       }
     case ERROR_MSG:
       return{
@@ -73,6 +79,12 @@ export function update(data){
         dispatch(errorMsg(res.data.msg))
       }
     })
+  }
+}
+
+export function resetRedirectTo(){
+  return {
+    type:RESET_REDERECTTO
   }
 }
 

@@ -36,6 +36,7 @@ class Register extends Component{
   }
  
   render(){
+    
     return(
       <div>
         {this.props.redirectTo?<Redirect to={this.props.redirectTo}/>:null}

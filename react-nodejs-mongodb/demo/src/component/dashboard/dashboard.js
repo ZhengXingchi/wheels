@@ -11,28 +11,30 @@ import {
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
 import User from '../../component/user/user'
+import Msg from '../../component/msg/msg'
 import  {getMsgList,recvMsg} from '../../redux/chat.redux'
 
 
 
-function Msg(){
-  return <h2>消息列表页面</h2>
-}
+ 
 
  
 export default  @connect(
-state=>state.user,
+state=>state,
 {getMsgList,recvMsg}
 )
 class DashBoard extends Component{
 
   componentDidMount(){
-    this.props.getMsgList()
-    this.props.recvMsg()
+    if(!this.props.chat.chatmsg.length){
+      this.props.getMsgList()
+      this.props.recvMsg() 
+    }
+  
   }
 
   render(){
-    const user=this.props
+    const {user}=this.props
     const {pathname} =this.props.location
 
     console.log('ggggg',user)

@@ -1,7 +1,7 @@
 import React ,{Component} from 'react'
 import Logo from '../../component/logo/logo'
 import {connect} from 'react-redux'
-import {login} from '../../redux/user.redux'
+import {login,resetRedirectTo} from '../../redux/user.redux'
 import {Redirect} from 'react-router-dom'
 import wrapperForm from '../../component/wrapper-form/wrapper-form'
 import {
@@ -11,10 +11,11 @@ import {
   WhiteSpace,
   Button
 }from 'antd-mobile'
+ 
 
 @connect(
 state=>state.user,
-{login}
+{login,resetRedirectTo}
 )
 @wrapperForm
 class Login extends Component{
@@ -26,6 +27,7 @@ class Login extends Component{
   }
 
   register(){
+    this.props.resetRedirectTo()
     this.props.history.push('/register')
   }
 
@@ -36,6 +38,7 @@ class Login extends Component{
  
 
   render(){
+
     return (
       <div>
         <Logo></Logo>
