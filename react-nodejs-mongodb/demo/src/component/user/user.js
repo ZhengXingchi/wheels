@@ -35,7 +35,6 @@ class User extends Component{
   }
   render(){
     return this.props.user?(
-
       <div>
         <Result
           img={<img src={require(`../img/${this.props.avatar}.png`)} style={{width:50}} alt=""/>}
@@ -57,7 +56,12 @@ class User extends Component{
         </List>
         <WhiteSpace></WhiteSpace>
         <Button onClick={this.logout}>退出登录</Button>
-      </div>):<Redirect to={this.props.redirectTo}></Redirect>
+      </div>
+      ):(
+      this.props.redirectTo==''||this.props.redirectTo=='/'?
+        null:
+        <Redirect to={this.props.redirectTo}></Redirect>
+      )
     
   }
 }
