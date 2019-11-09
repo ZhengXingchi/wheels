@@ -30,3 +30,12 @@ yarn-error.log*
 
 # 缓存
 **/.cache
+
+
+# 数据库数据
+**/data/redis
+**/data/mongodb
+
+**/temp/redis
+**/temp/mongodb
+

@@ -8,11 +8,11 @@
 #         ports:
 #           - 15001:6379
 #         volumes:
-#           - $PWD/redis/data:/data
+#           - $PWD/data/redis:/data
 #         command: ["redis-server","--requirepass","123456"]
 
-# docker run -itd --restart=always --name redis-test -p 15001:6379 -v $PWD/redis/data:/data redis redis-server --requirepass 123456
-# docker run -itd --restart=always --name redis-test -p 15001:6379 -v $PWD/redis/data:/data redis  --requirepass 123456
+# docker run -itd --restart=always --name redis-test -p 15001:6379 -v $PWD/data/redis:/data redis redis-server --requirepass 123456
+# docker run -itd --restart=always --name redis-test -p 15001:6379 -v $PWD/data/redis:/data redis  --requirepass 123456
 
 
 
@@ -37,7 +37,7 @@ services:
         ports:
           - 27017:27017
         volumes:
-          - $PWD/mongodb/data:/data/db
+          - $PWD/data/mongodb:/data/db
         container_name: 'mongodb-test'
    
 
