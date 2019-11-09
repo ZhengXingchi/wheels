@@ -1,0 +1,122 @@
+# redis docker启动
+# version: '3'
+# services:
+#     redis-test:
+#         image: 'redis'
+#         restart: always
+#         container_name: 'redis-test'
+#         ports:
+#           - 15001:6379
+#         volumes:
+#           - $PWD/redis/data:/data
+#         command: ["redis-server","--requirepass","123456"]
+
+# docker run -itd --restart=always --name redis-test -p 15001:6379 -v $PWD/redis/data:/data redis redis-server --requirepass 123456
+# docker run -itd --restart=always --name redis-test -p 15001:6379 -v $PWD/redis/data:/data redis  --requirepass 123456
+
+
+
+
+
+
+
+
+
+
+
+
+# mongodb docker 启动
+version: '3.1'
+services:
+    mongo-test:
+        image: 'mongo'
+        restart: always
+        environment: 
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
+        ports:
+          - 27017:27017
+        volumes:
+          - $PWD/mongodb/data:/data/db
+        container_name: 'mongodb-test'
+   
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
