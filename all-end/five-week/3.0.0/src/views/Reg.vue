@@ -11,38 +11,59 @@
           <div class="layui-form layui-form-pane">
             <form method="post">
               <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">邮箱</label>
+               <div class="layui-row">
+                <label for="L_email" class="layui-form-label">用户名</label>
+               
                 <div class="layui-input-inline">
-                  <input type="text" id="L_email" name="email" required lay-verify="email" autocomplete="off" class="layui-input">
+                  <input type="text"   name="username" v-model.trim="username"  v-validate="'required|email'"  placeholder="请输入用户名"   autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid layui-word-aux">将会成为您唯一的登入名</div>
+                </div>
+                 <div style="color: #c00;">{{errors.first('username')}}</div>
               </div>
               <div class="layui-form-item">
                 <label for="L_username" class="layui-form-label">昵称</label>
                 <div class="layui-input-inline">
-                  <input type="text" id="L_username" name="username" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="text"   name="nickname" v-model.trim="nickname"  v-validate="'required'"  placeholder="请输入昵称"  autocomplete="off" class="layui-input">
                 </div>
+                 <div class="layui-form-mid" style="color: #c00;">{{errors.first('nickname')}}</div>
               </div>
               <div class="layui-form-item">
+                 <div class="layui-row">
                 <label for="L_pass" class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="password"   v-model.trim="password" v-validate="'required|min:6|max:16'"  name="password" placeholder="请输入密码"   autocomplete="off" class="layui-input">
                 </div>
-                <div class="layui-form-mid layui-word-aux">6到16个字符</div>
+                  <div class="layui-form-mid layui-word-aux">
+                 <span >6到16个字符</span>
+                </div>
+                    </div>
+                      <div    style="color: #c00;">
+                 <span >{{errors.first('password')}}</span>
+                </div>
               </div>
               <div class="layui-form-item">
                 <label for="L_repass" class="layui-form-label">确认密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" id="L_repass" name="repass" required lay-verify="required" autocomplete="off" class="layui-input">
+                  <input type="password"   name="cpassword" v-model.trim="cpassword" v-validate="`required|min:6|max:16|is:${password}`" placeholder="请再次输入密码"    autocomplete="off" class="layui-input">
                 </div>
+                    <div class="layui-form-mid "    style="color: #c00;">
+                 <span >{{errors.first('cpassword')}}</span>
+                </div>
+
               </div>
               <div class="layui-form-item">
-                <label for="L_vercode" class="layui-form-label">人类验证</label>
-                <div class="layui-input-inline">
-                  <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
+                <div class="layui-row">
+                  <label for="L_vercode" class="layui-form-label">验证码</label>
+                  <div class="layui-input-inline">
+                    <input type="text"   name="vercode" v-model.trim="vercode" v-validate="'required|length:4'"  placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                  </div>
+                  <div class="">
+                    <span class="svg" style="color: #c00;" v-html="svg" @click="_getCode()"></span>
+                  </div>
                 </div>
                 <div class="layui-form-mid">
-                  <span style="color: #c00;">123</span>
+                  <span style="color: #c00;">{{errors.first('vercode')}}</span>
                 </div>
               </div>
               <div class="layui-form-item">
@@ -67,8 +88,34 @@
 
 
 <script>
+import {getCode} from '@/api/login'
 export default {
   name: 'reg',
+    data(){
+    return{
+      username:'',
+      nickname:'',
+      password:'',
+      cpassword:'',
+      vercode:'',
+      svg:null
+    }
+
+  },
+  mounted(){
+    this._getCode()
+  },
+  methods:{
+    _getCode(){
+      getCode().then(res=>{
+        console.log(res)
+        if(res.code===200){
+
+          this.svg=res.data
+        }
+      })
+    }
+  }
   
 }
 </script>

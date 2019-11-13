@@ -12,7 +12,7 @@ class DemoController {
       color:true,
       noise:Math.floor(Math.random()*5),
       width:150,
-      height:50
+      height:38
     })
     console.log(newCaptcha)
     ctx.body={

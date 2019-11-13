@@ -27,7 +27,7 @@
               <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label">密码</label>
                 <div class="layui-input-inline">
-                  <input type="password" v-model.trim="password" v-validate="'required|min:6'"  name="password" placeholder="请输入密码"   autocomplete="off" class="layui-input">
+                  <input type="password" v-model.trim="password" v-validate="'required|min:6|max:16'"  name="password" placeholder="请输入密码"   autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-form-mid">
                   <span style="color: #c00;">{{errors.first('password')}}</span>
@@ -39,8 +39,8 @@
                     <div class="layui-input-inline">
                       <input type="text" v-model.trim="vercode" v-validate="'required|length:4'"   name="vercode"  placeholder="请输入验证码" autocomplete="off" class="layui-input">
                     </div>
-                    <div class="layui-form-mid">
-                      <span style="color: #c00;">hello</span>
+                    <div class="">
+                      <span class="svg" style="color: #c00;" v-html="svg" @click="_getCode()"></span>
                     </div>
                   </div>
                   <div class="layui-form-mid">
@@ -73,6 +73,7 @@
 
 
 <script>
+import {getCode} from '@/api/login'
 export default {
   name: 'login',
   data(){
@@ -80,9 +81,24 @@ export default {
 
       username:'',
       password:'',
-      vercode:''
+      vercode:'',
+      svg:null
     }
 
+  },
+  mounted(){
+    this._getCode()
+  },
+  methods:{
+    _getCode(){
+      getCode().then(res=>{
+        console.log(res)
+        if(res.code===200){
+
+          this.svg=res.data
+        }
+      })
+    }
   }
   
 }
