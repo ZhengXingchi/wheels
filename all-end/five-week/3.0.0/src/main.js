@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VeeValidate, { Validator } from 'vee-validate'
+// import Vuelidate from 'vuelidate'
 // method1 to zh-cn
 // import zh from 'vee-validate/dist/locale/zh_CN'
 
@@ -10,6 +11,7 @@ import VeeValidate, { Validator } from 'vee-validate'
 import './local/index'
 
 Vue.use(VeeValidate)
+// Vue.use(Vuelidate)
 // method1 to zh-cn
 // Validator.localize('zh-CN', zh)
 

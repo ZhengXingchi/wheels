@@ -1,5 +1,26 @@
 # front
 
+## 表单校验工具
+veeValidate
+
+
+## 坑
+`Do not use built-in or reserved HTML elements as component id: header`
+
+在`/components/Header.vue`
+```
+
+<script>
+export default {
+  name: 'header', //将name改为Header
+  
+}
+</script>
+
+```
+
+
+
 ## Project setup
 ```
 npm install
