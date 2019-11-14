@@ -14,7 +14,7 @@ class DemoController {
       width:150,
       height:38
     })
-    console.log(newCaptcha)
+ 
     ctx.body={
       code:200,
       data:newCaptcha.data

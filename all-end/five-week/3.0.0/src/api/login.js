@@ -14,6 +14,20 @@ const getCode = async ()=>{
   return result
 }
 
+const forget = async (options)=>{
+  let result =''
+  try{
+    result =await axios.post('/forget',{...options})
+    if(result.status===200){
+      return result.data
+    }
+  }catch(e){
+    console.log(e)
+  }
+  return result
+}
+
 export {
-  getCode
+  getCode,
+  forget
 }
