@@ -2,7 +2,7 @@
 
 ## 表单校验工具
 veeValidate
-
+Vuelidate
 
 ## 坑
 `Do not use built-in or reserved HTML elements as component id: header`

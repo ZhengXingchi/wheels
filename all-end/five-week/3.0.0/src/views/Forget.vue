@@ -15,6 +15,7 @@
             <form action="/user/repass" method="post">
               <div class="layui-form-item">
                 <label for="L_pass" class="layui-form-label">密码</label>
+
                 <div class="layui-input-inline">
                   <input type="password" v-model.trim="password" v-validate="'required|min:6'"  name="password"  autocomplete="off" class="layui-input">
                 </div>
@@ -37,7 +38,7 @@
                      </div>
                  </div>
                  <div class="layui-form-mid">
-                    <span style="color: #c00;">{{errors.first('vercode')}}</span>
+                    <span style="color: #c00;"></span>
                 </div>
               </div>
               <div class="layui-form-item">
@@ -56,18 +57,21 @@
             <form method="post">
               <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">用户名</label>
+                 <validation-provider name="username" rules="required|email" v-slot="{errors}">
                 <div class="layui-input-inline">
-                  <input type="text"   name="username"  v-model.trim="username"  v-validate="'required|email'"  autocomplete="off" class="layui-input">
+                  <input type="text"   name="username"  v-model.trim="username"   autocomplete="off" class="layui-input">
                 </div>
                   <div class="layui-form-mid">
-                  <span style="color: #c00;">{{errors.first('username')}}</span>
+                  <span style="color: #c00;">{{errors[0]}}</span>
                 </div>
+               </validation-provider>
               </div>
               <div class="layui-form-item">
+               <validation-provider name="vercode" rules="required|length:4" v-slot="{errors}">
                 <div class="layui-row">
                   <label for="L_vercode" class="layui-form-label">验证码</label>
                   <div class="layui-input-inline">
-                    <input type="text"   name="vercode"  v-model.trim="vercode" v-validate="'required|length:4'"    placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                    <input type="text"   name="vercode"  v-model.trim="vercode"     placeholder="请输入验证码" autocomplete="off" class="layui-input">
                   </div>
                   <div class="">
                     <span class="svg" style="color: #c00;" v-html="svg" @click="_getCode()"></span>
@@ -75,8 +79,9 @@
                 </div>
 
                 <div class="layui-form-mid">
-                  <span style="color: #c00;">{{errors.first('vercode')}}</span>
+                  <span style="color: #c00;">{{errors[0]}}</span>
                 </div>
+              </validation-provider>
               </div>
               <div class="layui-form-item">
                 <button type="button" class="layui-btn" alert="1" @click="submit()">提交</button>
@@ -92,6 +97,7 @@
 </template>
 
 <script>
+import {ValidationProvider} from 'vee-validate'
 import {getCode,forget} from '@/api/login'
 export default {
   name: 'forget',
@@ -102,6 +108,9 @@ export default {
       svg:null
     }
 
+  },
+  components:{
+    ValidationProvider
   },
   mounted(){
     this._getCode()
