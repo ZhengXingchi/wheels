@@ -2,7 +2,7 @@ import axios from '@/util/request'
 
 
 const getCode = async (sid)=>{
-   return  axios.get('/getCaptcha',{
+   return  axios.get('/public/getCaptcha',{
     params:{
       sid
     }
@@ -14,7 +14,7 @@ const forget =  (options)=>{
 }
 
 const login=(loginInfo)=>{
-  return axios.post('login',{...loginInfo})
+  return axios.post('/login/login',{...loginInfo})
 }
 
 export {
