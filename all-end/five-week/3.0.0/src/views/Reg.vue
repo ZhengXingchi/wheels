@@ -203,7 +203,11 @@ export default {
           requestAnimationFrame(()=>{
             this.$refs.observer.reset()
           })
-         this.$router.push('/login')
+          this.$alert('注册成功')
+          setTimeout(()=>{
+             this.$router.push('/login')
+            
+          })
           
         }else {
             this.$refs.observer.setErrors(res.msg)
