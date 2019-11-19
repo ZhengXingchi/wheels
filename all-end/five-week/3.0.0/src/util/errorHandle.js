@@ -1,5 +1,5 @@
 const errorHandle=(err)=>{
-  console.log(er)
+  console.log(err)
 }
 
 export default errorHandle

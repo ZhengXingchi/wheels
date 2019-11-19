@@ -16,7 +16,10 @@ const i18n = new VueI18n({
         nickname:'昵称',
         cpassword:'密码'
       },
-      validation: zh.messages
+      validation: {
+        ...zh.messages,
+        is:'两次输入的密码不相等'
+      }
     }
 
   }

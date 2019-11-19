@@ -1,9 +1,10 @@
 import {extend ,configure } from 'vee-validate'
-import {required,email,min,length,confirmed,max} from 'vee-validate/dist/rules'
+import {required,email,min,length,confirmed,max,is} from 'vee-validate/dist/rules'
 import {i18n} from './i18n'
 extend('email',email)
 extend('min',min)
 extend('max',max)
+extend('is',is)
 extend('required',required)
 extend('length',length)
 extend('confirmed',confirmed)

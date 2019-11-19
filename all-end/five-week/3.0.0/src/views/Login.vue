@@ -3,6 +3,7 @@
  
 
 <div class="layui-container fly-marginTop">
+ 
   <div class="fly-panel fly-panel-user" pad20>
     <div class="layui-tab layui-tab-brief" lay-filter="user">
       <ul class="layui-tab-title">
@@ -40,7 +41,7 @@
                  </validation-provider>
               </div>
               <div class="layui-form-item">
-               <validation-provider name="vercode" rules="required|length:4" v-slot="{errors}">
+               <validation-provider name="vercode" ref="vercodeField" rules="required|length:4" v-slot="{errors}">
                 <div class="layui-row">
                   <label for="L_vercode" class="layui-form-label">验证码</label>
 
@@ -86,11 +87,13 @@
 import {ValidationProvider,ValidationObserver} from 'vee-validate'
 import {getCode,login} from '@/api/login'
 import uuid from 'uuid/v4'
+ 
 export default {
   name: 'login',
   components:{
     ValidationProvider,
     ValidationObserver
+ 
   },
   data(){
     return{
@@ -103,6 +106,7 @@ export default {
 
   },
   mounted(){
+     
     let sid=''
     if(localStorage.getItem('sid')){
       sid=localStorage.getItem('sid')
@@ -137,8 +141,27 @@ export default {
          password:this.password
        }).then(res=>{
         if(res.code==200){
-          console.lof(res)
+          this.username=''
+          this.password=''
+          this.vercode=''
+          requestAnimationFrame(()=>{
+            this.$refs.observer.reset()
+          })
+
+           
+        }else if(res.code===401){
+            this.$refs.vercodeField.setErrors([res.msg])
         }
+        
+        }).catch(err=>{
+          const data=err.response.data
+          if(data.code===500){
+           
+            this.$alert('用户名密码校验失败,请检查')
+          }else{
+            this.$alert('服务器错误')
+          }
+        
         })
     }
   }

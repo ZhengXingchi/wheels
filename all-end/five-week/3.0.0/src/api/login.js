@@ -17,8 +17,13 @@ const login=(loginInfo)=>{
   return axios.post('/login/login',{...loginInfo})
 }
 
+const reg=(regInfo)=>{
+  return axios.post('/login/reg',{...regInfo})
+}
+
 export {
   getCode,
   forget,
-  login
+  login,
+  reg
 }
