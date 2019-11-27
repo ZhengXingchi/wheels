@@ -1,0 +1,26 @@
+{
+  "name": "mocha-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mocha": "mocha  --require @babel/register",
+    "start:babel":"nodemon --exec babel-node ./src/say",
+    "test:watch":"mocha --require @babel/register --watch",
+    "build":"babel src --out-dir ./dist --source-maps",
+    "serve":"node  ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/register": "^7.7.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.1"
+  }
+}
