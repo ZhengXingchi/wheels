@@ -109,6 +109,7 @@
 </template>
 
 <script>
+/*eslint-disable */
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { getCode, login } from '@/api/login'
 import uuid from 'uuid/v4'

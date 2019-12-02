@@ -27,4 +27,8 @@ export default {
   position: relative;
   top: -4px;
 }
+
+.grey {
+  color: #999;
+}
 </style>

@@ -108,6 +108,7 @@
 </template>
 
 <script>
+/*eslint-disable */
 import { getCode, forget } from '@/api/login'
 import { ValidationProvider } from 'vee-validate'
 export default {

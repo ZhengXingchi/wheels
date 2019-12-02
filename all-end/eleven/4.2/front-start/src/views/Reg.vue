@@ -149,6 +149,7 @@
 </template>
 
 <script>
+/*eslint-disable */
 import { getCode, reg } from '@/api/login'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
