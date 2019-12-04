@@ -1,6 +1,6 @@
 import send from '@/config/MailConfig'
 import bcrypt from 'bcrypt'
-import moment from 'moment'
+import moment from 'dayjs'
 import jsonwebtoken from 'jsonwebtoken'
 import config from '@/config'
 import { checkCode } from '@/common/Utils'
@@ -8,7 +8,7 @@ import User from '@/model/User'
 
 class LoginController {
   constructor() { }
-  async forget(ctx) {
+  async forget (ctx) {
     const { body } = ctx.request
     console.log(body)
     try {
@@ -31,7 +31,7 @@ class LoginController {
     }
   }
 
-  async login(ctx) {
+  async login (ctx) {
     // 接收用户的数据
     // 返回token
     const { body } = ctx.request
@@ -53,8 +53,14 @@ class LoginController {
         let token = jsonwebtoken.sign({ _id: 'brian' }, config.JWT_SECRET, {
           expiresIn: '1d'
         })
+        const userObj = user.toJSON()
+        const arr = ['password', 'username', 'roles']
+        arr.map((item, index) => {
+          delete userObj[item]
+        })
         ctx.body = {
           code: 200,
+          data: userObj,
           token: token
         }
       } else {
@@ -73,7 +79,7 @@ class LoginController {
     }
   }
 
-  async reg(ctx) {
+  async reg (ctx) {
     // 接收客户端的数据
     const { body } = ctx.request
     // 校验验证码的内容（时效性、有效性）

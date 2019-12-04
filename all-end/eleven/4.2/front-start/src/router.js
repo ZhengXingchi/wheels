@@ -6,6 +6,7 @@ const Login = () => import(/* webpackChunkName: 'login' */ './views/Login.vue')
 const Reg = () => import(/* webpackChunkName: 'reg' */ './views/Reg.vue')
 const Forget = () => import(/* webpackChunkName: 'forget' */ './views/Forget.vue')
 const Index = () => import(/* webpackChunkName: 'index' */ './views/channels/index.vue')
+const Center = () => import(/* webpackChunkName: 'index' */ './views/Center.vue')
 const Template1 = () => import(/* webpackChunkName: 'template1' */ './views/channels/template1.vue')
 
 Vue.use(Router)
@@ -47,6 +48,11 @@ export default new Router({
       path: '/forget',
       name: 'forget',
       component: Forget
+    },
+    {
+      path: '/center',
+      name: 'center',
+      component: Center
     }
   ]
 })

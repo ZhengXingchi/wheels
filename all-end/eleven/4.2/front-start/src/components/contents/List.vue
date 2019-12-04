@@ -169,7 +169,7 @@ export default {
           this.tag = '精华'
           break
         case 3:
-          this.sort = 'create'
+          this.sort = 'created'
           break
         case 4:
           this.sort = 'answer'
