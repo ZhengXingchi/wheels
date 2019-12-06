@@ -1,0 +1,86 @@
+{
+  "id": "1546253",
+  "name": "front-start",
+  "font_family": "iconfontme",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "595481",
+      "name": "setting",
+      "font_class": "setting",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "703125",
+      "name": "message",
+      "font_class": "message",
+      "unicode": "e953",
+      "unicode_decimal": 59731
+    },
+    {
+      "icon_id": "1084694",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "1270503",
+      "name": "document",
+      "font_class": "19DOCUMENT",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "5560705",
+      "name": "document",
+      "font_class": "document",
+      "unicode": "e75d",
+      "unicode_decimal": 59229
+    },
+    {
+      "icon_id": "5865853",
+      "name": "setting",
+      "font_class": "setting1",
+      "unicode": "ed68",
+      "unicode_decimal": 60776
+    },
+    {
+      "icon_id": "8642071",
+      "name": "HOME MESSAGE",
+      "font_class": "HOMEMESSAGE",
+      "unicode": "e7eb",
+      "unicode_decimal": 59371
+    },
+    {
+      "icon_id": "9620751",
+      "name": "user",
+      "font_class": "user",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "10043876",
+      "name": "Message",
+      "font_class": "Message",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "10279383",
+      "name": "space_demo_Choose products",
+      "font_class": "space_demo_Chooseproducts",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "11488136",
+      "name": "category products",
+      "font_class": "Similarproducts",
+      "unicode": "e766",
+      "unicode_decimal": 59238
+    }
+  ]
+}

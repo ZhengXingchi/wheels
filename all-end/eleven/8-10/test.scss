@@ -1,0 +1,62 @@
+// $test:333;
+// @warn $test;
+// @debug 'hello debug  scss: #{$test}';
+
+// .hello{
+//   color:blue
+// }
+
+$spacers:(
+  6:60px,
+  7:70px
+)!default;
+$utils:()!default;
+
+
+
+//ulities.scss
+$spacer:8px;
+$spacers:map-merge($map1: (
+  0:0,
+  1:1*$spacer,
+  2:2*$spacer,
+  3:3*$spacer,
+  4:4*$spacer,
+  5:5*$spacer
+), $map2:$spacers );
+
+$utils:map-merge($map1: (
+  m:(
+  property:margin,
+  values:$spacers
+),mx:(
+  property:margin-left margin-right,
+  values:$spacers
+), p:(
+  property:padding,
+  values:$spacers
+),px:(
+  property:padding-left padding-right,
+  values:$spacers
+)), $map2: $utils);
+
+
+
+// @each $key,$value in $spacers{
+//   .p-#{$key}{
+//     padding:$value
+//   }
+// }
+
+@each $key,$value in $utils{
+  $values:map-get($map:$value , $key:values );
+  @debug $values;
+  @each $item-key,$item-value in $values{
+    $properties:map-get($map:$value , $key:property );
+    .#{$key}-#{$item-key}{
+      @each $property in $properties{
+        #{$property}:#{$item-value} !important
+      }
+    }
+  }
+}
