@@ -1,5 +1,5 @@
 //参考资料【ES6】两个例子明白箭头函数this指向  https://blog.csdn.net/w390058785/article/details/82884032#commentBox
-
+//彻底理解js中this的指向，不必硬背。 https://www.cnblogs.com/pssp/p/5216085.html
 
 
 
