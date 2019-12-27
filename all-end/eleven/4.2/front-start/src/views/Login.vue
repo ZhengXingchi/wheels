@@ -169,14 +169,16 @@ export default {
           console.log(res.data)
           this.$store.commit('setUserInfo', res.data)
           this.$store.commit('setIsLogin', true)
+          this.$store.commit('setToken', res.token)
           this.username = ''
           this.password = ''
           this.code = ''
           requestAnimationFrame(() => {
             this.$refs.observer.reset()
+            this.$router.push({ name: 'index' })
           })
 
-          this.$router.push({ name: 'index' })
+
         } else if (res.code === 401) {
           this.$refs.codefield.setErrors([res.msg])
         }

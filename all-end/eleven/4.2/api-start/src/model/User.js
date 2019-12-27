@@ -17,7 +17,7 @@ const UserSchema = new Schema({
   regmark: { type: String, default: '' },
   location: { type: String, default: '' },
   isVip: { type: String, default: '0' },
-  count: { type: String, default: '0' }
+  count: { type: Number, default: 0 }
 })
 
 UserSchema.pre('save', function (next) {

@@ -5,7 +5,7 @@ import jsonwebtoken from 'jsonwebtoken'
 import config from '@/config'
 import { checkCode } from '@/common/Utils'
 import User from '@/model/User'
-
+import SignRecord from '@/model/SignRecord'
 class LoginController {
   constructor() { }
   async forget (ctx) {
@@ -50,14 +50,26 @@ class LoginController {
       if (checkUserPasswd) {
         // 验证通过，返回Token数据
         console.log('Hello login')
-        let token = jsonwebtoken.sign({ _id: 'brian' }, config.JWT_SECRET, {
-          expiresIn: '1d'
-        })
+
         const userObj = user.toJSON()
         const arr = ['password', 'username', 'roles']
         arr.map((item, index) => {
           delete userObj[item]
         })
+        let token = jsonwebtoken.sign({ _id: userObj._id }, config.JWT_SECRET, {
+          expiresIn: '1d'
+        })
+        const signRecord = await SignRecord.findByUid(userObj._id)
+        if (signRecord !== null) {
+          if (moment(signRecord.created).format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')) {
+            userObj.isSign = true
+          } else {
+            userObj.isSign = false
+          }
+          userObj.lastSign = signRecord.created
+        } else {
+          userObj.isSign = false
+        }
         ctx.body = {
           code: 200,
           data: userObj,
