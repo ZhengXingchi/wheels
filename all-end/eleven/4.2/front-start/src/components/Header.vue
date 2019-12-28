@@ -29,8 +29,8 @@
         <!-- 未登入的状态 -->
         <template v-if="!isShow">
           <li class="layui-nav-item">
-            <a class="iconfont icon-touxiang layui-hide-xs"
-               href="../user/login.html"></a>
+            <router-link class="iconfont icon-touxiang layui-hide-xs"
+                         to="/user123123"></router-link>
           </li>
           <li class="layui-nav-item">
             <router-link :to="{name:'login'}">登入</router-link>
@@ -132,7 +132,7 @@ export default {
         this.$store.commit('setToken', '')
         this.$store.commit('setUserInfo', {})
         this.$store.commit('setIsLogin', false)
-        this.$router.push({ name: 'login' })
+        this.$router.push({ name: 'index' }, () => { })
       }, () => { })
     }
   }

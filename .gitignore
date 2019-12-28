@@ -35,6 +35,7 @@ yarn-error.log*
 # 数据库数据
 **/data/redis
 **/data/mongodb
+**/all-end/nine-week/mongodb
 
 **/temp/redis
 **/temp/mongodb
