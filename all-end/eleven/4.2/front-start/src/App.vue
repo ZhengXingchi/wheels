@@ -41,11 +41,20 @@ export default {
   .pl#{$i} {
     padding-left: $i * 10 + px !important;
   }
+  .pb#{$i} {
+    padding-bottom: $i * 10 + px !important;
+  }
   .pr#{$i} {
     padding-right: $i * 10 + px !important;
   }
   .mr#{$i} {
     margin-right: $i * 10 + px !important;
+  }
+  .mt#{$i} {
+    margin-top: $i * 10 + px !important;
+  }
+  .ml#{$i} {
+    margin-left: $i * 10 + px !important;
   }
 }
 .pr0 {
