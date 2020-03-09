@@ -13,7 +13,7 @@ const REDIS = {
 }
 const uploadPath = process.env.NODE_ENV === 'production' ? '/app/public' : path.join(path.resolve(__dirname), '../../public')
 const JWT_SECRET = 'a&*38QthAKuiRwISGLotgq^3%^$zvA3A6Hfr8MF$jM*HY4*dWcwAW&9NGp7*b53!'
-const baseUrl = process.env.NODE_ENV === 'production' ? 'http://www.toimc.com' : 'http://localhost:9090'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'http://www.toimc.com' : 'http://10.0.0.12:9090'
 export default {
   DB_URL,
   REDIS,

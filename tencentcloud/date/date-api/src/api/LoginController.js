@@ -36,106 +36,77 @@ class LoginController {
     // 接收用户的数据
     // 返回token
     const { body } = ctx.request
-    let sid = body.sid
-    let code = body.code
-    // 验证图片验证码的时效性、正确性
-    let result = await checkCode(sid, code)
-    if (result) {
-      // 验证用户账号密码是否正确
-      let checkUserPasswd = false
-      let user = await User.findOne({ username: body.username })
+    // 验证用户账号密码是否正确
+    let checkUserPasswd = false
+    let user = await User.findOne({ telephone: body.telephone })
+    if (user != null) {
       if (await bcrypt.compare(body.password, user.password)) {
         checkUserPasswd = true
       }
-      // mongoDB查库
-      if (checkUserPasswd) {
-        // 验证通过，返回Token数据
-        console.log('Hello login')
+    }
+    // mongoDB查库
+    if (checkUserPasswd) {
+      // 验证通过，返回Token数据
+      console.log('Hello login')
 
-        const userObj = user.toJSON()
-        const arr = ['password', 'username', 'roles']
-        arr.map((item, index) => {
-          delete userObj[item]
-        })
-        let token = jsonwebtoken.sign({ _id: userObj._id }, config.JWT_SECRET, {
-          expiresIn: '1d'
-        })
-        const signRecord = await SignRecord.findByUid(userObj._id)
-        if (signRecord !== null) {
-          if (moment(signRecord.created).format('YYYY-MM-DD') === moment().format('YYYY-MM-DD')) {
-            userObj.isSign = true
-          } else {
-            userObj.isSign = false
-          }
-          userObj.lastSign = signRecord.created
-        } else {
-          userObj.isSign = false
-        }
-        ctx.body = {
-          code: 200,
-          data: userObj,
-          token: token
-        }
-      } else {
-        // 用户名 密码验证失败，返回提示
-        ctx.body = {
-          code: 404,
-          msg: '用户名或者密码错误'
-        }
+      const userObj = user.toJSON()
+      const arr = ['password', 'roles']
+      arr.map((item, index) => {
+        delete userObj[item]
+      })
+      let token = jsonwebtoken.sign({ _id: userObj._id }, config.JWT_SECRET, {
+        expiresIn: '1d'
+      })
+      ctx.body = {
+        code: 200,
+        data: userObj,
+        token: token
       }
     } else {
-      // 图片验证码校验失败
+      // 用户名 密码验证失败，返回提示
       ctx.body = {
-        code: 401,
-        msg: '图片验证码不正确,请检查！'
+        code: 404,
+        msg: '手机号或者密码错误'
       }
     }
   }
 
-  async reg (ctx) {
+  async register (ctx) {
     // 接收客户端的数据
     const { body } = ctx.request
-    // 校验验证码的内容（时效性、有效性）
-    let sid = body.sid
-    let code = body.code
+    console.log(body, '22222222')
     let msg = {}
-    // 验证图片验证码的时效性、正确性
-    let result = await checkCode(sid, code)
     let check = true
-    if (result) {
-      // 查库，看username是否被注册
-      let user1 = await User.findOne({ username: body.username })
-      if (user1 !== null && typeof user1.username !== 'undefined') {
-        msg.username = ['此邮箱已经注册，可以通过邮箱找回密码']
-        check = false
-      }
-      let user2 = await User.findOne({ name: body.name })
-      // 查库，看name是否被注册
-      if (user2 !== null && typeof user2.name !== 'undefined') {
-        msg.name = ['此昵称已经被注册，请修改']
-        check = false
-      }
-      // 写入数据到数据库
-      if (check) {
-        body.password = await bcrypt.hash(body.password, 5)
-        let user = new User({
-          username: body.username,
-          name: body.name,
-          password: body.password,
-          created: moment().format('YYYY-MM-DD HH:mm:ss')
-        })
-        let result = await user.save()
-        ctx.body = {
-          code: 200,
-          data: result,
-          msg: '注册成功'
-        }
-        return
-      }
-    } else {
-      // veevalidate 显示的错误
-      msg.code = ['验证码已经失效，请重新获取！']
+    // 查库，看username是否被注册
+    let user1 = await User.findOne({ username: body.username })
+    if (user1 !== null && typeof user1.username !== 'undefined') {
+      msg.username = ['此昵称已经注册']
+      check = false
     }
+    let user2 = await User.findOne({ telephone: body.telephone })
+    // 查库，看name是否被注册
+    if (user2 !== null && typeof user2.telephone !== 'undefined') {
+      msg.telephone = ['此手机号已经被注册']
+      check = false
+    }
+    // 写入数据到数据库
+    if (check) {
+      body.password = await bcrypt.hash(body.password, 5)
+      let user = new User({
+        username: body.username,
+        telephone: body.telephone,
+        password: body.password,
+        created: moment().format('YYYY-MM-DD HH:mm:ss')
+      })
+      let result = await user.save()
+      ctx.body = {
+        code: 200,
+        data: result,
+        msg: '注册成功'
+      }
+      return
+    }
+
     ctx.body = {
       code: 500,
       msg: msg

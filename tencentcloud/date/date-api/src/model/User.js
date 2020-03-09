@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 const UserSchema = new Schema({
   username: { type: String, index: { unique: true }, sparse: true },
   password: { type: String },
+  telephone: { type: String },
   name: { type: String },
   created: { type: Date },
   updated: { type: String },

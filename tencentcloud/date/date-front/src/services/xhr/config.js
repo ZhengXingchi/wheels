@@ -6,7 +6,7 @@
 let rootPath
 if (__DEV__) {
   console.info('[当前环境] 开发环境')
-  rootPath = 'http://localhost:8989'
+  rootPath = 'http://10.0.0.12:8989'
 }
 if (__PROD__) {
   console.info('[当前环境] 生产环境')
@@ -16,7 +16,7 @@ if (__PROD__) {
 export {
   rootPath
 }
- 
+
 export const errHandler = (e) => {
   alert('[ XHR:Failed ] 详情请看控制台')
   console.error(e)

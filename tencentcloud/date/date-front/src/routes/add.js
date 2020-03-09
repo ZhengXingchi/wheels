@@ -8,7 +8,7 @@ const connectComponent = createContainer(
 )
 
 export default {
-  path: 'login',
+  path: 'add',
 
   /* 布局基页 */
   getComponent (nextState, cb) {
@@ -17,14 +17,14 @@ export default {
       injectReducer('msg', require('REDUCER/msg/').default)
       // cb(null, require('VIEW/msg').default)
       cb()
-    }, 'login')
+    }, 'add')
   },
 
   indexRoute: { // 对应 /login
     getComponent (nextState, cb) {
       require.ensure([], (require) => {
-        cb(null, connectComponent(require('COMPONENT/Login').default))
-      }, 'loginView')
+        cb(null, connectComponent(require('COMPONENT/add').default))
+      }, 'addView')
     }
   }
 }

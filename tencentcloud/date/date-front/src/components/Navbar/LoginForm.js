@@ -24,13 +24,13 @@ export default class LoginForm extends Component {
   register (e) {
     e.preventDefault()
     console.log('注册')
-    this.props.router.replace('/register')
+    this.context.router.replace('/register')
   }
 
   login (e) {
     e.preventDefault()
     console.log('登录')
-    this.props.router.replace('/login')
+    this.context.router.replace('/login')
   }
   render () {
     /* 由于 ES6 中 React 不会自动绑定this，直接 onSubmit={this.handleSubmit} 会报错
@@ -54,14 +54,14 @@ export default class LoginForm extends Component {
 
         <button
           className="btn btn-success"
-          onClick={this.login}>
+          onClick={this.login.bind(this)}>
           登录
         </button>
 
         <button
           className="btn btn-success"
           style={{ marginLeft: '10px' }}
-          onClick={this.register}>
+          onClick={this.register.bind(this)}>
           注册
         </button>
 

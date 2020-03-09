@@ -1,4 +1,5 @@
 import userService from 'SERVICE/userService'
+import storage from 'UTIL/storage'
 // ================================
 // Action Type
 // ================================
@@ -13,10 +14,58 @@ const loginDone = (userData) => ({
   payload: userData
 })
 
+const fresh = (formData) => {
+  return dispatch => {
+    let userdata = storage.get('userdata')
+    if (userdata !== '' && userdata != null) {
+      dispatch(loginDone(userdata))
+    }
+  }
+}
+
+
+// const login = (formData) => {
+//   return dispatch => {
+//     userService
+//       .login(formData)
+//       .then(
+//         re => {
+//           console.log('4444444444', re)
+//           storage.set('token', re.token, 300)
+//           storage.set('userdata', re.data, 300)
+//           dispatch(loginDone(re.data))
+//         }
+//       )
+//   }
+// }
+
 const login = (formData) => {
   return dispatch => {
+    return new Promise((resolve, reject) => {
+      userService
+        .login(formData)
+        .then(
+          re => {
+            if (re.code === 200) {
+              storage.set('token', re.token, 300)
+              storage.set('userdata', re.data, 300)
+              dispatch(loginDone(re.data))
+            }
+            resolve(re)
+          },
+          rej => {
+            reject(rej)
+          }
+        )
+    })
+  }
+}
+
+
+const register = (formData) => {
+  return dispatch => {
     userService
-      .login(formData)
+      .register(formData)
       .then(
         re => dispatch(loginDone(re))
       )
@@ -38,7 +87,7 @@ const logout = () => {
   return dispatch => {
     userService
       .logout()
-      .then(() => 
+      .then(() =>
         dispatch({
           type: LOG_OUT
         })
@@ -47,7 +96,7 @@ const logout = () => {
 }
 /* default 导出所有 Actions Creator */
 export default {
-  login, checkLogin, logout
+  login, checkLogin, logout, register, fresh
 }
 
 // ================================

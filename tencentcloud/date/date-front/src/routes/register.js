@@ -8,7 +8,7 @@ const connectComponent = createContainer(
 )
 
 export default {
-  path: 'login',
+  path: 'register',
 
   /* 布局基页 */
   getComponent (nextState, cb) {
@@ -23,8 +23,8 @@ export default {
   indexRoute: { // 对应 /login
     getComponent (nextState, cb) {
       require.ensure([], (require) => {
-        cb(null, connectComponent(require('COMPONENT/Login').default))
-      }, 'loginView')
+        cb(null, connectComponent(require('COMPONENT/Register').default))
+      }, 'registerView')
     }
   }
 }

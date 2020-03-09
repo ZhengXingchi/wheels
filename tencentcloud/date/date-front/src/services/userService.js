@@ -16,7 +16,15 @@ class UserService {
   login (userData) {
     return xhr({
       method: 'post',
-      url: '/login',
+      url: '/login/login',
+      body: userData
+    })
+  }
+
+  register (userData) {
+    return xhr({
+      method: 'post',
+      url: '/login/register',
       body: userData
     })
   }

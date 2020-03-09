@@ -39,8 +39,8 @@ ReactDOM.render(
 
 // === Webpack 处理 assets，取消注释即可进行测试 === //
 /* 处理 less / sass */
-// import 'ASSET/less/normalize.less'
-// import 'ASSET/scss/normalize.scss'
+import 'ASSET/less/normalize.less'
+import 'ASSET/scss/normalize.scss'
 
 /* 处理 img，小于 10KB 的转为 base64，否则使用 URL */
 // import base64 from 'ASSET/img/smaller.png'
@@ -60,7 +60,7 @@ ReactDOM.render(
  * 【拓展】
  *  react-redux 的 Provider 中传入的属性
  *  可以让全体组件轻松访问，避免繁琐累赘的层层下传。例子：
- *  
+ *
  *  class XXX extends Component {
  *    static contextTypes = {
  *      // 组件中需要这样子声明
@@ -71,7 +71,7 @@ ReactDOM.render(
  *      this.context.store.getState()
  *    }
  *  }
- *  
+ *
  *  但上面这种官方的做法实在太麻烦，于是我们有更为直接的方式：
  *  import store from 'STORE'
  *  store.getState() // 只读，更改 state 只能通过 dispatch

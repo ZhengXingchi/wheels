@@ -14,10 +14,10 @@ const Welcome = () => (
     <p>祝大家工作顺利，爱情丰收</p>
     <p>
       <Link
-        to="/msg"
+        to="/add"
         role="button"
         className="btn btn-success btn-lg">
-        前往留言板 &gt;
+        我要报名 &gt;
       </Link>
       &nbsp;
       <Link
