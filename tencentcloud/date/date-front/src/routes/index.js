@@ -14,6 +14,8 @@ export default {
     require('./login').default,
     require('./register').default,
     require('./add').default,
+    require('./showgirl').default,
+    require('./showboy').default,
 
     // 强制“刷新”页面的 hack
     { path: 'redirect', component: require('COMPONENT/Redirect').default },

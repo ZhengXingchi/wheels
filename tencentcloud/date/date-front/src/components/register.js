@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import handleChange from 'MIXIN/handleChange'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router'
@@ -16,6 +16,9 @@ import { connect } from 'react-redux'
   require('ACTION/user').default
 )
 export default class Register extends Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  }
   constructor(props) {
     super(props)
 
@@ -31,13 +34,25 @@ export default class Register extends Component {
     if (!password) return alert('密码不得为空')
     let username = this.state.username
     if (!username) return alert('姓名不得为空')
-    this.props.register({ telephone, password, username })
+    this.props.register({ telephone, password, username }).then(res => {
+      if (res.code === 200) {
+        alert('注册成功')
+        console.log(this.context, '4333333')
+        this.context.router.replace('/login')
+      } else {
+        if (res.msg) {
+          for (let key in res.msg) {
+            alert(res.msg[key])
+          }
+        }
+      }
+    })
   }
   render () {
     return (
       <div className="jumbotron">
         <div className="title" style={{ textAlign: 'center' }}>
-          <h1>玉山鹊桥仙 <br />    注册</h1>
+          <h1>玉山便民网 <br />    注册</h1>
         </div>
 
         {/* <p>
@@ -68,7 +83,7 @@ export default class Register extends Component {
             <input onChange={this.handleChange} name="telephone" className="form-control" id="telephone" placeholder="手机号" />
           </div>
           <div className="form-group">
-            <label for="telephone">姓名</label>
+            <label for="telephone">昵称</label>
             <input onChange={this.handleChange} name="username" className="form-control" id="telephone" placeholder="姓名" />
           </div>
           <div className="form-group">

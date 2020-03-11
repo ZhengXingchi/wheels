@@ -18,6 +18,11 @@ export {
 }
 
 export const errHandler = (e) => {
-  alert('[ XHR:Failed ] 详情请看控制台')
-  console.error(e)
+  if (e.statusText === 'Unauthorized') {
+    alert('请登录')
+  } else {
+    alert('[ XHR:Failed ] 详情请看控制台')
+    console.error(e)
+  }
+
 }

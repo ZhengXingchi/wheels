@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import handleChange from 'MIXIN/handleChange'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router'
@@ -16,6 +16,9 @@ import { connect } from 'react-redux'
   require('ACTION/user').default
 )
 export default class Login extends Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  }
   constructor(props) {
     super(props)
 
@@ -33,6 +36,7 @@ export default class Login extends Component {
     this.props.login({ telephone, password }).then(res => {
       if (res.code === 200) {
         alert('登陆成功')
+        this.context.router.replace('/')
       } else {
         alert(res.msg)
       }
@@ -43,7 +47,7 @@ export default class Login extends Component {
     return (
       <div className="jumbotron">
         <div className="title" style={{ textAlign: 'center' }}>
-          <h1>玉山鹊桥仙 <br />    登录</h1>
+          <h1>玉山便民网 <br />    登录</h1>
         </div>
 
         {/* <p>

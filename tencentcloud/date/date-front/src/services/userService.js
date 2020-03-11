@@ -33,6 +33,31 @@ class UserService {
     return xhr({ url: '/logout' })
   }
 
+  uploadpic (data) {
+    return xhr({
+      method: 'post',
+      url: '/content/upload',
+      body: data,
+      type: 'file'
+    })
+  }
+
+  wallhop (data) {
+    return xhr({
+      method: 'post',
+      url: '/content/add',
+      body: data
+    })
+  }
+
+  getlist (data) {
+    return xhr({
+      method: 'get',
+      url: '/public/list',
+      body: data
+    })
+  }
+
 }
 
 // 实例化后再导出

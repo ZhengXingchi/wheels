@@ -39,8 +39,14 @@ export default class Navbar extends Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
+
+              <span className="navbar-brand" onClick={() => window.history.back(-1)}>返回</span>
               <Link to='/' className="navbar-brand">
-                玉山鹊桥仙
+                {/* 玉山鹊桥仙 */}
+                {/* 玉山人人网 */}
+                玉山便民网
+                {/* 玉山百姓网 */}
+                {/* 玉山黄页 */}
               </Link>
             </div>
             <div className="collapse navbar-collapse" id="nav-collapse">
@@ -50,14 +56,19 @@ export default class Navbar extends Component {
                     欢迎页
                   </IndexLink>
                 </li>
-                <li className={pathname.startsWith('/msg') && 'active'}>
-                  <Link to='/msg'>
-                    留言板
+                <li className={pathname.startsWith('/add') && 'active'}>
+                  <Link to='/add'>
+                    我要上墙
                   </Link>
                 </li>
-                <li className={pathname.startsWith('/todo') && 'active'}>
-                  <Link to='/todo'>
-                    待办事项(新功能)
+                <li className={pathname.startsWith('/showgirl') && 'active'}>
+                  <Link to='/showgirl'>
+                    女生墙
+                  </Link>
+                </li>
+                <li className={pathname.startsWith('/showboy') && 'active'}>
+                  <Link to='/showboy'>
+                    男生墙
                   </Link>
                 </li>
               </ul>

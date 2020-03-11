@@ -13,40 +13,10 @@ import { checkCode, getJWTPayload, rename } from '@/common/Utils'
 class ContentController {
   constructor() { }
   async getPostList (ctx) {
-    // const post = new Post({
-    //   title: 'test title',
-    //   content: 'test content',
-    //   catalog: 'advice',
-    //   fav: 20,
-    //   isEnd: '0',
-    //   reads: '0',
-    //   answer: '0',
-    //   status: '0',
-    //   isTop: '0',
-    //   sort: '0',
-    //   tags: []
-    // })
-    // const tmp = await post.save()
-    // console.log(tmp)
     const body = ctx.query
-    let options = {}
-    const sort = body.sort ? body.sort : 'created'
     const page = body.page ? parseInt(body.page) : 0
     const limit = body.limit ? parseInt(body.limit) : 20
-    if (typeof body.catalog !== 'undefined' && body.catalog !== '') {
-      options.catalog = body.catalog
-    }
-    if (typeof body.isTop !== 'undefined') {
-      options.isTop = body.isTop
-    }
-    if (typeof body.status !== 'undefined' && body.status !== '') {
-      options.isEnd = body.status
-    }
-
-    if (typeof body.tag !== 'undefined' && body.tag !== '') {
-      options.tags = { $elemMatch: { name: body.tag } }
-    }
-    const result = await Post.getList(options, sort, page, limit)
+    const result = await User.getList({ gender: body.gender }, 'created', page, limit)
     ctx.body = {
       code: 200,
       data: result,
@@ -83,10 +53,10 @@ class ContentController {
     const file = ctx.request.files.file
     // 图片名称、图片格式、存储的位置，返回前台可以读取路径
     const ext = file.name.split('.').pop()
-    const dir = `${config.uploadPath}/${moment().format('YYYYMMDD')}`
-    console.log('1', ext)
-    console.log('2', dir)
-    console.log('3', config.uploadPath)
+    const obj = await getJWTPayload(ctx.header.authorization)
+    const user = await User.findById({ _id: obj._id })
+    console.log(user.telephone)
+    const dir = `${config.uploadPath}/${user.telephone}`
     //判断路径是否存在
     // await dirExists(dir)
     await mkdir(dir)
@@ -99,7 +69,7 @@ class ContentController {
     })
     console.log('file.path', file.path)
     const upStream = fs.createWriteStream(destPath)
-    const filePath = `/${moment().format('YYYYMMDD')}/${picname}.${ext}`
+    const filePath = `/${user.telephone}/${picname}.${ext}`
     //method1
     reader.pipe(upStream)
     //method2
@@ -125,43 +95,30 @@ class ContentController {
     ctx.body = {
       code: 200,
       msg: '图片上传成功',
-      data: filePath
+      data: {
+        url: filePath,
+        id: picname
+      }
     }
   }
 
   // 添加新帖
   async addPost (ctx) {
     const { body } = ctx.request
-    let sid = body.sid
-    let code = body.code
-    // 验证图片验证码的时效性、正确性
-    let result = await checkCode(sid, code)
-    if (result) {
-      const obj = await getJWTPayload(ctx.header.authorization)
-      const user = await User.findById({ _id: obj._id })
-      if (user.favs < body.fav) {
-        ctx.body = {
-          code: 501,
-          msg: '积分不足'
-        }
-        return
-      } else {
-        await User.updateOne({ _id: obj._id }, { $inc: { favs: -body.fav } })
-      }
-      const newPost = new Post(body)
-      newPost.uid = obj._id
-      const result = await newPost.save()
-      ctx.body = {
-        code: 200,
-        msg: '成功的保存的文章',
-        data: result
-      }
-    } else {
-      // 图片验证码验证失败
+    const obj = await getJWTPayload(ctx.header.authorization)
+    const user = await User.findById({ _id: obj._id })
+    if (user && user.gender) {
       ctx.body = {
         code: 500,
-        msg: '图片验证码验证失败'
+        msg: '您已经上墙了',
       }
+      return
+    }
+    Object.assign(user, body);
+    let result = await user.save()
+    ctx.body = {
+      code: 200,
+      msg: '提交成功'
     }
   }
 

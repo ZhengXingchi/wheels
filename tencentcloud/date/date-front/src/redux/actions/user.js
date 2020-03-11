@@ -24,18 +24,19 @@ const fresh = (formData) => {
 }
 
 
-// const login = (formData) => {
+
+
+// const wallhop = (data) => {
 //   return dispatch => {
-//     userService
-//       .login(formData)
-//       .then(
-//         re => {
-//           console.log('4444444444', re)
-//           storage.set('token', re.token, 300)
-//           storage.set('userdata', re.data, 300)
-//           dispatch(loginDone(re.data))
-//         }
-//       )
+//     return new Promise((resolve, reject) => {
+//       userService
+//         .wallhop(data)
+//         .then(
+//           re => {
+//             resolve(re)
+//           }
+//         )
+//     })
 //   }
 // }
 
@@ -64,11 +65,16 @@ const login = (formData) => {
 
 const register = (formData) => {
   return dispatch => {
-    userService
-      .register(formData)
-      .then(
-        re => dispatch(loginDone(re))
-      )
+    return new Promise((resolve, reject) => {
+      userService
+        .register(formData)
+        .then(
+          re => {
+            dispatch(loginDone(re))
+            resolve(re)
+          }
+        )
+    })
   }
 }
 
@@ -85,13 +91,12 @@ const checkLogin = () => {
 
 const logout = () => {
   return dispatch => {
-    userService
-      .logout()
-      .then(() =>
-        dispatch({
-          type: LOG_OUT
-        })
-      )
+    storage.remove('userdata')
+    storage.remove('token')
+    dispatch({
+      type: LOG_OUT
+    })
+
   }
 }
 /* default 导出所有 Actions Creator */

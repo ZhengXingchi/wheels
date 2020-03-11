@@ -23,7 +23,9 @@
  * 之后就可以这样写了
  * onClick={this.handleChange}
  */
-export default function handleChange(evt) {
+export default function handleChange (evt) {
+  console.log(evt.target.value, '222222222')
+  console.log(evt.target.name, '222222222')
   this.setState({
     [evt.target.name]: evt.target.value.trim()
   })
