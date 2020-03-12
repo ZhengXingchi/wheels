@@ -98,33 +98,36 @@ export default class Add extends Component {
             // console.log(orientation, 'orientation')
 
 
-            window.EXIF.getData(item.file, async () => {
-              let orientation = window.EXIF.getTag(item.file, 'Orientation')
-              let options = {
-                size: 500
-              }
-              console.log('----------------', orientation)
+            window.EXIF.getData(item.file, () => {
+              let orientation = window.EXIF.getTag(this, 'Orientation')
+              let pretty = window.EXIF.pretty(this)
+              let options = {}
+              // options.size=500
+              console.log('----------------', pretty, orientation)
               if (orientation) {
                 options.orientation = orientation
               }
-
               // let file2dataurl = await window.imageConversion.filetoDataURL(item.file)
               // let dataurl2Image = await window.imageConversion.dataURLtoImage(file2dataurl)
-              let res = await window.imageConversion.compressAccurately(item.file, options)
-              res = await new File([res], item.file.name, { type: item.file.type, lastModified: Date.now() })
-              console.log(res)
-              formData.append('file', res)
-              // formData.append('file', item.file)
-              console.log(formData, 'formdata')
-              let result = await userService.uploadpic(formData)
-              console.log('result', process.env, __DEV__, __PROD__)
-              const baseUrl = __DEV__ ? config.baseUrl.dev : config.baseUrl.pro
-              if (result.code === 200 && result.data) {
-                result.data.url = baseUrl + result.data.url
-                files[i] = result.data
-              }
+              // let image2canvas = await window.imageConversion.imagetoCanvas(dataurl2Image, options)
+              // let res = await window.imageConversion.canvastoFile(image2canvas)
+              // // let res = await window.imageConversion.compress(item.file, options)
+              // res = await new File([res], item.file.name, { type: item.file.type, lastModified: Date.now() })
+              // console.log(res)
+              // formData.append('file', res)
+              // // formData.append('file', item.file)
+              // console.log(formData, 'formdata')
+              // let result = await userService.uploadpic(formData)
+              // console.log('result', process.env, __DEV__, __PROD__)
+              // const baseUrl = __DEV__ ? config.baseUrl.dev : config.baseUrl.pro
+              // if (result.code === 200 && result.data) {
+              //   result.data.url = baseUrl + result.data.url
+              //   files[i] = result.data
+              // }
 
             })
+
+
           }
         }
       }
