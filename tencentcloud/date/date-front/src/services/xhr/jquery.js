@@ -3,7 +3,6 @@ import storage from 'UTIL/storage'
 import publicConfig from 'CONFIG'
 const xhr = ({ url, body = null, method = 'get', type }) => {
   const defer = $.Deferred()
-  console.log(url)
   let options = {
     type: method,
     url: rootPath + url,

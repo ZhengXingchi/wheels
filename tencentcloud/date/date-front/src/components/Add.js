@@ -148,7 +148,7 @@ export default class Add extends Component {
             lineHeight: '30px',
             fontSize: '20px',
             textAlign: 'center',
-            margin: '0 100px 10px',
+            margin: '0 80px 10px',
             borderBottom: '1px solid #a190df'
           }}>基本信息</div>
           <div className="form-group">
@@ -195,7 +195,7 @@ export default class Add extends Component {
             lineHeight: '30px',
             fontSize: '20px',
             textAlign: 'center',
-            margin: '0 100px 10px',
+            margin: '0 80px 10px',
             borderBottom: '1px solid #a190df'
           }}>自我介绍</div>
           <div className="form-group">
@@ -222,6 +222,7 @@ export default class Add extends Component {
             </textarea>
           </div>
           <label for="he_degree">生活照</label>
+          <div style={{ color: 'rgb(228, 124, 124)', fontSize: '8' }}>微信端暂不支持多选，谢谢</div>
           <WingBlank>
             <SegmentedControl
               values={['切换到单选', '切换到多选']}
@@ -242,7 +243,7 @@ export default class Add extends Component {
             lineHeight: '30px',
             fontSize: '20px',
             textAlign: 'center',
-            margin: '0 100px 10px',
+            margin: '0 80px 10px',
             borderBottom: '1px solid #a190df'
           }}>理想对象</div>
           <div className="form-group">

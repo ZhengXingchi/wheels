@@ -3,10 +3,11 @@ import moment from 'dayjs'
 const Schema = mongoose.Schema
 
 const UserCollectSchema = new Schema({
-  uid: { type: String },
-  tid: { type: String },
-  title: { type: String },
-  created: { type: Date }
+  uid: { type: String },// 登录者的id
+  tid: { type: String },// 展示详情的id
+  // title: { type: String },
+  created: { type: Date },// 获取到详情微信号的时间
+  webchat: { type: String }
 })
 
 UserCollectSchema.pre('save', function (next) {
@@ -31,6 +32,9 @@ UserCollectSchema.statics = {
       .skip(limit * page)
       .limit(limit)
       .sort({ created: -1 })
+  },
+  getwebchat: function (uid, tid) {
+    return this.findOne({ uid, tid })
   },
   // 查询总数
   countByUid: function (id) {

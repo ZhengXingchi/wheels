@@ -9,7 +9,7 @@ import { Link } from 'react-router'
  * 其实还是返回一个类似的函数
  */
 const Welcome = () => (
-  <div className="jumbotron">
+  <div className="jumbotron" style={{ padding: '5px 10px' }}>
     {/* <h1>欢迎使用 <br /> 玉山鹊桥仙</h1> */}
     <h1>欢迎使用 <br /> 玉山便民网</h1>
     <p>祝大家工作顺利，爱情丰收。</p>
@@ -22,7 +22,8 @@ const Welcome = () => (
         className="btn btn-success btn-lg">
         我要上墙
       </Link>
-      &nbsp;
+      <br />
+      <div style={{ marginBottom: '10px' }}></div>
       <Link
         to="/showgirl"
         role="button"

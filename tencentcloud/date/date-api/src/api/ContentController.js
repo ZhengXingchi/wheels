@@ -15,7 +15,7 @@ class ContentController {
   async getPostList (ctx) {
     const body = ctx.query
     const page = body.page ? parseInt(body.page) : 0
-    const limit = body.limit ? parseInt(body.limit) : 20
+    const limit = body.limit ? parseInt(body.limit) : 10
     const result = await User.getList({ gender: body.gender }, 'created', page, limit)
     ctx.body = {
       code: 200,
@@ -115,7 +115,7 @@ class ContentController {
       return
     }
     Object.assign(user, body);
-    let result = await user.save()
+    await user.save()
     ctx.body = {
       code: 200,
       msg: '提交成功'
@@ -167,39 +167,64 @@ class ContentController {
 
   async getPostDetail (ctx) {
     const params = ctx.query
-    if (!params.tid) {
-      ctx.body = {
-        msg: '文章标题为空',
-        code: 500
-      }
-      return
-    }
-
-    const post = await Post.findByTid(params.tid)
-    let isFav = 0
-    // 判断用户是否传递Authrization的数据，即是否登录
-    if (typeof ctx.header.authorization !== 'undefined' && ctx.header.authorization !== '') {
-      const obj = await getJWTPayload(ctx.header.authorization)
-      const userCollect = await UserCollect.findOne({ tid: params.tid, uid: obj._id })
-      if (userCollect && userCollect.tid) {
-        isFav = 1
-      }
-    }
-    let newPost = post.toJSON()
-    newPost.isFav = isFav
-    // 更新文章阅读计数
-    const result = await Post.updateOne({ _id: params.tid }, { $inc: { reads: 1 } })
-    if (newPost._id && result.ok === 1) {
-      const result1 = rename(newPost, 'uid', 'user')
+    const result = await User.findById(params._id)
+    if (result._id) {
       ctx.body = {
         code: 200,
-        data: result1,
-        msg: '查询文章详情成功'
+        data: result,
+        msg: '查询成功'
       }
     } else {
       ctx.body = {
         code: 500,
-        msg: '查询文章详情成功'
+        msg: '没有该用户'
+      }
+    }
+  }
+  async getWebChat (ctx) {
+    const params = ctx.query
+    const obj = await getJWTPayload(ctx.header.authorization)
+    if (obj._id) {
+      console.log(params)
+      let webchat = await UserCollect.getwebchat(obj._id, params.id)
+      if (webchat) {
+        ctx.body = {
+          code: 500,
+          msg: `您已经获得该用户微信号：${webchat.webchat},本次获取免费`
+        }
+        return
+      } else {
+        const result = await User.findWebChat(params.id, obj._id)
+        console.log(result)
+        if (result.webchat) {
+          const userCollect = new UserCollect({
+            tid: params.id,
+            uid: obj._id,
+            webchat: result.webchat
+          })
+          const resl = await userCollect.save()
+          if (resl.id) {
+            ctx.body = {
+              code: 200,
+              msg: '查询成功',
+              data: result
+            }
+          } else {
+            ctx.body = {
+              code: 500,
+              msg: '出现未知错误'
+            }
+          }
+
+        } else {
+          ctx.body = result
+        }
+
+      }
+    } else {
+      ctx.body = {
+        code: 500,
+        msg: '请进行登录'
       }
     }
   }

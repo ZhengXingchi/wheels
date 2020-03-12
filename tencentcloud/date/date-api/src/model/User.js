@@ -9,6 +9,7 @@ const UserSchema = new Schema({
   isVip: { type: String, default: '0' },// 0 非vip
   created: { type: Date },// 注册时间
   //上墙时间
+  webchatdate: { type: Date },// 获取微信时间
   // 基本信息
   birth: { type: String },// 出生日期
   gender: { type: String },// 性别  //1 男  2女
@@ -31,6 +32,7 @@ const UserSchema = new Schema({
   he_character: { type: String },// 性格要求
   he_degree: { type: String },// 学历要求
   he_coordinate: { type: String },// 他(她)坐标
+  he_other: { type: String },// 其它
 
   // name: { type: String },
   // updated: { type: String },
@@ -50,7 +52,8 @@ UserSchema.pre('save', function (next) {
 })
 
 UserSchema.pre('update', function (next) {
-  this.created = moment().format('YYYY-MM-DD HH:mm:ss')
+  console.log('rrrrrrrrrrr')
+  // this.webchat = moment().format('YYYY-MM-DD HH:mm:ss')
   next()
 })
 
@@ -67,16 +70,59 @@ UserSchema.statics = {
   findById: function (id) {
     return this.findOne({ _id: id }, {
       password: 0,
-      username: 0,
-      mobile: 0
+      webchat: 0,
+      telephone: 0,
+      isVip: 0,
+      created: 0,
+      webchatdate: 0
     })
   },
   getList: function (options, sort, page, limit) {
-    return this.find(options, { password: 0, telephone: 0, webchat: 0, created: 0 })
+    return this.find(options, {
+      password: 0,
+      telephone: 0,
+      webchat: 0,
+      created: 0,
+      isVip: 0,
+      webchatdate: 0
+    })
       .sort({ [sort]: -1 })
       .skip(page * limit)
       .limit(limit)
   },
+  findWebChat: async function (id, uid) {
+    let user = await this.findOne({ _id: uid }, {
+      _id: 0,
+      isVip: 1,
+      webchatdate: 1
+    })
+    if (!user.webchatdate) {
+      let result = await this.findOne({ _id: id }, {
+        _id: 0,
+        webchat: 1
+      })
+      await this.update({ _id: uid }, { webchatdate: moment().format('YYYY-MM-DD HH:mm:ss') })
+      return result
+    } else {
+      console.log(user.webchatdate)
+      console.log('111')
+      let date = moment(user.webchatdate).add(7, 'days')
+      if (moment().isBefore(date)) {
+        return ({
+          code: 500,
+          msg: `上次获取微信号是${moment(user.webchatdate).format('YYYY-MM-DD HH:mm:ss')},距离上次获取微信号不足一周`
+        })
+      } else {
+        let result = await this.findOne({ _id: id }, {
+          _id: 0,
+          webchat: 1
+        })
+        await this.update({ _id: uid }, { webchatdate: moment().format('YYYY-MM-DD HH:mm:ss') })
+        return result
+      }
+    }
+
+  }
 }
 
 const UserModel = mongoose.model('users', UserSchema)

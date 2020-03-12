@@ -25,59 +25,61 @@ export default class Navbar extends Component {
     } = this.props
 
     return (
-      <div className="row clearfix">
-        <div className="col-md-12 column">
-          <nav className="navbar navbar-default" role="navigation">
-            <div className="navbar-header">
-              <button
-                type="button"
-                className="navbar-toggle"
-                data-toggle="collapse"
-                data-target="#nav-collapse">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
+      <div style={{ position: 'fixed', top: 0, zIndex: 999, width: '100%' }}>
+        <div className="row clearfix" >
+          <div className="col-md-12 column">
+            <nav className="navbar navbar-default" role="navigation">
+              <div className="navbar-header">
+                <button
+                  type="button"
+                  className="navbar-toggle"
+                  data-toggle="collapse"
+                  data-target="#nav-collapse">
+                  <span className="sr-only">Toggle navigation</span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                </button>
 
-              <span className="navbar-brand" onClick={() => window.history.back(-1)}>返回</span>
-              <Link to='/' className="navbar-brand">
-                {/* 玉山鹊桥仙 */}
-                {/* 玉山人人网 */}
+                <span className="navbar-brand" onClick={() => window.history.back(-1)}>返回</span>
+                <Link to='/' className="navbar-brand">
+                  {/* 玉山鹊桥仙 */}
+                  {/* 玉山人人网 */}
                 玉山便民网
                 {/* 玉山百姓网 */}
-                {/* 玉山黄页 */}
-              </Link>
-            </div>
-            <div className="collapse navbar-collapse" id="nav-collapse">
-              <ul className="nav navbar-nav">
-                <li className={pathname === '/' && 'active'}>
-                  <IndexLink to='/'>
-                    欢迎页
+                  {/* 玉山黄页 */}
+                </Link>
+              </div>
+              <div className="collapse navbar-collapse" id="nav-collapse">
+                <ul className="nav navbar-nav">
+                  <li className={pathname === '/' && 'active'}>
+                    <IndexLink to='/'>
+                      欢迎页
                   </IndexLink>
-                </li>
-                <li className={pathname.startsWith('/add') && 'active'}>
-                  <Link to='/add'>
-                    我要上墙
+                  </li>
+                  <li className={pathname.startsWith('/add') && 'active'}>
+                    <Link to='/add'>
+                      我要上墙
                   </Link>
-                </li>
-                <li className={pathname.startsWith('/showgirl') && 'active'}>
-                  <Link to='/showgirl'>
-                    女生墙
+                  </li>
+                  <li className={pathname.startsWith('/showgirl') && 'active'}>
+                    <Link to='/showgirl'>
+                      女生墙
                   </Link>
-                </li>
-                <li className={pathname.startsWith('/showboy') && 'active'}>
-                  <Link to='/showboy'>
-                    男生墙
+                  </li>
+                  <li className={pathname.startsWith('/showboy') && 'active'}>
+                    <Link to='/showboy'>
+                      男生墙
                   </Link>
-                </li>
-              </ul>
-              {userData ?
-                <LogoutDropdown userData={userData} logout={logout} /> :
-                <LoginForm login={login} />
-              }
-            </div>
-          </nav>
+                  </li>
+                </ul>
+                {userData ?
+                  <LogoutDropdown userData={userData} logout={logout} /> :
+                  <LoginForm login={login} />
+                }
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
     )

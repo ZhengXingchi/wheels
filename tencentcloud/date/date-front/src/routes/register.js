@@ -17,7 +17,7 @@ export default {
       injectReducer('msg', require('REDUCER/msg/').default)
       // cb(null, require('VIEW/msg').default)
       cb()
-    }, 'login')
+    }, 'register')
   },
 
   indexRoute: { // 对应 /login

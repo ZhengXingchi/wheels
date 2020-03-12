@@ -57,6 +57,20 @@ class UserService {
       body: data
     })
   }
+  getdetail (data) {
+    return xhr({
+      method: 'get',
+      url: '/public/content/detail',
+      body: data
+    })
+  }
+  getwebchat (data) {
+    return xhr({
+      method: 'get',
+      url: '/content/webchat',
+      body: data
+    })
+  }
 
 }
 
