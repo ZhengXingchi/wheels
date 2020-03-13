@@ -24,7 +24,7 @@ react-zmage https://zmage.caldis.me/
 [前端压缩图片并获取exif信息](https://blog.csdn.net/bluelotos893/article/details/79661718)
 [JS对图片进行base64压缩以及图片的EXIF-Orientation信息](https://blog.csdn.net/wyrhero/article/details/61192753)
 [js图片前端压缩多图上传（旋转其实已经好了只是手机端有问题要先压缩再旋转）](https://www.cnblogs.com/yixi978/p/5869348.html)
-原生可以var image=new Image() 然后转为canvas 旋转角度然后导出为File
+原生可以var image=new Image() js创建dom节点 然后转为canvas 旋转角度然后导出为File
 
 
 

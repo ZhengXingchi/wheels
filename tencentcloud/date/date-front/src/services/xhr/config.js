@@ -6,11 +6,11 @@
 let rootPath
 if (__DEV__) {
   console.info('[当前环境] 开发环境')
-  rootPath = 'http://10.0.0.12:8989'
+  rootPath = 'http://10.0.0.12:8585'
 }
 if (__PROD__) {
   console.info('[当前环境] 生产环境')
-  rootPath = 'http://list.zhengxc.xyz'
+  rootPath = 'http://49.233.180.182:8585'
 }
 
 export {

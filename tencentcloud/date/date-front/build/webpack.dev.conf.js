@@ -44,7 +44,8 @@ config.plugins.push(
     chunksSortMode: 'none'
   }),
   new BrowserSyncPlugin({
-    host: '127.0.0.1',
+    // host: '127.0.0.1',
+    host: '10.0.0.12',
     port: 9090,
     proxy: 'http://127.0.0.1:9000/',
     logConnections: false,
