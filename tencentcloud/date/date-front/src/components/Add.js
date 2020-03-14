@@ -5,6 +5,9 @@ import { ImagePicker, WingBlank, SegmentedControl } from 'antd-mobile'
 import userService from 'SERVICE/userService'
 import config from 'CONFIG'
 import Zmage from 'react-zmage'
+import storage from 'UTIL/storage'
+import { Modal } from 'antd-mobile'
+const alert = Modal.alert
 // import imageConversion from 'image-conversion'
 // import { Link } from 'react-router'
 /**
@@ -35,8 +38,8 @@ export default class Add extends Component {
     //   id: '2122'
     // }]
 
-    console.log('window.imageConversion', window.imageConversion)
-    console.log(window.EXIF, '3333333333333')
+
+
     const data = []
     this.state = {
       files: data,
@@ -85,6 +88,13 @@ export default class Add extends Component {
 
   onChange = async (files, type, index) => {
     console.log(files, type, index)
+    const token = storage.get('token')
+
+    if (!token) {
+      alert('没有登录，或者登录已经失效。请您先登录！')
+      this.context.router.replace('/login')
+      return
+    }
     if (files.length > 0) {
       for (let i = 0; i < files.length; i++) {
         let item = files[i]
@@ -140,6 +150,15 @@ export default class Add extends Component {
     this.setState({
       multiple: index === 1
     })
+  }
+  componentWillMount () {
+    const token = storage.get('token')
+    console.log('token,-------', token)
+    if (!token) {
+      alert('该板块需要先登录。您目前没有登录，或者登录已经失效。请您先登录！')
+      this.context.router.replace('/login')
+      return
+    }
   }
   render () {
     const { files } = this.state

@@ -27,7 +27,8 @@ react-zmage https://zmage.caldis.me/
 原生可以var image=new Image() js创建dom节点 然后转为canvas 旋转角度然后导出为File
 
 
-
+# 移动滑动优化
+[移动Web滚动性能优化: Passive event listeners](https://segmentfault.com/a/1190000007913386)
 
 
 
@@ -46,3 +47,8 @@ accept="image/*"
 
 
 微信内置浏览器WebApp开发，踩坑 https://blog.csdn.net/xingxingsuhuan/article/details/51279887
+
+
+# 网址转化为二维码
+[纯前端生成二维码（并将Html转换成图片） 下载到本地](https://blog.csdn.net/ys930126/article/details/79972027)
+pc火狐可以将网址转化为二维码
