@@ -7,6 +7,9 @@ import config from 'CONFIG'
 import Zmage from 'react-zmage'
 import storage from 'UTIL/storage'
 import { Modal } from 'antd-mobile'
+import { List, Picker, InputItem, TextareaItem } from 'antd-mobile'
+
+import { createForm } from 'rc-form'
 const alert = Modal.alert
 // import imageConversion from 'image-conversion'
 // import { Link } from 'react-router'
@@ -24,7 +27,7 @@ const alert = Modal.alert
   ({ userData }) => ({ userData }),
   require('ACTION/user').default
 )
-export default class Add extends Component {
+class Add extends Component {
   static contextTypes = {
     router: PropTypes.object.isRequired
   }
@@ -43,6 +46,7 @@ export default class Add extends Component {
     const data = []
     this.state = {
       files: data,
+      fileTouch: false,
       multiple: false,
       birth: '', // 出生日期
       gender: '1', // 性别
@@ -70,16 +74,34 @@ export default class Add extends Component {
     this.handleChange = handleChange.bind(this) // mixin
   }
   handleSubmit = () => {
-    var { files, multiple, ...obj } = this.state
-    obj.photos = files
-    userService.wallhop(obj).then(res => {
-      if (res.code === 200) {
-        alert('提交成功')
-        this.context.router.replace('/')
-      } else {
-        alert(res.msg)
-      }
+    this.setState({
+      fileTouch: true
     })
+    if (this.state.files.length <= 0) {
+      return
+    }
+    this.props.form.validateFields((error, value) => {
+      if (error) {
+        return
+      }
+      this.setState({
+        fileTouch: false
+      })
+      var { files, fileTouch, multiple, ...obj } = this.state
+      value.photos = files
+      value.gender = value.gender[0]
+      userService.wallhop(value).then(res => {
+        if (res.code === 200) {
+          alert('提交成功')
+          this.context.router.replace('/')
+        } else {
+          alert(res.msg)
+        }
+      })
+    })
+
+
+
   }
   onImageClick = (index, fs) => {
     console.log(fs[index].url)
@@ -139,9 +161,9 @@ export default class Add extends Component {
         }
       }
     }
-    console.log(files, 'files')
 
     this.setState({
+      fileTouch: true,
       files
     })
   }
@@ -161,6 +183,15 @@ export default class Add extends Component {
     }
   }
   render () {
+    const { getFieldProps, getFieldDecorator, getFieldError } = this.props.form
+    const genderdata = [{
+      value: 1,
+      label: '男'
+    }, {
+      value: 2,
+      label: '女'
+    }]
+    const gender = this.state.gender
     const { files } = this.state
     return (
       <div className="jumbotron" >
@@ -183,152 +214,233 @@ export default class Add extends Component {
             前往待办事项(新功能) &gt;
           </Link>
         </p> */}
-        <form
-          onSubmit={
-            (e) => {
-              e.preventDefault() // 防页面跳转
-              this.handleSubmit()
-            }
-          }
-        >
+
+
+        <List renderHeader={() => ''}>
           <div style={{
-            height: '30px',
-            lineHeight: '30px',
+            height: '50px',
+            lineHeight: '50px',
             fontSize: '20px',
             textAlign: 'center',
             margin: '0 80px 10px',
             borderBottom: '1px solid #a190df'
           }}>基本信息</div>
-          <div className="form-group">
-            <label for="birth">出生日期</label>
-            <input onChange={this.handleChange} name="birth" className="form-control" id="birth" placeholder="例如：1990" />
-          </div>
-          <div className="form-group">
-            <label for="gender">性别</label>
-            <select value={this.state.gender} class="form-control" name="gender" style={{ width: '100%', height: '35px' }} onChange={this.handleChange}>
-              <option value='1'>男</option>
-              <option value='2'>女</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label for="height">身高</label>
-            <input onChange={this.handleChange} name="height" className="form-control" id="height" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="constellation">星座</label>
-            <input onChange={this.handleChange} name="constellation" className="form-control" id="constellation" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="birthplace">出生地</label>
-            <input onChange={this.handleChange} name="birthplace" className="form-control" id="birthplace" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="livingplace">现居地</label>
-            <input onChange={this.handleChange} name="livingplace" className="form-control" id="livingplace" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="degree">学历</label>
-            <input onChange={this.handleChange} name="degree" className="form-control" id="degree" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="occupational">职业</label>
-            <input onChange={this.handleChange} name="occupational" className="form-control" id="occupational" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="webchat">微信号</label>
-            <input onChange={this.handleChange} name="webchat" className="form-control" id="webchat" placeholder="仅对会员可见" />
-          </div>
+          {getFieldDecorator('birth', {
+            rules: [{ required: true, message: '出生日期为必填项' }]
+          })(<InputItem
+            clear
+            type='number'
+            placeholder="例如：1990"
+          ><span style={{ color: 'red' }}>*</span>出生日期</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('birth') ? getFieldError('birth').join(',') : null}</div>
+
+          {getFieldDecorator('gender', { rules: [{ required: true, message: '请选择性别' }] })(
+            <Picker data={genderdata} cols={1} className="forss">
+              <List.Item arrow="horizontal"><span style={{ color: 'red' }}>*</span>性别</List.Item>
+            </Picker>
+          )}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('gender') ? getFieldError('gender').join(',') : null}</div>
+
+          {getFieldDecorator('height', {
+            rules: [{ required: true, message: '身高为必填项' }]
+          })(<InputItem
+            clear
+            type='number'
+            placeholder="例如：178"
+          ><span style={{ color: 'red' }}>*</span>身高</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('height') ? getFieldError('height').join(',') : null}</div>
+
+          {getFieldDecorator('birthplace', {
+            rules: [{ required: true, message: '出生地为必填项' }]
+          })(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          ><span style={{ color: 'red' }}>*</span>出生地</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('birthplace') ? getFieldError('birthplace').join(',') : null}</div>
+
+          {getFieldDecorator('livingplace', {
+            rules: [{ required: true, message: '现居地为必填项' }]
+          })(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          ><span style={{ color: 'red' }}>*</span>现居地</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('livingplace') ? getFieldError('livingplace').join(',') : null}</div>
+
+          {getFieldDecorator('degree', {
+            rules: [{ required: true, message: '学历为必填项' }]
+          })(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          ><span style={{ color: 'red' }}>*</span>学历</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('degree') ? getFieldError('degree').join(',') : null}</div>
+
+          {getFieldDecorator('occupational', {
+            rules: [{ required: true, message: '职业为必填项' }]
+          })(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          ><span style={{ color: 'red' }}>*</span>职业</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('occupational') ? getFieldError('occupational').join(',') : null}</div>
+
+          {getFieldDecorator('webchat', {
+            rules: [{ required: true, message: '微信号为必填项' }]
+          })(<InputItem
+            clear
+            type='text'
+            placeholder="会员可见"
+          ><span style={{ color: 'red' }}>*</span>微信号</InputItem>)}
+          <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('webchat') ? getFieldError('webchat').join(',') : null}</div>
+
+          {getFieldDecorator('constellation')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >星座</InputItem>)}
+
+
           <div style={{
-            height: '30px',
-            lineHeight: '30px',
+            height: '50px',
+            lineHeight: '50px',
             fontSize: '20px',
             textAlign: 'center',
             margin: '0 80px 10px',
             borderBottom: '1px solid #a190df'
           }}>自我介绍</div>
-          <div className="form-group">
-            <label for="character">性格</label>
-            <input onChange={this.handleChange} name="character" className="form-control" id="character" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="habits">生活习惯</label>
-            <input onChange={this.handleChange} name="habits" className="form-control" id="habits" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="hobby">兴趣爱好</label>
-            <input onChange={this.handleChange} name="hobby" className="form-control" id="hobby" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="content">其它</label>
-            <textarea
-              name="other"
-              className="form-control"
-              rows="3"
-              placeholder="请输入内容..."
-              onChange={this.handleChange}
-              value={this.state.other}>
-            </textarea>
-          </div>
-          <label for="he_degree">生活照</label>
-          <div style={{ color: 'rgb(228, 124, 124)', fontSize: '8' }}>微信端暂不支持多选，谢谢</div>
-          <WingBlank>
-            <SegmentedControl
-              values={['切换到单选', '切换到多选']}
-              selectedIndex={this.state.multiple ? 1 : 0}
-              onChange={this.onSegChange}
-            />
-            <ImagePicker
-              files={files}
-              onChange={this.onChange}
-              onImageClick={this.onImageClick}
-              selectable={files.length < 7}
-              multiple={this.state.multiple}
-              accept="image/*"
-            />
-          </WingBlank>
+
+          {getFieldDecorator('character')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >性格</InputItem>)}
+
+          {getFieldDecorator('habits')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >生活习惯</InputItem>)}
+
+          {getFieldDecorator('hobby')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >兴趣爱好</InputItem>)}
+
+
+          {getFieldDecorator('other')(<TextareaItem
+            clear
+            title="其它"
+            type='text'
+            placeholder=""
+            autoHeight
+          />)}
+
+          < List.Item >
+            <div className="am-input-label am-input-label-5"><span style={{ color: 'red' }}>*</span>生活照 </div>
+            <div style={{ color: 'rgb(228, 124, 124)', fontSize: '8' }}>微信端暂不支持多选，谢谢</div>
+
+            <WingBlank>
+              <SegmentedControl
+                values={['切换到单选', '切换到多选']}
+                selectedIndex={this.state.multiple ? 1 : 0}
+                onChange={this.onSegChange}
+              />
+              <ImagePicker
+                files={files}
+                onChange={this.onChange}
+                onImageClick={this.onImageClick}
+                selectable={files.length < 10}
+                multiple={this.state.multiple}
+                accept="image/*"
+              />
+            </WingBlank>
+
+          </List.Item>
+          <div style={{ marginLeft: '10px', color: 'red' }}>{(this.state.files.length <= 0 && this.state.fileTouch) ? '生活照是必传项' : null}</div>
           <div style={{
-            height: '30px',
-            lineHeight: '30px',
+            height: '50px',
+            lineHeight: '50px',
             fontSize: '20px',
             textAlign: 'center',
             margin: '0 80px 10px',
             borderBottom: '1px solid #a190df'
           }}>理想对象</div>
-          <div className="form-group">
-            <label for="he_agerange">年龄范围</label>
-            <input onChange={this.handleChange} name="he_agerange" className="form-control" id="he_agerange" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="he_appearance">外貌要求</label>
-            <input onChange={this.handleChange} name="he_appearance" className="form-control" id="he_appearance" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="he_character">性格要求</label>
-            <input onChange={this.handleChange} name="he_character" className="form-control" id="he_character" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="he_degree">学历要求</label>
-            <input onChange={this.handleChange} name="he_degree" className="form-control" id="he_degree" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label for="he_coordinate">他(她)坐标</label>
-            <input onChange={this.handleChange} name="he_coordinate" className="form-control" id="he_coordinate" placeholder="" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="content">其它</label>
-            <textarea
-              name="he_other"
-              className="form-control"
-              rows="3"
-              placeholder="请输入内容..."
-              onChange={this.handleChange}
-              value={this.state.he_other}>
-            </textarea>
-          </div>
-          <button type="submit" className="btn btn-default" style={{ display: 'block', margin: '0 auto' }}>提交</button>
-        </form >
 
+          {getFieldDecorator('he_agerange')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >年龄范围</InputItem>)}
+
+          {getFieldDecorator('he_appearance')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >外貌要求</InputItem>)}
+
+          {getFieldDecorator('he_character')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >性格要求</InputItem>)}
+
+          {getFieldDecorator('he_degree')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >学历要求</InputItem>)}
+
+          {getFieldDecorator('he_coordinate')(<InputItem
+            clear
+            type='text'
+            placeholder=""
+          >他(她)坐标</InputItem>)}
+
+          {getFieldDecorator('he_other')(<TextareaItem
+            clear
+            title="其它"
+            type='text'
+            placeholder=""
+            autoHeight
+          />)}
+
+
+
+          < List.Item >
+            <div
+              style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}
+              onClick={() => this.handleSubmit()}
+            >
+              提交
+            </div>
+          </List.Item>
+        </List>
+        {/* 
+        <label for="he_degree">生活照</label>
+        <div style={{ color: 'rgb(228, 124, 124)', fontSize: '8' }}>微信端暂不支持多选，谢谢</div>
+        <WingBlank>
+          <SegmentedControl
+            values={['切换到单选', '切换到多选']}
+            selectedIndex={this.state.multiple ? 1 : 0}
+            onChange={this.onSegChange}
+          />
+          <ImagePicker
+            files={files}
+            onChange={this.onChange}
+            onImageClick={this.onImageClick}
+            selectable={files.length < 7}
+            multiple={this.state.multiple}
+            accept="image/*"
+          />
+        </WingBlank> */}
       </div >
     )
   }
 }
+
+
+Add = createForm()(Add)
+export default Add

@@ -1,3 +1,11 @@
+# linux
+mv temp/* public
+
+
+
+
+
+
 # 关于图片预览
 react-zmage https://zmage.caldis.me/
 
@@ -21,9 +29,48 @@ react-zmage https://zmage.caldis.me/
 
 
 
+# webpack下css/js/html引用图片的正确方式
+1. 在html/ejs等中引用图片：
+借助require和es6语法引入
+
+```html
+<img src="${require('../../../../static_guojiang_tv/src/mobile/img/recharge/bg.png')}">
+```
+
+2. 在css/vue组件中引用图片：
+照常按照相对路径引用
+
+```html
+css:
+background: url(../../img/backpack/all.png);
+vue组件：
+<img class="round_bg" src='../../img/store/img_4.png'>
+```
+3. 在js中引用图片：
+
+需要借助require才能被webpack识别并打包图片资源
+
+```
+let img = require('../../img/loveday/4.png');
+let img_html = `<img src="${img}"/>`
+```
 
 
 
+# 关于账号体系
+1. 手机验证码服务
+2. 邮箱验证码
+3. 获取浏览器唯一标识
+4. 获取手机唯一标识  mobile-detect  modernizr  Media Queries, examples at https://mediaqueri.es/
+[如何通过web页获取手机设备ID(或其它唯一标识)?](https://www.zhihu.com/question/35458043)
+[js获取移动端设备信息（IMEM，IMIS,手机型号，系统版本，浏览器信息等）](https://www.cnblogs.com/dontes/p/9075877.html)
+[mobile-detect的npm上介绍](https://www.npmjs.com/package/mobile-detect)
+
+
+5. jssdk需要绑定域名不支持ip地址，填写的域名须通过icp备案的验证，参考[微信公众号开发之如何使用JSSDK](https://www.jianshu.com/p/bb88f7520b9e)
+6. 相关的
+[免费手机短信验证码接收，临时邮箱，临时网盘(最新)](https://zhuanlan.zhihu.com/p/68206170)
+[2019 免费验证码接收平台](https://zhuanlan.zhihu.com/p/54248030)
 
 
 
@@ -65,3 +112,4 @@ accept="image/*"
 [纯前端生成二维码（并将Html转换成图片） 下载到本地](https://blog.csdn.net/ys930126/article/details/79972027)
 [jeromeetienne/jquery-qrcode](https://github.com/jeromeetienne/jquery-qrcode)
 pc火狐可以将网址转化为二维码
+截屏的实现[html2canvas.min  -- 将Html转换成Canvas画布内容](http://html2canvas.hertzen.com/)

@@ -526,7 +526,7 @@ input {
 
 
 
-
+/**新加的样式**/
 .imitate_ellipsis{
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -547,6 +547,25 @@ html,body{
   padding:20px 10px;
  
 }
+.headbanmian{
+ position:relative
+}
+.headbanmian:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background:url('../img/heads.jpg')   no-repeat ;
+  background-size:cover;
+  opacity: 0.2;
+  filter:alpha(opacity=20);
 
+}
+/**新加的样式**/
  
 
