@@ -155,7 +155,7 @@ export default class Add extends Component {
     const token = storage.get('token')
     console.log('token,-------', token)
     if (!token) {
-      alert('该板块需要先登录。您目前没有登录，或者登录已经失效。请您先登录！')
+      alert('请您先登录', <div>该板块需要先登录。您目前没有登录，或者登录已经失效。</div>)
       this.context.router.replace('/login')
       return
     }

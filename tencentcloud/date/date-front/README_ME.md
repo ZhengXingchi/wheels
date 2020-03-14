@@ -13,6 +13,18 @@ react-zmage https://zmage.caldis.me/
 
 在react的移动端项目中实现手机拍摄图片、压缩、预览、裁剪、上传的实现方案 https://blog.csdn.net/wanshaobo888/article/details/102839037
 
+# 关于表单校验
+[antd form](https://ant.design/components/form-cn/)
+[yiminghe/async-validator rules规格](https://github.com/yiminghe/async-validator)
+[react-component/form antd-mobile是引入rc-form](https://github.com/react-component/form)
+[antd-mobile示例 InputItem](https://mobile.ant.design/components/input-item-cn/)
+
+
+
+
+
+
+
 
 
 # 移动端图片倒立问题解决
@@ -51,4 +63,5 @@ accept="image/*"
 
 # 网址转化为二维码
 [纯前端生成二维码（并将Html转换成图片） 下载到本地](https://blog.csdn.net/ys930126/article/details/79972027)
+[jeromeetienne/jquery-qrcode](https://github.com/jeromeetienne/jquery-qrcode)
 pc火狐可以将网址转化为二维码
