@@ -261,3 +261,61 @@ componentWillMount () {
     return confirmationMessage;
   }
 ```
+
+
+
+
+# for in循环
+对象的属性分为可枚举和不可枚举之分，它们是由属性的enumerable值决定的。因此for-in循环有缺陷，需要和object.hasOwnProperty(key)一起使用。
+
+
+# es6 class类中的this指向
+```js
+class Logger{
+    printName(name = 'there'){
+        this.print(`hello ${name}`);
+    }
+    print(text){
+        console.log(text);
+    }
+}
+ 
+const logger = new Logger();    //实例化
+const {printName } = logger;    //printName
+printName(); // 报错    VM77:3 Uncaught TypeError: Cannot read property 'print' of undefined
+```
+解决方案：
+1. 在构造方法中绑定this，这样实例化时 this就会指向当前实例
+```js
+class Logger{
+    constructor(){
+        this.printName = this.printName.bind(this);
+    }
+ 
+//...
+```
+}
+2. 使用箭头函数
+```js
+class Logger{
+    constructor(){
+        this.printName = (name = 'there') => {
+            this.print(name);
+        }
+    }
+}
+```
+3. 使用 Proxy， 获取方法的时候，自动绑定this
+(回头看Proxy时候补上)
+```js
+function selfish(target){
+    const cache = new WeakMap();
+    const handler = {
+            
+    }
+}
+```
+
+
+# 手机端html响应式布局
+1. 使用Flexible实现手淘H5页面的终端适配

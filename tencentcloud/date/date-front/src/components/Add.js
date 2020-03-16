@@ -207,7 +207,7 @@ class Add extends Component {
       }
     })
     console.log(this.props.routes, this.props.routes[this.props.routes.length - 1], 'yyyyyyyyyyyyyy')
-    this.props.router.setRouteLeaveHook(this.props.routes[1], (a, b, c) => {
+    this.props.router.setRouteLeaveHook(this.props.routes[this.props.routes.length - 1], (a, b, c) => {
       if (this.success) {
         return true
       }
