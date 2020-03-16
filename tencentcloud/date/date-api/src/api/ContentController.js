@@ -107,13 +107,13 @@ class ContentController {
     const { body } = ctx.request
     const obj = await getJWTPayload(ctx.header.authorization)
     const user = await User.findById({ _id: obj._id })
-    if (user && user.gender) {
-      ctx.body = {
-        code: 500,
-        msg: '您已经上墙了',
-      }
-      return
-    }
+    // if (user && user.gender) {
+    //   ctx.body = {
+    //     code: 500,
+    //     msg: '您已经上墙了',
+    //   }
+    //   return
+    // }
     Object.assign(user, body);
     await user.save()
     ctx.body = {

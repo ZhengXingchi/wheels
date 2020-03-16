@@ -1,6 +1,6 @@
 # linux
 mv temp/* public
-
+tar -zxvf ./text.tar.gz -C /home/app/test/       将text.tar.gz 解压到 /home/app/test/ （绝对路径）下
 
 
 
@@ -25,6 +25,7 @@ react-zmage https://zmage.caldis.me/
 [antd form](https://ant.design/components/form-cn/)
 [yiminghe/async-validator rules规格](https://github.com/yiminghe/async-validator)
 [react-component/form antd-mobile是引入rc-form](https://github.com/react-component/form)
+[rc-form（翻译）](https://www.cnblogs.com/chaoxiZ/p/9364989.html)
 [antd-mobile示例 InputItem](https://mobile.ant.design/components/input-item-cn/)
 
 
@@ -113,3 +114,150 @@ accept="image/*"
 [jeromeetienne/jquery-qrcode](https://github.com/jeromeetienne/jquery-qrcode)
 pc火狐可以将网址转化为二维码
 截屏的实现[html2canvas.min  -- 将Html转换成Canvas画布内容](http://html2canvas.hertzen.com/)
+
+
+# 如何给background-image设置透明度
+1. 背景图用png，有透明度。
+2. 
+```css
+div{
+  position: relative;        
+}
+div:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(...);
+  opacity: 0.5;
+  filter:alpha(opacity=50);
+}
+```
+
+
+# 关于监听页面跳转的思路
+[ajax与HTML5 history pushState/replaceState实例](https://www.zhangxinxu.com/wordpress/2013/06/html5-history-api-pushstate-replacestate-ajax/)
+[H5如何解监听页面退出需求？？？](https://www.cnblogs.com/zdf-xue/p/10018157.html)
+[微信浏览器左上角返回按钮拦截功能](https://www.jb51.net/html5/587910.html)
+1. 采用window.history方案
+缺点：循环刷新会导致累积很多historyfilter 
+点击link跳转路由无法阻止(走with-router)
+```js
+import { Modal } from 'antd-mobile'
+const alert = Modal.alert
+historyfilter = () => {
+  let state = {
+    title: '',
+    url: '/#/add' // 这个url可以随便填，只是为了不让浏览器显示的url地址发生变化，对页面其实无影响
+  }
+  window.history.pushState(state, state.title, state.url)
+}
+backfilter = () => {
+  alert('通知', <div>您还没有提交，返回将导致已编辑数据丢失，确定继续返回吗</div>, [
+    {
+      text: '取消', onPress: () => {
+        this.historyfilter()
+      }, style: 'default'
+    },
+    {
+      text: '确定', onPress: () => {
+        window.removeEventListener('popstate', this.backfilter)
+        window.history.back(-1)
+      }
+    },
+  ])
+}
+componentWillUnmount () {
+  window.removeEventListener('popstate', this.backfilter)
+}
+componentWillMount () {
+  this.historyfilter()
+  window.addEventListener('popstate', this.backfilter, false)
+}
+```
+对循环刷新的改良
+```js
+import { Modal } from 'antd-mobile'
+const alert = Modal.alert
+historyfilter = () => {
+  let state = {
+    title: '',
+    url: '/#/add' // 这个url可以随便填，只是为了不让浏览器显示的url地址发生变化，对页面其实无影响
+  }
+  window.history.pushState(state, state.title, state.url)
+}
+backfilter = () => {
+  this.historyfilter()
+  alert('通知', <div>您还没有提交，返回将导致已编辑数据丢失，确定继续返回吗</div>, [
+    {
+      text: '取消', onPress: () => {
+        this.historyfilter()
+      }, style: 'default'
+    },
+    {
+      text: '确定', onPress: () => {
+        window.removeEventListener('popstate', this.backfilter)
+        window.history.back(-1)
+      }
+    },
+  ])
+}
+componentWillUnmount () {
+  window.removeEventListener('popstate', this.backfilter)
+}
+componentWillMount () {
+  window.addEventListener('popstate', this.backfilter, false)
+}
+```
+抽象为一个类方法
+```js
+class _browserBack {
+  init (param) {
+    let {callback} = param;
+    this.callback = callback;
+    this.pushHistory()
+    this.listenEvent()
+  }
+  listenEvent () {
+　　if('pushState' in window.history){
+　　　　window.addEventListener('popstate', (e) =>
+　　　　　　this.callback()
+　　　　}, false)
+　　}
+}
+  pushHistory () {
+    if (this.ifhasHash()) return;
+    let state = {
+      title: 'pushstate',
+      url: '#'
+    }
+    window.history.pushState(state, 'title', '#');
+  }
+  ifhasHash () {
+    return location.href.includes('#')
+  }
+}
+```
+2. react路由钩子
+
+3. beforeonload
+```js
+componentWillMount () {
+    // 拦截判断是否离开当前页面
+    window.addEventListener('beforeunload', this.beforeunload);
+  }
+  componentWillUnmount () {
+    // 销毁拦截判断是否离开当前页面
+    window.removeEventListener('beforeunload', this.beforeunload);
+  }
+  beforeunload (e) {
+    let confirmationMessage = '你确定离开此页面吗?';
+    (e || window.event).returnValue = confirmationMessage;
+    return confirmationMessage;
+  }
+```

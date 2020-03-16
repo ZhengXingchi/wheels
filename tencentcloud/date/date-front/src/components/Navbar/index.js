@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { IndexLink, Link } from 'react-router'
 import LoginForm from './LoginForm'
@@ -11,6 +11,9 @@ import LogoutDropdown from './LogoutDropdown'
   require('ACTION/user').default
 )
 export default class Navbar extends Component {
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  }
   componentWillMount () {
     console.info('[Navbar] 初始化：检查用户是否已经登录')
     console.info('[TIPS] 由于有Redux Logger，故之后就不手动打印动作了')
@@ -41,7 +44,13 @@ export default class Navbar extends Component {
                   <span className="icon-bar"></span>
                 </button>
 
-                <span className="navbar-brand" onClick={() => window.history.back(-1)}>返回</span>
+                <span className="navbar-brand"
+                  onClick={() => {
+                    console.log(this.context.router, 'yyyyyyyyy')
+                    this.context.router.go(-1)
+                    // this.context.router.goBack()
+                    // window.history.back(-1)
+                  }}>返回</span>
                 <Link to='/' className="navbar-brand">
                   {/* 玉山鹊桥仙 */}
                   {/* 玉山人人网 */}

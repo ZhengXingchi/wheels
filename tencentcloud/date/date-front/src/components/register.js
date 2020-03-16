@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import handleChange from 'MIXIN/handleChange'
 import { connect } from 'react-redux'
-import { List, InputItem, Toast } from 'antd-mobile'
+import { List, InputItem, Toast, Button, Modal } from 'antd-mobile'
 import { createForm } from 'rc-form'
 import pattern from 'UTIL/pattern'
+import userService from 'SERVICE/userService'
+// const alert = Modal.alert
 // import { Link } from 'react-router'
 /**
  * 本组件为欢迎页（首页）
@@ -24,8 +26,12 @@ class Register extends Component {
   }
   constructor(props) {
     super(props)
+
     this.state = {
+      num: 0,
       telephone: '',
+      email: '',
+      code: '',
       telephoneError: null,
       password: '',
       username: '',
@@ -34,7 +40,51 @@ class Register extends Component {
 
     this.handleChange = handleChange.bind(this) // mixin
   }
+  getCode = () => {
+    let email = this.props.form.getFieldValue('email')
+    if (!email) {
+      Toast.fail('请输入邮箱', 1)
+      return
+    }
+    if (this.props.form.getFieldError('email')) {
+      Toast.fail('邮箱格式错误', 1)
+      return
+    }
+    if (this.state.num > 0) {
+      return
+    }
 
+    // alert('成功', '获取验证码成功，请去邮箱查收', [
+
+    //   { text: 'OK', onPress: () => console.log('ok') },
+    // ])
+    userService.getcode({ email }).then(res => {
+
+      if (res.code === 200) {
+        Toast.success('邮箱验证码已发送', 1)
+        let num = 60
+        this.setState({
+          num
+        })
+        this.ctrl = setInterval(() => {
+          num--
+          this.setState({
+            num
+          })
+
+          if (num === 0) {
+            clearInterval(this.ctrl)
+          }
+        }, 1000)
+      } else {
+        Toast.success(res.msg, 1)
+      }
+    })
+
+
+
+
+  }
   onErrorClick = () => {
     if (this.state.telephoneError) {
       Toast.info('请输入正确的手机号码')
@@ -121,7 +171,7 @@ class Register extends Component {
         </p> */}
 
         <div>
-          <List renderHeader={() => '邀请人请根据实际情况填写'}>
+          <List renderHeader={() => ''}>
             <InputItem
               type="phone"
               placeholder="请输入手机号"
@@ -139,6 +189,35 @@ class Register extends Component {
             >昵称</InputItem>)}
             <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('username') ? getFieldError('username').join(',') : null}</div>
 
+
+            {getFieldDecorator('email', {
+              rules: [
+                { required: true, message: '邮箱不能为空' },
+                { type: 'email', message: '邮箱格式不正确' }
+              ]
+            })(<InputItem
+              clear
+              type="email"
+              placeholder="请输入邮箱"
+            >邮箱</InputItem>)}
+            <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('email') ? getFieldError('email').join(',') : null}</div>
+
+            {getFieldDecorator('code', {
+              rules: [
+                { required: true, message: '验证码不能为空' }
+
+              ]
+            })(<InputItem
+              clear
+              extra={<Button style={{ top: '-3px' }} size="small">{this.state.num === 0 ? '获取' : this.state.num}</Button>}
+              onExtraClick={() => {
+                this.getCode()
+              }}
+              type="email"
+              placeholder="请输入验证码"
+            >验证码</InputItem>)}
+            <div style={{ marginLeft: '10px', color: '#888', fontSize: '8' }}>点击获取邮箱将收到系统发放的验证码，请注意查收</div>
+            <div style={{ marginLeft: '10px', color: 'red' }}>{getFieldError('code') ? getFieldError('code').join(',') : null}</div>
             {getFieldDecorator('password', {
               rules: [{ required: true, message: '密码不能为空' }, { pattern: pattern.password, message: '密码必须由8-18位字母数字组成的' }]
             })(<InputItem
@@ -152,7 +231,7 @@ class Register extends Component {
               clear
               placeholder="选填"
             > 邀请人</InputItem>
-
+            <div style={{ marginLeft: '10px', color: '#888', fontSize: '8' }}>邀请人请根据实际情况填写</div>
             <List.Item>
               <div
                 style={{ width: '100%', color: '#108ee9', textAlign: 'center' }}

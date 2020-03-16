@@ -21,6 +21,22 @@ class UserService {
     })
   }
 
+  getcode (email) {
+    return xhr({
+      method: 'post',
+      url: '/login/getcode',
+      body: email
+    })
+  }
+
+  checkUser () {
+    return xhr({
+      method: 'post',
+      url: '/user/checkuser'
+    })
+  }
+
+
   register (userData) {
     return xhr({
       method: 'post',
