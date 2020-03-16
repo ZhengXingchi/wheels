@@ -181,20 +181,8 @@ class Add extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.routes[this.props.routes.length - 1], 'yyyyyyyyyyyyyy')
-    this.props.router.setRouteLeaveHook(this.props.routes[this.props.routes.length - 1], (a, b, c) => {
-      if (this.success) {
-        return true
-      }
-      return '数据没有提交，确定要离开当前页面吗'
-    })
-  }
-
-
-  componentWillMount () {
-
     const token = storage.get('token')
-    console.log('token,-------', token)
+
     if (!token) {
       alert('请您先登录', <div>该板块需要先登录。您目前没有登录，或者登录已经失效。</div>)
       this.context.router.replace('/login')
@@ -218,6 +206,19 @@ class Add extends Component {
         ])
       }
     })
+    console.log(this.props.routes, this.props.routes[this.props.routes.length - 1], 'yyyyyyyyyyyyyy')
+    this.props.router.setRouteLeaveHook(this.props.routes[1], (a, b, c) => {
+      if (this.success) {
+        return true
+      }
+      return '数据没有提交，确定要离开当前页面吗'
+    })
+  }
+
+
+  componentWillMount () {
+
+
   }
   render () {
     const { getFieldProps, getFieldDecorator, getFieldError } = this.props.form

@@ -17,4 +17,6 @@ router.get('/collect', userController.getCollectByUid)
 router.get('/post', contentController.getPostByUid)
 // 删除发帖
 router.get('/delete-post', contentController.deletePostByUid)
+// 校验user信息
+router.post('/checkuser', userController.checkUser)
 export default router

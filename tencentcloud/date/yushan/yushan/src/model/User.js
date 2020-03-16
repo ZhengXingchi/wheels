@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   username: { type: String },  // 姓名
   password: { type: String },  // 密码
   telephone: { type: String, index: { unique: true }, sparse: true }, // 手机号
+  email: { type: String, index: { unique: true }, sparse: true },// 邮箱
   isVip: { type: String, default: '0' },// 0 非vip
   created: { type: Date },// 注册时间
   //上墙时间
@@ -77,9 +78,19 @@ UserSchema.statics = {
       webchatdate: 0
     })
   },
-  // 暂时多提供telephone
+  // 暂时多提供telephone email
   findByIdAll: function (id) {
     return this.findOne({ _id: id }, {
+      password: 0,
+      webchat: 0,
+      isVip: 0,
+      created: 0,
+      webchatdate: 0
+    })
+  },
+  // 暂时多提供telephone email
+  findByEmailAll: function (email) {
+    return this.findOne({ email }, {
       password: 0,
       webchat: 0,
       isVip: 0,

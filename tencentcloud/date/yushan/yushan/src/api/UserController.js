@@ -255,5 +255,48 @@ class UserController {
       msg: '查询成功'
     }
   }
+  // 获取用户基本信息
+  async checkUser (ctx) {
+    const obj = await getJWTPayload(ctx.header.authorization)
+    const user = await User.findOne({ _id: obj._id }, {
+      birth: 1,// 出生日期
+      gender: 1,// 性别  //1 男  2女
+      height: 1,// 身高
+      constellation: 1,// 星座
+      birthplace: 1,// 出生地
+      livingplace: 1,// 现居地
+      degree: 1,// 学历
+      occupational: 1,// 职业
+      webchat: 1,// 微信号
+      // 自我介绍
+      character: 1,// 性格
+      habits: 1,// 生活习惯
+      hobby: 1,// 兴趣爱好
+      other: 1,// 其它
+      photos: 1,// 生活照
+      // 理想对象
+      he_agerange: 1,// 年龄范围
+      he_appearance: 1,// 外貌要求
+      he_character: 1,// 性格要求
+      he_degree: 1,// 学历要求
+      he_coordinate: 1,// 他(她)坐标
+      he_other: 1// 其它
+    })
+    if (user && user.birth && user.gender) {
+      // if (user && user.birth) {
+      ctx.body = {
+        code: 500,
+        msg: '您已经上墙，是否进行编辑',
+        data: user
+      }
+      return
+    } else {
+      ctx.body = {
+        code: 200
+      }
+    }
+
+  }
 }
+
 export default new UserController()
