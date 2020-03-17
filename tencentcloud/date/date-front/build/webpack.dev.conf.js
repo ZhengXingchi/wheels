@@ -31,7 +31,10 @@ config.module.loaders.push({
 }, {
   test: /\.scss$/,
   loader: 'style!css!sass'
+  // loader: 'style!css!px2rem?{"remUni": "75","remPrecision": "8"}!sass'
 });
+
+
 
 config.plugins.push(
   new webpack.optimize.OccurenceOrderPlugin(),

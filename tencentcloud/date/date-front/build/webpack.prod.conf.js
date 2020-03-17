@@ -21,6 +21,7 @@ config.module.loaders.push({
 }, {
   test: /\.scss$/,
   loader: ExtractTextPlugin.extract('style', 'css!sass')
+  // loader: ExtractTextPlugin.extract('style', 'css!px2rem?{"remUni": "75","remPrecision": "8"}!sass')
 });
 
 config.plugins.push(
@@ -51,7 +52,7 @@ config.plugins.push(
     minChunkSize: 30000
   }),
   new ExtractTextPlugin('[name].[contenthash:6].css', {
-    allChunks : true // 若要按需加载 CSS 则请注释掉该行
+    allChunks: true // 若要按需加载 CSS 则请注释掉该行
   }),
   new HtmlWebpackPlugin({
     filename: '../index.html',

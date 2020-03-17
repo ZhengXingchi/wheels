@@ -42,6 +42,7 @@ ReactDOM.render(
 import 'ASSET/less/normalize.less'
 import 'ASSET/scss/normalize.scss'
 import 'antd-mobile/dist/antd-mobile.css'
+// import 'bootstrap/scss/bootstrap.scss'
 
 /* 处理 img，小于 10KB 的转为 base64，否则使用 URL */
 // import base64 from 'ASSET/img/smaller.png'

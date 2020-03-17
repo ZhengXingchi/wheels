@@ -317,5 +317,75 @@ function selfish(target){
 ```
 
 
+# 切换淘宝源
+npm  install postcss-loader  --registry https://registry.npm.taobao.org
+
+
+
 # 手机端html响应式布局
+## em rem 百分比
+
+## webpack打包bootstrap
+[打包器 | Webpack](https://cloud.tencent.com/developer/section/1008091)
+
+## webpackloader的内联写法
+可以在 import 语句或任何等效于 "import" 的方式中指定 loader。使用 ! 将资源中的 loader 分开。分开的每个部分都相对于当前目录解析。
+`import Styles from 'style-loader!css-loader?modules!./styles.css';`
+通过前置所有规则及使用 !，可以对应覆盖到配置中的任意 loader。
+选项可以传递查询参数，例如 ?key=value&foo=bar，或者一个 JSON 对象，例如 ?{"key":"value","foo":"bar"}。
+尽可能使用 module.rules，因为这样可以减少源码中的代码量，并且可以在出错时，更快地调试和定位 loader 中的问题。
+
+## 额外的一些资料
+[移动端和pc端，响应式设计布局](https://www.cnblogs.com/wgl0126/p/9468804.html)
+[移动前端自适应适配方法总结](http://caibaojian.com/mobile-responsive.html)
 1. 使用Flexible实现手淘H5页面的终端适配
+[flexible.js 布局详解](http://caibaojian.com/flexible-js.html)
+[使用Flexible实现手淘H5页面的终端适配 #17](https://github.com/amfe/article/issues/17)
+px2rem解决方案
+1.1 postcss-px2rem
+```js
+npm install postcss-loader
+npm install postcss-px2rem
+var px2rem = require('postcss-px2rem');
+
+module.exports = {
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader!postcss-loader"
+      }
+    ]
+  },
+  postcss: function() {
+    return [px2rem({remUnit: 75})];
+  }
+}
+```
+1.2 px2rem-loader
+```js
+module.exports = {
+  // ...
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: [{
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
+      }, {
+        loader: 'px2rem-loader',
+        // options here
+        options: {
+          remUni: 75,
+          remPrecision: 8
+        }
+      }]
+    }]
+  }
+}
+```
+
+1.3 Sass函数功能——rem转px
+[Sass函数功能——rem转px](https://www.w3cplus.com/preprocessor/rem-px-browser-function-sass.html)
+
