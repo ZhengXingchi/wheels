@@ -52,7 +52,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "cssnext": "^1.8.4",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.19.2"
   },
   "cssnano": {
